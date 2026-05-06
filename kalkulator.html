@@ -15,6 +15,8 @@
     tailwind.config = { theme: { extend: { colors: { green: { 700: '#047857' } } } } }
   </script>
   <style>
+    .tab-panel { display: none; }
+.tab-panel.active { display: block; }
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
     * { font-family: 'Inter', sans-serif; }
   </style>
@@ -282,39 +284,40 @@
 
   // DOSIS OBAT - VERSION FINAL (BERSIH)
   function updateDosis() {
-    const obatSelect = document.getElementById('obat')
-    const spesies = document.getElementById('spesies-dosis').value
-    const berat = parseFloat(document.getElementById('berat-dosis').value) || 0
-    
-    if (obatSelect.selectedIndex === 0 || !berat) { // "Pilih obat..." atau berat 0
-      document.getElementById('dosis-rendah-val').textContent = '0'
-      document.getElementById('dosis-tinggi-val').textContent = '0'
-      document.getElementById('rute-obat').textContent = ''
-      return
-    }
-    
-    const selected = obatSelect.options[obatSelect.selectedIndex]
-    const dosisKey = `dosis-${spesies}`
-    const dosisRange = selected.dataset[dosisKey]
-    const rute = selected.dataset.rute
-    
-    if (!dosisRange) {
-      document.getElementById('dosis-rendah-val').textContent = '0'
-      document.getElementById('dosis-tinggi-val').textContent = '0'
-      return
-    }
-    
-    const [min, max] = dosisRange.split('-').map(parseFloat)
-    const totalMin = (min * berat).toFixed(1)
-    const totalMax = (max * berat).toFixed(1)
-    
-    document.getElementById('dosis-rendah-val').textContent = totalMin
-    document.getElementById('dosis-tinggi-val').textContent = totalMax
-    document.getElementById('dosis-rendah-unit').innerHTML = `${min} mg/kg = <strong>${totalMin} mg</strong>`
-    document.getElementById('dosis-tinggi-unit').innerHTML = `${max} mg/kg = <strong>${totalMax} mg</strong>`
-    document.getElementById('rute-obat').textContent = rute || ''
+  const obatSelect = document.getElementById('obat');
+  const spesies = document.getElementById('spesies-dosis').value;
+  const berat = parseFloat(document.getElementById('berat-dosis').value) || 0;
+  
+  // Ambil option yang sedang dipilih
+  const selected = obatSelect.options[obatSelect.selectedIndex];
+  
+  // Validasi: Jika belum pilih obat atau berat masih 0
+  if (!selected.value || berat <= 0) {
+    document.getElementById('dosis-rendah-val').textContent = '0';
+    document.getElementById('dosis-tinggi-val').textContent = '0';
+    document.getElementById('rute-obat').textContent = 'Pilih obat dan masukkan berat badan.';
+    return;
   }
 
+  // Ambil data dosis berdasarkan spesies (camelCase untuk dataset)
+  // data-dosis-anjing menjadi dataset.dosisAnjing
+  const dosisKey = spesies === 'anjing' ? 'dosisAnjing' : 'dosisKucing';
+  const dosisRange = selected.dataset[dosisKey];
+  const rute = selected.dataset.rute;
+
+  if (dosisRange) {
+    const [min, max] = dosisRange.split('-').map(parseFloat);
+    const totalMin = (min * berat).toFixed(1);
+    const totalMax = (max * berat).toFixed(1);
+
+    // Update UI
+    document.getElementById('dosis-rendah-val').textContent = totalMin;
+    document.getElementById('dosis-tinggi-val').textContent = totalMax;
+    document.getElementById('dosis-rendah-unit').innerHTML = `${min} mg/kg = <strong>${totalMin} mg</strong>`;
+    document.getElementById('dosis-tinggi-unit').innerHTML = `${max} mg/kg = <strong>${totalMax} mg</strong>`;
+    document.getElementById('rute-obat').textContent = `Rute: ${rute}`;
+  }
+}
   // CAIRAN
   function updateCairan() {
     const berat = parseFloat(document.getElementById('berat-cairan').value) || 0
