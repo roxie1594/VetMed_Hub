@@ -243,141 +243,125 @@
   </footer>
 
   <script>
-    // Tab switching
-    document.querySelectorAll('.tab-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const target = btn.dataset.tab
-        
-        document.querySelectorAll('.tab-btn').forEach(b => {
-          b.classList.remove('bg-green-50', 'border-green-500', 'text-green-700')
-        })
-        document.querySelectorAll('.tab-panel').forEach(p => {
-          p.classList.remove('active')
-          p.style.display = 'none'
-        })
-        
-        btn.classList.add('bg-green-50', 'border-green-500', 'text-green-700')
-        document.querySelector(`[data-tab="${target}"]`).classList.add('active')
-        document.querySelector(`[data-tab="${target}"]`).style.display = 'block'
+  // Tab switching
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.tab
+      
+      document.querySelectorAll('.tab-btn').forEach(b => {
+        b.classList.remove('bg-green-50', 'border-green-500', 'text-green-700')
       })
+      document.querySelectorAll('.tab-panel').forEach(p => {
+        p.classList.remove('active')
+        p.style.display = 'none'
+      })
+      
+      btn.classList.add('bg-green-50', 'border-green-500', 'text-green-700')
+      document.querySelector(`[data-tab="${target}"]`).classList.add('active')
+      document.querySelector(`[data-tab="${target}"]`).style.display = 'block'
     })
+  })
 
-    // KONVERSI BERAT (tetap sama, cuma tambah UI spesies)
-    function updateKonversi() {
-      const berat = parseFloat(document.getElementById('berat').value) || 0
-      const from = document.getElementById('satuan').value
-      const to = document.getElementById('target-satuan').value
-      
-      const konversi = {
-        'kg': { g: 1000, lb: 2.20462, oz: 35.27396 },
-        'g': { kg: 0.001, lb: 0.00220462, oz: 0.03527396 },
-        'lb': { kg: 0.453592, g: 453.592, oz: 16 },
-        'oz': { kg: 0.0283495, g: 28.3495, lb: 0.0625 }
-      }
-      
-      const result = (berat * konversi[from][to]).toFixed(2)
-      document.getElementById('hasil-konversi').textContent = result
-      document.getElementById('satuan-hasil').textContent = to
-    }
-
-    // DOSIS OBAT - FIXED VERSION
-function updateDosis() {
-  const obatSelect = document.getElementById('obat')
-  const spesies = document.getElementById('spesies-dosis').value
-  const berat = parseFloat(document.getElementById('berat-dosis').value) || 0
-  const selectedIndex = obatSelect.selectedIndex
-  const selected = obatSelect.options[selectedIndex]
-  const rute = selected.dataset.rute
-  
-  // DEBUG: console.log('Spesies:', spesies, 'Obat:', selected.value, 'Berat:', berat)
-  
-  if (!selected.value || !berat) {
-    document.getElementById('dosis-rendah-val').textContent = '0'
-    document.getElementById('dosis-tinggi-val').textContent = '0'
-    document.getElementById('rute-obat').textContent = ''
-    return
-  }
-  
-  // Pilih dosis berdasarkan spesies
-  const dosisKey = `dosis-${spesies}`
-  const dosisRange = selected.dataset[dosisKey]
-  
-  // DEBUG: console.log('Dosis key:', dosisKey, 'Range:', dosisRange)
-  
-  if (!dosisRange) {
-    document.getElementById('dosis-rendah-val').textContent = '0'
-    document.getElementById('dosis-tinggi-val').textContent = '0'
-    return
-  }
-  
-  const [min, max] = dosisRange.split('-').map(parseFloat)
-  const totalMin = (min * berat).toFixed(1)
-  const totalMax = (max * berat).toFixed(1)
-  
-  document.getElementById('dosis-rendah-val').textContent = totalMin
-  document.getElementById('dosis-tinggi-val').textContent = totalMax
-  document.getElementById('dosis-rendah-unit').innerHTML = `${min} mg/kg = <strong>${totalMin} mg</strong>`
-  document.getElementById('dosis-tinggi-unit').innerHTML = `${max} mg/kg = <strong>${totalMax} mg</strong>`
-  document.getElementById('rute-obat').textContent = rute || ''
-}
-      
-      if (!selected.value || !berat) {
-        document.getElementById('dosis-rendah-val').textContent = '0'
-        document.getElementById('dosis-tinggi-val').textContent = '0'
-        return
-      }
-
-    // CAIRAN - DENGAN SPESIES
-    function updateCairan() {
-      const berat = parseFloat(document.getElementById('berat-cairan').value) || 0
-      const spesies = document.getElementById('spesies-cairan').value
-      const kondisi = document.getElementById('kondisi').value
-      
-      // Maintenance berbeda per spesies
-      const maintenanceRates = {
-        'anjing': 5,  // 4-6 mL/kg/jam -> rata-rata 5
-        'kucing': 4   // 3-5 mL/kg/jam -> rata-rata 4
-      }
-      
-      const maintenance = Math.round(maintenanceRates[spesies] * berat)
-      const maintenance24 = Math.round(maintenance * 24)
-      
-      const defisit = {
-        'maintenance': 0,
-        'dehidrasi-5': Math.round(berat * 50),
-        'dehidrasi-7': Math.round(berat * 70),
-        'dehidrasi-10': Math.round(berat * 100)
-      }
-      
-      document.getElementById('cairan-maintenance').textContent = maintenance
-      document.getElementById('cairan-24jam').textContent = maintenance24
-      document.getElementById('cairan-defisit').textContent = defisit[kondisi]
-      document.getElementById('cairan-unit').textContent = `mL/jam (${maintenanceRates[spesies]} mL/kg/jam)`
-    }
-
-    // Event listeners
-    // Konversi
-    document.getElementById('spesies-konversi').addEventListener('change', updateKonversi)
-    document.getElementById('berat').addEventListener('input', updateKonversi)
-    document.getElementById('satuan').addEventListener('change', updateKonversi)
-    document.getElementById('target-satuan').addEventListener('change', updateKonversi)
+  // KONVERSI BERAT
+  function updateKonversi() {
+    const berat = parseFloat(document.getElementById('berat').value) || 0
+    const from = document.getElementById('satuan').value
+    const to = document.getElementById('target-satuan').value
     
-    // Dosis
-    document.getElementById('spesies-dosis').addEventListener('change', updateDosis)
-    document.getElementById('obat').addEventListener('change', updateDosis)
-    document.getElementById('berat-dosis').addEventListener('input', updateDosis)
+    const konversi = {
+      'kg': { g: 1000, lb: 2.20462, oz: 35.27396 },
+      'g': { kg: 0.001, lb: 0.00220462, oz: 0.03527396 },
+      'lb': { kg: 0.453592, g: 453.592, oz: 16 },
+      'oz': { kg: 0.0283495, g: 28.3495, lb: 0.0625 }
+    }
     
-    // Cairan
-    document.getElementById('spesies-cairan').addEventListener('change', updateCairan)
-    document.getElementById('berat-cairan').addEventListener('input', updateCairan)
-    document.getElementById('kondisi').addEventListener('change', updateCairan)
+    const result = (berat * konversi[from][to]).toFixed(2)
+    document.getElementById('hasil-konversi').textContent = result
+    document.getElementById('satuan-hasil').textContent = to
+  }
 
-    // Init
-    document.addEventListener('DOMContentLoaded', () => {
-      updateKonversi()
-      updateDosis()
-      updateCairan()
-    })
+  // DOSIS OBAT - VERSION FINAL (BERSIH)
+  function updateDosis() {
+    const obatSelect = document.getElementById('obat')
+    const spesies = document.getElementById('spesies-dosis').value
+    const berat = parseFloat(document.getElementById('berat-dosis').value) || 0
+    
+    if (obatSelect.selectedIndex === 0 || !berat) { // "Pilih obat..." atau berat 0
+      document.getElementById('dosis-rendah-val').textContent = '0'
+      document.getElementById('dosis-tinggi-val').textContent = '0'
+      document.getElementById('rute-obat').textContent = ''
+      return
+    }
+    
+    const selected = obatSelect.options[obatSelect.selectedIndex]
+    const dosisKey = `dosis-${spesies}`
+    const dosisRange = selected.dataset[dosisKey]
+    const rute = selected.dataset.rute
+    
+    if (!dosisRange) {
+      document.getElementById('dosis-rendah-val').textContent = '0'
+      document.getElementById('dosis-tinggi-val').textContent = '0'
+      return
+    }
+    
+    const [min, max] = dosisRange.split('-').map(parseFloat)
+    const totalMin = (min * berat).toFixed(1)
+    const totalMax = (max * berat).toFixed(1)
+    
+    document.getElementById('dosis-rendah-val').textContent = totalMin
+    document.getElementById('dosis-tinggi-val').textContent = totalMax
+    document.getElementById('dosis-rendah-unit').innerHTML = `${min} mg/kg = <strong>${totalMin} mg</strong>`
+    document.getElementById('dosis-tinggi-unit').innerHTML = `${max} mg/kg = <strong>${totalMax} mg</strong>`
+    document.getElementById('rute-obat').textContent = rute || ''
+  }
+
+  // CAIRAN
+  function updateCairan() {
+    const berat = parseFloat(document.getElementById('berat-cairan').value) || 0
+    const spesies = document.getElementById('spesies-cairan').value
+    const kondisi = document.getElementById('kondisi').value
+    
+    const maintenanceRates = {
+      'anjing': 5,
+      'kucing': 4
+    }
+    
+    const maintenance = Math.round(maintenanceRates[spesies] * berat)
+    const maintenance24 = Math.round(maintenance * 24)
+    
+    const defisit = {
+      'maintenance': 0,
+      'dehidrasi-5': Math.round(berat * 50),
+      'dehidrasi-7': Math.round(berat * 70),
+      'dehidrasi-10': Math.round(berat * 100)
+    }
+    
+    document.getElementById('cairan-maintenance').textContent = maintenance
+    document.getElementById('cairan-24jam').textContent = maintenance24
+    document.getElementById('cairan-defisit').textContent = defisit[kondisi]
+    document.getElementById('cairan-unit').textContent = `mL/jam (${maintenanceRates[spesies]} mL/kg/jam)`
+  }
+
+  // Event listeners
+  document.getElementById('spesies-konversi').addEventListener('change', updateKonversi)
+  document.getElementById('berat').addEventListener('input', updateKonversi)
+  document.getElementById('satuan').addEventListener('change', updateKonversi)
+  document.getElementById('target-satuan').addEventListener('change', updateKonversi)
+  
+  document.getElementById('spesies-dosis').addEventListener('change', updateDosis)
+  document.getElementById('obat').addEventListener('change', updateDosis)
+  document.getElementById('berat-dosis').addEventListener('input', updateDosis)
+  
+  document.getElementById('spesies-cairan').addEventListener('change', updateCairan)
+  document.getElementById('berat-cairan').addEventListener('input', updateCairan)
+  document.getElementById('kondisi').addEventListener('change', updateCairan)
+
+  // Init
+  document.addEventListener('DOMContentLoaded', () => {
+    updateKonversi()
+    updateDosis()
+    updateCairan()
+  })
   </script>
 </body>
 </html>
