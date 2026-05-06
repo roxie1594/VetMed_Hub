@@ -134,15 +134,17 @@
             </select>
 
             <label class="block text-xl font-semibold mb-6 text-gray-900">Pilih Obat</label>
-<select id="obat" class="w-full p-6 border-2 border-gray-200 rounded-2xl text-xl mb-8 focus:border-green-500 shadow-xl">
-  <option value="">Pilih obat...</option>
-  <option value="amoxicillin" data-dosis-anjing="10-20" data-dosis-kucing="10-15" data-rute="PO/IV q12h">Amoxicillin</option>
-  <option value="ceftriaxone" data-dosis-anjing="20-50" data-dosis-kucing="25-50" data-rute="IV q12-24h">Ceftriaxone</option>
-  <option value="metronidazole" data-dosis-anjing="10-25" data-dosis-kucing="10-15" data-rute="PO q12h">Metronidazole</option>
-  <option value="meloxicam" data-dosis-anjing="0.1-0.2" data-dosis-kucing="0.05-0.1" data-rute="PO/SC q24h">Meloxicam ⚠️</option>
-  <option value="dexamethasone" data-dosis-anjing="0.1-0.25" data-dosis-kucing="0.1-0.25" data-rute="IV/IM q24h">Dexamethasone</option>
-  <option value="enrofloxacin" data-dosis-anjing="5-20" data-dosis-kucing="5" data-rute="PO/IV q24h">Enrofloxacin</option>
-</select>
+            <select id="obat" class="w-full p-6 border-2 border-gray-200 rounded-2xl text-xl mb-8 focus:border-green-500 shadow-xl">
+              <option value="">Pilih obat...</option>
+              <!-- DOSIS ANJING (default) -->
+              <option value="amoxicillin-anjing" data-dosis-anjing="10-20" data-dosis-kucing="10-15" data-rute="PO/IV q12h">Amoxicillin</option>
+              <option value="ceftriaxone-anjing" data-dosis-anjing="20-50" data-dosis-kucing="25-50" data-rute="IV q12-24h">Ceftriaxone</option>
+              <option value="metronidazole-anjing" data-dosis-anjing="10-25" data-dosis-kucing="10-15" data-rute="PO q12h">Metronidazole</option>
+              <option value="meloxicam-anjing" data-dosis-anjing="0.1-0.2" data-dosis-kucing="0.05-0.1" data-rute="PO/SC q24h">Meloxicam</option>
+              <option value="dexamethasone-anjing" data-dosis-anjing="0.1-0.25" data-dosis-kucing="0.1-0.25" data-rute="IV/IM q24h">Dexamethasone</option>
+              <option value="enrofloxacin-anjing" data-dosis-anjing="5-20" data-dosis-kucing="5" data-rute="PO/IV q24h">Enrofloxacin</option>
+            </select>
+
             <label class="block text-xl font-semibold mb-4 text-gray-900">Berat Hewan</label>
             <div class="flex space-x-4">
               <input type="number" id="berat-dosis" min="0.01" step="0.01" placeholder="5.5" 
@@ -280,52 +282,40 @@
       document.getElementById('satuan-hasil').textContent = to
     }
 
-    // DOSIS OBAT - FIXED VERSION
-function updateDosis() {
-  const obatSelect = document.getElementById('obat')
-  const spesies = document.getElementById('spesies-dosis').value
-  const berat = parseFloat(document.getElementById('berat-dosis').value) || 0
-  const selectedIndex = obatSelect.selectedIndex
-  const selected = obatSelect.options[selectedIndex]
-  const rute = selected.dataset.rute
-  
-  // DEBUG: console.log('Spesies:', spesies, 'Obat:', selected.value, 'Berat:', berat)
-  
-  if (!selected.value || !berat) {
-    document.getElementById('dosis-rendah-val').textContent = '0'
-    document.getElementById('dosis-tinggi-val').textContent = '0'
-    document.getElementById('rute-obat').textContent = ''
-    return
-  }
-  
-  // Pilih dosis berdasarkan spesies
-  const dosisKey = `dosis-${spesies}`
-  const dosisRange = selected.dataset[dosisKey]
-  
-  // DEBUG: console.log('Dosis key:', dosisKey, 'Range:', dosisRange)
-  
-  if (!dosisRange) {
-    document.getElementById('dosis-rendah-val').textContent = '0'
-    document.getElementById('dosis-tinggi-val').textContent = '0'
-    return
-  }
-  
-  const [min, max] = dosisRange.split('-').map(parseFloat)
-  const totalMin = (min * berat).toFixed(1)
-  const totalMax = (max * berat).toFixed(1)
-  
-  document.getElementById('dosis-rendah-val').textContent = totalMin
-  document.getElementById('dosis-tinggi-val').textContent = totalMax
-  document.getElementById('dosis-rendah-unit').innerHTML = `${min} mg/kg = <strong>${totalMin} mg</strong>`
-  document.getElementById('dosis-tinggi-unit').innerHTML = `${max} mg/kg = <strong>${totalMax} mg</strong>`
-  document.getElementById('rute-obat').textContent = rute || ''
-}
+    // DOSIS OBAT - DENGAN SPESIES
+    function updateDosis() {
+      const obat = document.getElementById('obat')
+      const spesies = document.getElementById('spesies-dosis').value
+      const berat = parseFloat(document.getElementById('berat-dosis').value) || 0
+      const selected = obat.options[obat.selectedIndex]
+      const rute = selected.dataset.rute
       
       if (!selected.value || !berat) {
         document.getElementById('dosis-rendah-val').textContent = '0'
         document.getElementById('dosis-tinggi-val').textContent = '0'
         return
       }
+      
+      // Pilih dosis berdasarkan spesies
+      const dosisKey = `dosis-${spesies}`
+      const dosisRange = selected.dataset[dosisKey]
+      
+      if (!dosisRange) {
+        document.getElementById('dosis-rendah-val').textContent = '0'
+        document.getElementById('dosis-tinggi-val').textContent = '0'
+        return
+      }
+      
+      const [min, max] = dosisRange.split('-').map(parseFloat)
+      const totalMin = (min * berat).toFixed(1)
+      const totalMax = (max * berat).toFixed(1)
+      
+      document.getElementById('dosis-rendah-val').textContent = totalMin
+      document.getElementById('dosis-tinggi-val').textContent = totalMax
+      document.getElementById('dosis-rendah-unit').innerHTML = `${min} mg/kg = <strong>${totalMin} mg</strong>`
+      document.getElementById('dosis-tinggi-unit').innerHTML = `${max} mg/kg = <strong>${totalMax} mg</strong>`
+      document.getElementById('rute-obat').textContent = rute || ''
+    }
 
     // CAIRAN - DENGAN SPESIES
     function updateCairan() {
