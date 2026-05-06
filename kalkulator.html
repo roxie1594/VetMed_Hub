@@ -6,110 +6,118 @@
   <title>Kalkulator Dosis - VetMed Hub</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
     * { font-family: 'Inter', sans-serif; }
     .tab-panel { display: none; }
     .tab-panel.active { display: block; }
   </style>
 </head>
-
 <body class="bg-gradient-to-br from-green-50 to-blue-50 min-h-screen text-gray-800">
-  
+
   <nav class="bg-white/90 backdrop-blur-md sticky top-0 z-50 shadow-sm border-b border-green-100 p-4">
     <div class="max-w-6xl mx-auto flex justify-between items-center">
-      <a href="#" class="text-2xl font-black bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">🐾 VetMed Hub</a>
-      <span class="text-sm font-bold text-green-600 bg-green-50 px-3 py-1 rounded-full">Kalkulator Medis</span>
+      <a href="index.html" class="text-2xl font-black bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">🐾 VetMed Hub</a>
+      <a href="index.html" class="text-sm font-bold text-gray-500 hover:text-green-600">← Beranda</a>
     </div>
   </nav>
 
-  <div class="max-w-6xl mx-auto px-4 pt-12 pb-24">
-    <div class="flex bg-white rounded-2xl shadow-lg overflow-hidden mb-12">
-      <button class="tab-btn flex-1 py-5 font-bold text-green-700 bg-green-50 border-b-4 border-green-500" data-tab="konversi">⚖️ Berat</button>
-      <button class="tab-btn flex-1 py-5 font-bold text-gray-500 border-b-4 border-transparent" data-tab="dosis">💉 Dosis</button>
-      <button class="tab-btn flex-1 py-5 font-bold text-gray-500 border-b-4 border-transparent" data-tab="cairan">💧 Cairan</button>
+  <div class="max-w-5xl mx-auto px-4 py-10">
+    <div class="flex bg-white rounded-2xl shadow-md mb-8 p-1 overflow-hidden">
+      <button class="tab-btn flex-1 py-4 font-bold text-green-700 bg-green-50 rounded-xl" data-target="konversi">⚖️ Berat</button>
+      <button class="tab-btn flex-1 py-4 font-bold text-gray-500" data-target="dosis">💉 Dosis Obat</button>
+      <button class="tab-btn flex-1 py-4 font-bold text-gray-500" data-target="cairan">💧 Cairan IV</button>
     </div>
 
-    <div class="tab-panel active bg-white p-8 rounded-3xl shadow-xl" data-tab="konversi">
-      <h3 class="text-2xl font-black mb-6">Konversi Berat</h3>
-      <div class="grid md:grid-cols-2 gap-8">
-        <div>
-          <input type="number" id="berat" placeholder="Masukkan angka..." class="w-full p-4 border-2 rounded-xl text-2xl font-bold mb-4 focus:border-green-500 outline-none">
+    <div id="konversi" class="tab-panel active bg-white p-8 rounded-3xl shadow-xl">
+      <h3 class="text-2xl font-black mb-6">Konversi Berat Badan</h3>
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div class="space-y-4">
+          <input type="number" id="berat-input" placeholder="Masukkan angka..." class="w-full p-4 border-2 rounded-xl text-2xl font-bold focus:border-green-500 outline-none">
           <div class="grid grid-cols-2 gap-4">
-            <select id="satuan" class="p-4 border-2 rounded-xl font-bold">
+            <select id="satuan-asal" class="p-4 border-2 rounded-xl font-bold bg-gray-50">
               <option value="kg">Dari kg</option>
               <option value="lb">Dari lb</option>
             </select>
-            <select id="target-satuan" class="p-4 border-2 rounded-xl font-bold">
+            <select id="satuan-tujuan" class="p-4 border-2 rounded-xl font-bold bg-gray-50">
               <option value="kg">Ke kg</option>
               <option value="lb">Ke lb</option>
               <option value="g">Ke gram</option>
             </select>
           </div>
         </div>
-        <div class="bg-green-50 rounded-2xl p-8 text-center">
-          <div id="hasil-konversi" class="text-6xl font-black text-green-600">0</div>
-          <div id="satuan-hasil" class="text-xl font-bold text-green-800 uppercase">kg</div>
+        <div class="bg-green-600 text-white rounded-2xl p-8 text-center shadow-lg">
+          <div id="hasil-konversi" class="text-6xl font-black">0</div>
+          <div id="label-hasil" class="text-xl font-bold uppercase opacity-80">kg</div>
         </div>
       </div>
     </div>
 
-    <div class="tab-panel bg-white p-8 rounded-3xl shadow-xl" data-tab="dosis">
-      <h3 class="text-2xl font-black mb-6">Dosis Obat Per Spesies</h3>
+    <div id="dosis" class="tab-panel bg-white p-8 rounded-3xl shadow-xl">
+      <h3 class="text-2xl font-black mb-6 text-gray-900">Kalkulator Dosis Presisi</h3>
       <div class="grid md:grid-cols-2 gap-8">
-        <div class="space-y-4">
-          <select id="spesies-dosis" class="w-full p-4 border-2 rounded-xl font-bold">
-            <option value="anjing">🐕 Anjing</option>
-            <option value="kucing">🐱 Kucing</option>
-          </select>
-          <select id="obat" class="w-full p-4 border-2 rounded-xl font-bold">
-            <option value="">-- Pilih Obat --</option>
-            <option value="amoxicillin" data-dosis-anjing="10-20" data-dosis-kucing="10-15" data-rute="PO/IV q12h">Amoxicillin</option>
-            <option value="meloxicam" data-dosis-anjing="0.1-0.2" data-dosis-kucing="0.05-0.1" data-rute="PO/SC q24h">Meloxicam ⚠️</option>
-            <option value="enrofloxacin" data-dosis-anjing="5-20" data-dosis-kucing="5-5" data-rute="PO/IV q24h">Enrofloxacin</option>
-          </select>
-          <input type="number" id="berat-dosis" placeholder="Berat hewan (kg)" class="w-full p-4 border-2 rounded-xl text-xl font-bold">
+        <div class="space-y-5">
+          <div>
+            <label class="block text-sm font-bold text-gray-600 mb-2">Spesies Pasien</label>
+            <select id="spesies-dosis" class="w-full p-4 border-2 rounded-xl font-bold focus:border-blue-500 outline-none">
+              <option value="anjing">🐕 Anjing</option>
+              <option value="kucing">🐱 Kucing</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-bold text-gray-600 mb-2">Jenis Obat</label>
+            <select id="obat-select" class="w-full p-4 border-2 rounded-xl font-bold focus:border-blue-500 outline-none">
+              <option value="">-- Pilih Obat --</option>
+              <option value="amox" data-da="10-20" data-dk="10-15" data-rute="PO/IV q12h">Amoxicillin</option>
+              <option value="melo" data-da="0.1-0.2" data-dk="0.05-0.1" data-rute="PO/SC q24h">Meloxicam ⚠️</option>
+              <option value="enro" data-da="5-20" data-dk="5-5" data-rute="PO/IV q24h">Enrofloxacin</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-bold text-gray-600 mb-2">Berat Pasien (kg)</label>
+            <input type="number" id="berat-dosis" placeholder="Contoh: 5.5" class="w-full p-4 border-2 rounded-xl text-xl font-bold focus:border-blue-500 outline-none">
+          </div>
         </div>
         <div class="space-y-4">
-          <div class="bg-blue-600 text-white p-6 rounded-2xl text-center">
-            <p class="text-sm opacity-80 uppercase font-bold">Dosis Rendah</p>
-            <div id="dosis-rendah-val" class="text-4xl font-black">0</div>
-            <p id="dosis-rendah-unit" class="text-xs">mg total</p>
+          <div class="bg-blue-600 text-white p-6 rounded-2xl shadow-md text-center">
+            <p class="text-xs font-bold uppercase opacity-70">Dosis Rendah (Total)</p>
+            <div id="d-rendah" class="text-4xl font-black">0</div>
+            <p id="u-rendah" class="text-sm">mg</p>
           </div>
-          <div class="bg-indigo-600 text-white p-6 rounded-2xl text-center">
-            <p class="text-sm opacity-80 uppercase font-bold">Dosis Tinggi</p>
-            <div id="dosis-tinggi-val" class="text-4xl font-black">0</div>
-            <p id="dosis-tinggi-unit" class="text-xs">mg total</p>
+          <div class="bg-indigo-700 text-white p-6 rounded-2xl shadow-md text-center">
+            <p class="text-xs font-bold uppercase opacity-70">Dosis Tinggi (Total)</p>
+            <div id="d-tinggi" class="text-4xl font-black">0</div>
+            <p id="u-tinggi" class="text-sm">mg</p>
           </div>
-          <div class="p-4 bg-yellow-50 border border-yellow-200 rounded-xl text-sm">
-            <strong>Rute:</strong> <span id="rute-obat">-</span>
+          <div class="p-4 bg-yellow-50 border border-yellow-200 rounded-xl text-sm font-medium">
+            🚩 Rute: <span id="rute-teks" class="font-bold text-yellow-800">-</span>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="tab-panel bg-white p-8 rounded-3xl shadow-xl" data-tab="cairan">
+    <div id="cairan" class="tab-panel bg-white p-8 rounded-3xl shadow-xl">
       <h3 class="text-2xl font-black mb-6">Kebutuhan Cairan IV</h3>
       <div class="grid md:grid-cols-2 gap-8">
-        <div class="space-y-4">
+        <div class="space-y-5">
           <select id="spesies-cairan" class="w-full p-4 border-2 rounded-xl font-bold">
-            <option value="anjing">🐕 Anjing (5 mL/kg/hr)</option>
-            <option value="kucing">🐱 Kucing (4 mL/kg/hr)</option>
+            <option value="anjing">🐕 Anjing (5 mL/kg/jam)</option>
+            <option value="kucing">🐱 Kucing (4 mL/kg/jam)</option>
           </select>
-          <input type="number" id="berat-cairan" placeholder="Berat hewan (kg)" class="w-full p-4 border-2 rounded-xl text-xl font-bold">
-          <select id="kondisi" class="w-full p-4 border-2 rounded-xl font-bold">
-            <option value="maintenance">Normal (Maintenance)</option>
-            <option value="dehidrasi-5">Dehidrasi 5%</option>
-            <option value="dehidrasi-10">Dehidrasi 10%</option>
+          <input type="number" id="berat-cairan" placeholder="Berat (kg)" class="w-full p-4 border-2 rounded-xl text-xl font-bold">
+          <select id="kondisi-pasien" class="w-full p-4 border-2 rounded-xl font-bold">
+            <option value="m">Normal (Maintenance)</option>
+            <option value="d5">Dehidrasi 5%</option>
+            <option value="d10">Dehidrasi 10%</option>
           </select>
         </div>
-        <div class="grid grid-cols-1 gap-4">
-          <div class="bg-cyan-500 text-white p-6 rounded-2xl text-center">
-            <div id="cairan-maintenance" class="text-5xl font-black">0</div>
-            <p class="font-bold">mL / Jam</p>
+        <div class="grid gap-4">
+          <div class="bg-cyan-600 text-white p-8 rounded-2xl text-center shadow-lg">
+            <div id="res-maint" class="text-5xl font-black">0</div>
+            <p class="font-bold opacity-80 uppercase">mL / Jam</p>
           </div>
-          <div class="bg-orange-500 text-white p-6 rounded-2xl text-center">
-            <div id="cairan-defisit" class="text-5xl font-black">0</div>
-            <p class="font-bold">mL Defisit (Total)</p>
+          <div class="bg-orange-500 text-white p-6 rounded-2xl text-center shadow-lg">
+            <div id="res-def" class="text-4xl font-black">0</div>
+            <p class="font-bold opacity-80 uppercase text-xs">Total Defisit (mL)</p>
           </div>
         </div>
       </div>
@@ -117,87 +125,86 @@
   </div>
 
   <script>
-    // FUNGSI TAB
-    document.querySelectorAll('.tab-btn').forEach(btn => {
+    // 1. Logika Tab
+    const btns = document.querySelectorAll('.tab-btn');
+    const panels = document.querySelectorAll('.tab-panel');
+
+    btns.forEach(btn => {
       btn.addEventListener('click', () => {
-        document.querySelectorAll('.tab-btn').forEach(b => {
-          b.classList.remove('bg-green-50', 'border-green-500', 'text-green-700');
-          b.classList.add('text-gray-500', 'border-transparent');
-        });
-        document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+        const target = btn.getAttribute('data-target');
         
-        btn.classList.add('bg-green-50', 'border-green-500', 'text-green-700');
-        btn.classList.remove('text-gray-500', 'border-transparent');
-        document.querySelector(`.tab-panel[data-tab="${btn.dataset.tab}"]`).classList.add('active');
+        btns.forEach(b => {
+          b.classList.remove('bg-green-50', 'text-green-700', 'rounded-xl');
+          b.classList.add('text-gray-500');
+        });
+        panels.forEach(p => p.classList.remove('active'));
+
+        btn.classList.add('bg-green-50', 'text-green-700', 'rounded-xl');
+        document.getElementById(target).classList.add('active');
       });
     });
 
-    // LOGIKA KONVERSI
-    function updateKonversi() {
-      const b = parseFloat(document.getElementById('berat').value) || 0;
-      const f = document.getElementById('satuan').value;
-      const t = document.getElementById('target-satuan').value;
-      const faktor = { 
-        kg: { kg: 1, lb: 2.204, g: 1000 }, 
-        lb: { kg: 0.453, lb: 1, g: 453.5 } 
-      };
-      const res = (b * faktor[f][t]).toFixed(2);
-      document.getElementById('hasil-konversi').innerText = res;
-      document.getElementById('satuan-hasil').innerText = t;
+    // 2. Logika Konversi
+    function hitungKonversi() {
+      const val = parseFloat(document.getElementById('berat-input').value) || 0;
+      const asal = document.getElementById('satuan-asal').value;
+      const ke = document.getElementById('satuan-tujuan').value;
+      const map = { kg: { kg:1, lb:2.204, g:1000 }, lb: { kg:0.453, lb:1, g:453.5 } };
+      
+      const hasil = (val * map[asal][ke]).toFixed(2);
+      document.getElementById('hasil-konversi').innerText = hasil;
+      document.getElementById('label-hasil').innerText = ke;
     }
 
-    // LOGIKA DOSIS OBAT
-    function updateDosis() {
+    // 3. Logika Dosis Obat
+    function hitungDosis() {
       const sp = document.getElementById('spesies-dosis').value;
-      const b = parseFloat(document.getElementById('berat-dosis').value) || 0;
-      const sel = document.getElementById('obat').options[document.getElementById('obat').selectedIndex];
+      const brt = parseFloat(document.getElementById('berat-dosis').value) || 0;
+      const opt = document.getElementById('obat-select').options[document.getElementById('obat-select').selectedIndex];
       
-      if (!sel.value || b <= 0) {
-        document.getElementById('dosis-rendah-val').innerText = '0';
-        document.getElementById('dosis-tinggi-val').innerText = '0';
+      if (!opt.value || brt <= 0) {
+        document.getElementById('d-rendah').innerText = '0';
+        document.getElementById('d-tinggi').innerText = '0';
         return;
       }
 
-      const key = sp === 'anjing' ? 'dosisAnjing' : 'dosisKucing';
-      const range = sel.dataset[key];
-      const rute = sel.dataset.rute;
+      // dataset da = dosis anjing, dk = dosis kucing
+      const range = sp === 'anjing' ? opt.dataset.da : opt.dataset.dk;
+      const rute = opt.dataset.rute;
+      const [min, max] = range.split('-').map(parseFloat);
 
-      if (range) {
-        const [min, max] = range.split('-').map(parseFloat);
-        document.getElementById('dosis-rendah-val').innerText = (min * b).toFixed(1);
-        document.getElementById('dosis-tinggi-val').innerText = (max * b).toFixed(1);
-        document.getElementById('dosis-rendah-unit').innerText = `${min} mg/kg`;
-        document.getElementById('dosis-tinggi-unit').innerText = `${max} mg/kg`;
-        document.getElementById('rute-obat').innerText = rute;
-      }
+      document.getElementById('d-rendah').innerText = (min * brt).toFixed(1);
+      document.getElementById('d-tinggi').innerText = (max * brt).toFixed(1);
+      document.getElementById('u-rendah').innerText = min + " mg/kg";
+      document.getElementById('u-tinggi').innerText = max + " mg/kg";
+      document.getElementById('rute-teks').innerText = rute;
     }
 
-    // LOGIKA CAIRAN
-    function updateCairan() {
-      const b = parseFloat(document.getElementById('berat-cairan').value) || 0;
+    // 4. Logika Cairan
+    function hitungCairan() {
+      const brt = parseFloat(document.getElementById('berat-cairan').value) || 0;
       const sp = document.getElementById('spesies-cairan').value;
-      const kon = document.getElementById('kondisi').value;
+      const kon = document.getElementById('kondisi-pasien').value;
       
       const rate = sp === 'anjing' ? 5 : 4;
-      const maint = Math.round(rate * b);
-      const defisit = kon === 'maintenance' ? 0 : (kon === 'dehidrasi-5' ? b * 50 : b * 100);
+      const maint = Math.round(rate * brt);
+      const defisit = kon === 'm' ? 0 : (kon === 'd5' ? brt * 50 : brt * 100);
 
-      document.getElementById('cairan-maintenance').innerText = maint;
-      document.getElementById('cairan-defisit').innerText = Math.round(defisit);
+      document.getElementById('res-maint').innerText = maint;
+      document.getElementById('res-def').innerText = Math.round(defisit);
     }
 
-    // EVENT LISTENERS
-    document.getElementById('berat').oninput = updateKonversi;
-    document.getElementById('satuan').onchange = updateKonversi;
-    document.getElementById('target-satuan').onchange = updateKonversi;
+    // Event Listeners
+    document.getElementById('berat-input').oninput = hitungKonversi;
+    document.querySelectorAll('#satuan-asal, #satuan-tujuan').forEach(s => s.onchange = hitungKonversi);
 
-    document.getElementById('spesies-dosis').onchange = updateDosis;
-    document.getElementById('obat').onchange = updateDosis;
-    document.getElementById('berat-dosis').oninput = updateDosis;
+    document.getElementById('obat-select').onchange = hitungDosis;
+    document.getElementById('spesies-dosis').onchange = hitungDosis;
+    document.getElementById('berat-dosis').oninput = hitungDosis;
 
-    document.getElementById('spesies-cairan').onchange = updateCairan;
-    document.getElementById('berat-cairan').oninput = updateCairan;
-    document.getElementById('kondisi').onchange = updateCairan;
+    document.getElementById('spesies-cairan').onchange = hitungCairan;
+    document.getElementById('berat-cairan').oninput = hitungCairan;
+    document.getElementById('kondisi-pasien').onchange = hitungCairan;
   </script>
 </body>
 </html>
