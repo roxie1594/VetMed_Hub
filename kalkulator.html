@@ -317,8 +317,8 @@
       
       document.getElementById('dosis-rendah-val').textContent = minTotal
       document.getElementById('dosis-tinggi-val').textContent = maxTotal
-      document.getElementById('dosis-rendah-unit').textContent = `${minDose} mg/kg = <strong>${minTotal} mg</strong>`
-      document.getElementById('dosis-tinggi-unit').textContent = `${maxDose} mg/kg = <strong>${maxTotal} mg</strong>`
+      document.getElementById('dosis-rendah-unit').innerHTML = `${minDose} mg/kg = <strong>${minTotal} mg</strong>`
+      document.getElementById('dosis-tinggi-unit').innerHTML = `${maxDose} mg/kg = <strong>${maxTotal} mg</strong>`
       document.getElementById('rute-obat').textContent = rute
     }
 
