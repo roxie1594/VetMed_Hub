@@ -243,7 +243,7 @@
   </footer>
 
   <script>
-    // Tab switching
+    // 1. Tab switching - Logic diperbaiki agar panel lain tersembunyi total
     document.querySelectorAll('.tab-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         const target = btn.dataset.tab
@@ -252,17 +252,18 @@
           b.classList.remove('bg-green-50', 'border-green-500', 'text-green-700')
         })
         document.querySelectorAll('.tab-panel').forEach(p => {
-          p.classList.remove('active')
           p.style.display = 'none'
+          p.classList.remove('active')
         })
         
         btn.classList.add('bg-green-50', 'border-green-500', 'text-green-700')
-        document.querySelector(`[data-tab="${target}"]`).classList.add('active')
-        document.querySelector(`[data-tab="${target}"]`).style.display = 'block'
+        const activePanel = document.querySelector(`.tab-panel[data-tab="${target}"]`)
+        activePanel.style.display = 'block'
+        activePanel.classList.add('active')
       })
     })
 
-    // KONVERSI BERAT (tetap sama, cuma tambah UI spesies)
+    // 2. KONVERSI BERAT
     function updateKonversi() {
       const berat = parseFloat(document.getElementById('berat').value) || 0
       const from = document.getElementById('satuan').value
@@ -280,63 +281,49 @@
       document.getElementById('satuan-hasil').textContent = to
     }
 
-    // DOSIS OBAT - FIXED VERSION
-function updateDosis() {
-  const obatSelect = document.getElementById('obat')
-  const spesies = document.getElementById('spesies-dosis').value
-  const berat = parseFloat(document.getElementById('berat-dosis').value) || 0
-  const selectedIndex = obatSelect.selectedIndex
-  const selected = obatSelect.options[selectedIndex]
-  const rute = selected.dataset.rute
-  
-  // DEBUG: console.log('Spesies:', spesies, 'Obat:', selected.value, 'Berat:', berat)
-  
-  if (!selected.value || !berat) {
-    document.getElementById('dosis-rendah-val').textContent = '0'
-    document.getElementById('dosis-tinggi-val').textContent = '0'
-    document.getElementById('rute-obat').textContent = ''
-    return
-  }
-  
-  // Pilih dosis berdasarkan spesies
-  const dosisKey = `dosis-${spesies}`
-  const dosisRange = selected.dataset[dosisKey]
-  
-  // DEBUG: console.log('Dosis key:', dosisKey, 'Range:', dosisRange)
-  
-  if (!dosisRange) {
-    document.getElementById('dosis-rendah-val').textContent = '0'
-    document.getElementById('dosis-tinggi-val').textContent = '0'
-    return
-  }
-  
-  const [min, max] = dosisRange.split('-').map(parseFloat)
-  const totalMin = (min * berat).toFixed(1)
-  const totalMax = (max * berat).toFixed(1)
-  
-  document.getElementById('dosis-rendah-val').textContent = totalMin
-  document.getElementById('dosis-tinggi-val').textContent = totalMax
-  document.getElementById('dosis-rendah-unit').innerHTML = `${min} mg/kg = <strong>${totalMin} mg</strong>`
-  document.getElementById('dosis-tinggi-unit').innerHTML = `${max} mg/kg = <strong>${totalMax} mg</strong>`
-  document.getElementById('rute-obat').textContent = rute || ''
-}
+    // 3. DOSIS OBAT - FINAL FIX
+    function updateDosis() {
+      const obatSelect = document.getElementById('obat');
+      const spesies = document.getElementById('spesies-dosis').value;
+      const berat = parseFloat(document.getElementById('berat-dosis').value) || 0;
       
-      if (!selected.value || !berat) {
-        document.getElementById('dosis-rendah-val').textContent = '0'
-        document.getElementById('dosis-tinggi-val').textContent = '0'
-        return
+      const selected = obatSelect.options[obatSelect.selectedIndex];
+      
+      // Reset jika input belum lengkap
+      if (!selected || !selected.value || berat <= 0) {
+        document.getElementById('dosis-rendah-val').textContent = '0';
+        document.getElementById('dosis-tinggi-val').textContent = '0';
+        document.getElementById('rute-obat').textContent = 'Masukkan berat dan pilih obat';
+        return;
       }
 
-    // CAIRAN - DENGAN SPESIES
+      // Dataset Mapping: data-dosis-anjing -> dataset.dosisAnjing
+      const dosisKey = spesies === 'anjing' ? 'dosisAnjing' : 'dosisKucing';
+      const dosisRange = selected.dataset[dosisKey];
+      const rute = selected.dataset.rute;
+
+      if (dosisRange) {
+        const [min, max] = dosisRange.split('-').map(parseFloat);
+        const totalMin = (min * berat).toFixed(1);
+        const totalMax = (max * berat).toFixed(1);
+
+        document.getElementById('dosis-rendah-val').textContent = totalMin;
+        document.getElementById('dosis-tinggi-val').textContent = totalMax;
+        document.getElementById('dosis-rendah-unit').innerHTML = `${min} mg/kg = <strong>${totalMin} mg</strong>`;
+        document.getElementById('dosis-tinggi-unit').innerHTML = `${max} mg/kg = <strong>${totalMax} mg</strong>`;
+        document.getElementById('rute-obat').textContent = rute || '-';
+      }
+    }
+
+    // 4. CAIRAN - DENGAN SPESIES
     function updateCairan() {
       const berat = parseFloat(document.getElementById('berat-cairan').value) || 0
       const spesies = document.getElementById('spesies-cairan').value
       const kondisi = document.getElementById('kondisi').value
       
-      // Maintenance berbeda per spesies
       const maintenanceRates = {
-        'anjing': 5,  // 4-6 mL/kg/jam -> rata-rata 5
-        'kucing': 4   // 3-5 mL/kg/jam -> rata-rata 4
+        'anjing': 5, 
+        'kucing': 4 
       }
       
       const maintenance = Math.round(maintenanceRates[spesies] * berat)
@@ -355,29 +342,30 @@ function updateDosis() {
       document.getElementById('cairan-unit').textContent = `mL/jam (${maintenanceRates[spesies]} mL/kg/jam)`
     }
 
-    // Event listeners
-    // Konversi
+    // 5. Event Listeners
     document.getElementById('spesies-konversi').addEventListener('change', updateKonversi)
     document.getElementById('berat').addEventListener('input', updateKonversi)
     document.getElementById('satuan').addEventListener('change', updateKonversi)
     document.getElementById('target-satuan').addEventListener('change', updateKonversi)
     
-    // Dosis
     document.getElementById('spesies-dosis').addEventListener('change', updateDosis)
     document.getElementById('obat').addEventListener('change', updateDosis)
     document.getElementById('berat-dosis').addEventListener('input', updateDosis)
     
-    // Cairan
     document.getElementById('spesies-cairan').addEventListener('change', updateCairan)
     document.getElementById('berat-cairan').addEventListener('input', updateCairan)
     document.getElementById('kondisi').addEventListener('change', updateCairan)
 
-    // Init
+    // 6. Init on Load
     document.addEventListener('DOMContentLoaded', () => {
-      updateKonversi()
-      updateDosis()
-      updateCairan()
-    })
+      // Sembunyikan panel selain konversi saat awal
+      document.querySelectorAll('.tab-panel').forEach((p, index) => {
+        if(index !== 0) p.style.display = 'none';
+      });
+      updateKonversi();
+      updateDosis();
+      updateCairan();
+    });
   </script>
 </body>
 </html>
