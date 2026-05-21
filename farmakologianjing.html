@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farmakologi Anjing - VetMed Hub</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { purple: { 700: '#8b5cf6' }, violet: { 800: '#6d28d9' } } } }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght=400;500;600;700;800&display=swap');
+    * { font-family: 'Inter', sans-serif; }
+  </style>
+</head>
+
+<body class="bg-gradient-to-br from-purple-50 to-violet-50 min-h-screen text-gray-800">
+
+  <nav class="bg-white/90 backdrop-blur-md sticky top-0 z-50 shadow-sm border-b border-purple-100">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center py-4">
+        <a href="index.html" class="text-2xl font-black bg-gradient-to-r from-purple-600 to-violet-600 bg-clip-text text-transparent flex items-center space-x-2">
+          <span>💊</span><span>VetMed Hub</span>
+        </a>
+        <div class="hidden md:flex space-x-8">
+          <a href="index.html" class="font-medium text-gray-700 hover:text-purple-600">Beranda</a>
+          <a href="berandafarmakologi.html" class="font-medium text-purple-600">Farmakologi</a>
+          <a href="kalkulator.html" class="font-medium text-gray-700 hover:text-purple-600">Kalkulator</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="pt-12 pb-8 text-center">
+    <div class="max-w-4xl mx-auto px-4">
+      <a href="berandafarmakologi.html" class="inline-flex items-center text-purple-600 hover:text-purple-800 mb-4 font-semibold">
+        ← Kembali ke Pilihan Spesies
+      </a>
+      <div class="text-7xl mb-2">🐕</div>
+      <h1 class="text-4xl font-black text-gray-900">Daftar Obat & Dosis Anjing</h1>
+      <p class="text-gray-500 italic">Canis lupus familiaris</p>
+    </div>
+  </section>
+
+  <main class="max-w-5xl mx-auto px-4 pb-24">
+    
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+      <div class="bg-white p-4 rounded-2xl shadow-sm border border-purple-100 text-center">
+        <span class="text-xs text-gray-400 block font-bold uppercase">Suhu Tubuh Normal</span>
+        <span class="text-lg font-extrabold text-purple-700">37.9°C - 39.2°C</span>
+      </div>
+      <div class="bg-white p-4 rounded-2xl shadow-sm border border-purple-100 text-center">
+        <span class="text-xs text-gray-400 block font-bold uppercase">Detak Jantung</span>
+        <span class="text-lg font-extrabold text-purple-700">70 - 160 bpm</span>
+      </div>
+      <div class="bg-white p-4 rounded-2xl shadow-sm border border-purple-100 text-center">
+        <span class="text-xs text-gray-400 block font-bold uppercase">Respirasi Normal</span>
+        <span class="text-lg font-extrabold text-purple-700">10 - 30 / mnt</span>
+      </div>
+      <div class="bg-white p-4 rounded-2xl shadow-sm border border-purple-100 text-center">
+        <span class="text-xs text-gray-400 block font-bold uppercase">Lama Kebuntingan</span>
+        <span class="text-lg font-extrabold text-purple-700">58 - 68 Hari</span>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-purple-100">
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-gradient-to-r from-purple-600 to-violet-700 text-white text-sm">
+              <th class="p-5 font-bold">Nama Obat</th>
+              <th class="p-5 font-bold">Rentang Dosis Standar</th>
+              <th class="p-5 font-bold">Rute & Frekuensi</th>
+              <th class="p-5 font-bold text-center">Kalkulator Medis</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-100 text-gray-700">
+            
+            <tr class="hover:bg-purple-50/50 transition-colors">
+              <td class="p-5"><strong class="text-gray-900 block text-lg">Amoxicillin</strong><span class="text-xs text-purple-600 font-medium">Antibiotik Broad-Spectrum</span></td>
+              <td class="p-5 font-mono font-semibold text-gray-900">10.0 - 20.0 mg/kg</td>
+              <td class="p-5"><span class="px-2 py-1 bg-amber-100 text-amber-800 text-xs font-bold rounded-lg uppercase">PO / IV</span><span class="block text-xs text-gray-400 mt-1">Setiap 12 jam (q12h)</span></td>
+              <td class="p-5 text-center"><a href="kalkulator.html?obat=amoxicillin&spesies=anjing" class="inline-block bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs px-4 py-2 rounded-xl shadow-md transition-transform active:scale-95">Hitung Dosis 🧮</a></td>
+            </tr>
+
+            <tr class="hover:bg-purple-50/50 transition-colors">
+              <td class="p-5"><strong class="text-gray-900 block text-lg">Ceftriaxone</strong><span class="text-xs text-purple-600 font-medium">Sefalosporin Generasi ke-3</span></td>
+              <td class="p-5 font-mono font-semibold text-gray-900">20.0 - 50.0 mg/kg</td>
+              <td class="p-5"><span class="px-2 py-1 bg-red-100 text-red-800 text-xs font-bold rounded-lg uppercase">IV / IM</span><span class="block text-xs text-gray-400 mt-1">Setiap 12-24 jam</span></td>
+              <td class="p-5 text-center"><a href="kalkulator.html?obat=ceftriaxone&spesies=anjing" class="inline-block bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs px-4 py-2 rounded-xl shadow-md transition-transform active:scale-95">Hitung Dosis 🧮</a></td>
+            </tr>
+
+            <tr class="hover:bg-purple-50/50 transition-colors">
+              <td class="p-5"><strong class="text-gray-900 block text-lg">Meloxicam</strong><span class="text-xs text-purple-600 font-medium">Analgesik / Anti-inflamasi (NSAID)</span></td>
+              <td class="p-5 font-mono font-semibold text-gray-900">0.1 - 0.2 mg/kg</td>
+              <td class="p-5"><span class="px-2 py-1 bg-green-100 text-green-800 text-xs font-bold rounded-lg uppercase">PO / SC</span><span class="block text-xs text-gray-400 mt-1">Setiap 24 jam (q24h)</span></td>
+              <td class="p-5 text-center"><a href="kalkulator.html?obat=meloxicam&spesies=anjing" class="inline-block bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs px-4 py-2 rounded-xl shadow-md transition-transform active:scale-95">Hitung Dosis 🧮</a></td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
