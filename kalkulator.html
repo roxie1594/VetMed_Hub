@@ -282,40 +282,48 @@
       document.getElementById('satuan-hasil').textContent = to
     }
 
-    // DOSIS OBAT - DENGAN SPESIES
-    function updateDosis() {
-      const obat = document.getElementById('obat')
-      const spesies = document.getElementById('spesies-dosis').value
-      const berat = parseFloat(document.getElementById('berat-dosis').value) || 0
-      const selected = obat.options[obat.selectedIndex]
-      const rute = selected.dataset.rute
-      
-      if (!selected.value || !berat) {
-        document.getElementById('dosis-rendah-val').textContent = '0'
-        document.getElementById('dosis-tinggi-val').textContent = '0'
-        return
-      }
-      
-      // Pilih dosis berdasarkan spesies
-      const dosisKey = `dosis-${spesies}`
-      const dosisRange = selected.dataset[dosisKey]
-      
-      if (!dosisRange) {
-        document.getElementById('dosis-rendah-val').textContent = '0'
-        document.getElementById('dosis-tinggi-val').textContent = '0'
-        return
-      }
-      
-      const [min, max] = dosisRange.split('-').map(parseFloat)
-      const totalMin = (min * berat).toFixed(1)
-      const totalMax = (max * berat).toFixed(1)
-      
-      document.getElementById('dosis-rendah-val').textContent = totalMin
-      document.getElementById('dosis-tinggi-val').textContent = totalMax
-      document.getElementById('dosis-rendah-unit').innerHTML = `${min} mg/kg = <strong>${totalMin} mg</strong>`
-      document.getElementById('dosis-tinggi-unit').innerHTML = `${max} mg/kg = <strong>${totalMax} mg</strong>`
-      document.getElementById('rute-obat').textContent = rute || ''
-    }
+    // DOSIS OBAT - DENGAN SPESIES (SUDAH DIPERBAIKI)
+function updateDosis() {
+  const obat = document.getElementById('obat')
+  const spesies = document.getElementById('spesies-dosis').value
+  const berat = parseFloat(document.getElementById('berat-dosis').value) || 0
+  const selected = obat.options[obat.selectedIndex]
+  
+  // Validasi jika obat belum dipilih atau berat masih kosong/0
+  if (!selected || !selected.value || !berat) {
+    document.getElementById('dosis-rendah-val').textContent = '0'
+    document.getElementById('dosis-tinggi-val').textContent = '0'
+    document.getElementById('dosis-rendah-unit').textContent = 'mg total'
+    document.getElementById('dosis-tinggi-unit').textContent = 'mg total'
+    document.getElementById('rute-obat').textContent = ''
+    return
+  }
+  
+  const rute = selected.dataset.rute
+  
+  // SOLUSI: Ubah ke format camelCase agar sesuai dengan cara kerja dataset JavaScript
+  // data-dosis-anjing menjadi dosisAnjing
+  // data-dosis-kucing menjadi dosisKucing
+  const dosisKey = spesies === 'anjing' ? 'dosisAnjing' : 'dosisKucing'
+  const dosisRange = selected.dataset[dosisKey]
+  
+  if (!dosisRange) {
+    document.getElementById('dosis-rendah-val').textContent = '0'
+    document.getElementById('dosis-tinggi-val').textContent = '0'
+    return
+  }
+  
+  const [min, max] = dosisRange.split('-').map(parseFloat)
+  const totalMin = (min * berat).toFixed(1)
+  const totalMax = (max * berat).toFixed(1)
+  
+  // Menampilkan hasil perhitungan ke elemen HTML target
+  document.getElementById('dosis-rendah-val').textContent = totalMin
+  document.getElementById('dosis-tinggi-val').textContent = totalMax
+  document.getElementById('dosis-rendah-unit').innerHTML = `${min} mg/kg = <strong>${totalMin} mg</strong>`
+  document.getElementById('dosis-tinggi-unit').innerHTML = `${max} mg/kg = <strong>${totalMax} mg</strong>`
+  document.getElementById('rute-obat').textContent = rute || ''
+}
 
     // CAIRAN - DENGAN SPESIES
     function updateCairan() {
