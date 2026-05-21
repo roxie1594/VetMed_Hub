@@ -6,12 +6,10 @@
   <title>VetMed Hub - Pusat Edukasi Kedokteran Hewan</title>
   <meta name="description" content="Database gratis penyakit hewan, farmakologi, kalkulator dosis, nutrisi untuk dokter hewan, mahasiswa & pecinta hewan">
   
-  <!-- PWA -->
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#10b981">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐾</text></svg>">
   
-  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -27,46 +25,29 @@
 
 <body class="bg-gradient-to-br from-green-50 to-blue-50 min-h-screen text-gray-800">
 
- <!-- Navbar FULLY FUNCTIONAL -->
-<nav class="bg-white/90 backdrop-blur-md sticky top-0 z-50 shadow-sm border-b border-green-100">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex justify-between items-center py-4">
-      <a href="index.html" class="text-2xl font-black bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent flex items-center space-x-2">
-        <span>🐾</span><span>VetMed Hub</span>
-      </a>
-      
-      <div class="hidden md:flex space-x-8">
-        <a href="#spesies" class="group flex items-center space-x-1 font-medium text-gray-700 hover:text-green-600 transition-all">
-          <span>Spesies</span>
-          <span class="w-2 h-2 bg-green-600 rounded-full scale-0 group-hover:scale-100 transition-transform"></span>
+  <nav class="bg-white/90 backdrop-blur-md sticky top-0 z-50 shadow-sm border-b border-green-100">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center py-4">
+        <a href="index.html" class="text-2xl font-black bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent flex items-center space-x-2">
+          <span>🐾</span><span>VetMed Hub</span>
         </a>
-        <a href="#penyakit" class="group flex items-center space-x-1 font-medium text-gray-700 hover:text-green-600 transition-all">
-          <span>Penyakit</span>
-          <span class="w-2 h-2 bg-green-600 rounded-full scale-0 group-hover:scale-100 transition-transform"></span>
-        </a>
-        <a href="berandafarmakologi.html" class="group flex items-center space-x-1 font-medium text-gray-700 hover:text-green-600 transition-all">
-  <span>Farmakologi</span>
-  <span class="w-2 h-2 bg-green-600 rounded-full scale-0 group-hover:scale-100 transition-transform"></span>
-        </a>
-        <!-- INI UDAH BENAR! -->
-        <a href="kalkulator.html" class="group flex items-center space-x-1 font-medium text-gray-700 hover:text-green-600 transition-all">
-          <span>Kalkulator</span>
-          <span class="w-2 h-2 bg-green-600 rounded-full scale-0 group-hover:scale-100 transition-transform"></span>
-        </a>
-      </div>
-
-
-      <!-- Mobile menu button -->
-      <button class="md:hidden">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
-      </button>
-    </div>
-  </div>
-</nav>
         
-        <button id="mobile-menu" class="md:hidden p-2 -m-2">
+        <div class="hidden md:flex space-x-8">
+          <a href="#spesies" class="group flex items-center space-x-1 font-medium text-gray-700 hover:text-green-600 transition-all">
+            <span>Spesies</span>
+          </a>
+          <a href="#penyakit" class="group flex items-center space-x-1 font-medium text-gray-700 hover:text-green-600 transition-all">
+            <span>Penyakit</span>
+          </a>
+          <a href="berandafarmakologi.html" class="group flex items-center space-x-1 font-medium text-gray-700 hover:text-green-600 transition-all">
+            <span>Farmakologi</span>
+          </a>
+          <a href="kalkulator.html" class="group flex items-center space-x-1 font-medium text-gray-700 hover:text-green-600 transition-all">
+            <span>Kalkulator</span>
+          </a>
+        </div>
+
+        <button id="mobile-menu-btn" class="md:hidden text-gray-700 focus:outline-none">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
           </svg>
@@ -75,7 +56,6 @@
     </div>
   </nav>
 
-  <!-- Hero - Fokus Edukasi -->
   <section class="pt-24 pb-20 text-center">
     <div class="max-w-4xl mx-auto px-4">
       <div class="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-green-100 text-green-800 mb-8">
@@ -92,7 +72,6 @@
         mahasiswa, dan siapa saja yang peduli kesehatan hewan.
       </p>
       
-      <!-- Search -->
       <div class="max-w-xl mx-auto relative mb-12">
         <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
           <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -109,165 +88,98 @@
     </div>
   </section>
 
-  <!-- Features - Pure Edukasi -->
-  <section class="py-24 px-4 max-w-7xl mx-auto">
+  <section class="py-12 px-4 max-w-7xl mx-auto">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       
       <div class="group">
-        <div class="bg-white/80 backdrop-blur-sm p-8 rounded-3xl shadow-xl hover:shadow-2xl hover:-translate-y-4 transition-all duration-500 border border-white/50 hover:border-green-200">
-          <div class="w-20 h-20 bg-gradient-to-br from-green-400 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+        <div class="bg-white/80 backdrop-blur-sm p-8 rounded-3xl shadow-xl border border-white/50 hover:border-green-200 transition-all duration-300">
+          <div class="w-20 h-20 bg-gradient-to-br from-green-400 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
             <span class="text-3xl">🐱</span>
           </div>
-          <h3 class="text-2xl font-black text-gray-900 mb-4 group-hover:text-green-600 transition-colors">Spesies Hewan</h3>
-          <p class="text-lg text-gray-600 leading-relaxed">
-            Anatomi, fisiologi, parameter normal kucing, anjing, ternak, unggas, satwa liar
+          <h3 class="text-2xl font-black text-gray-900 mb-4 text-center">Spesies Hewan</h3>
+          <p class="text-lg text-gray-600 leading-relaxed text-center">
+            Anatomi, fisiologi, parameter normal kucing, anjing, ternak, unggas, satwa liar.
           </p>
         </div>
       </div>
 
       <div class="group">
-        <div class="bg-white/80 backdrop-blur-sm p-8 rounded-3xl shadow-xl hover:shadow-2xl hover:-translate-y-4 transition-all duration-500 border border-white/50 hover:border-red-200">
-          <div class="w-20 h-20 bg-gradient-to-br from-red-400 to-rose-500 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+        <div class="bg-white/80 backdrop-blur-sm p-8 rounded-3xl shadow-xl border border-white/50 hover:border-red-200 transition-all duration-300">
+          <div class="w-20 h-20 bg-gradient-to-br from-red-400 to-rose-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
             <span class="text-3xl">🦠</span>
           </div>
-          <h3 class="text-2xl font-black text-gray-900 mb-4 group-hover:text-red-600 transition-colors">Penyakit Hewan</h3>
-          <p class="text-lg text-gray-600 leading-relaxed">
-            Diagnosis, terapi, pencegahan 300+ penyakit hewan umum & tropis
+          <h3 class="text-2xl font-black text-gray-900 mb-4 text-center">Penyakit Hewan</h3>
+          <p class="text-lg text-gray-600 leading-relaxed text-center">
+            Diagnosis, terapi, pencegahan 300+ penyakit hewan umum & tropis.
           </p>
         </div>
       </div>
 
-      <div class="group">
-        <div class="bg-white/80 backdrop-blur-sm p-8 rounded-3xl shadow-xl hover:shadow-2xl hover:-translate-y-4 transition-all duration-500 border border-white/50 hover:border-purple-200">
-          <div class="w-20 h-20 bg-gradient-to-br from-purple-400 to-violet-500 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+      <a href="berandafarmakologi.html" class="group block">
+        <div class="bg-white/80 backdrop-blur-sm p-8 rounded-3xl shadow-xl border border-white/50 hover:border-purple-300 hover:-translate-y-2 transition-all duration-300 h-full">
+          <div class="w-20 h-20 bg-gradient-to-br from-purple-400 to-violet-500 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all">
             <span class="text-3xl">💉</span>
           </div>
-          <h3 class="text-2xl font-black text-gray-900 mb-4 group-hover:text-purple-600 transition-colors">Farmakologi</h3>
-          <p class="text-lg text-gray-600 leading-relaxed">
-            Dosis obat per spesies, farmakokinetik, efek samping, interaksi obat
+          <h3 class="text-2xl font-black text-gray-900 mb-4 text-center group-hover:text-purple-600 transition-colors">Farmakologi</h3>
+          <p class="text-lg text-gray-600 leading-relaxed text-center">
+            Dosis obat per spesies, farmakokinetik, efek samping, interaksi obat lengkap.
           </p>
         </div>
-      </div>
+      </a>
 
-      <div class="group">
-        <div class="bg-white/80 backdrop-blur-sm p-8 rounded-3xl shadow-xl hover:shadow-2xl hover:-translate-y-4 transition-all duration-500 border border-white/50 hover:border-orange-200">
-          <div class="w-20 h-20 bg-gradient-to-br from-orange-400 to-amber-500 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
-            <span class="text-3xl">🥬</span>
-          </div>
-          <h3 class="text-2xl font-black text-gray-900 mb-4 group-hover:text-orange-600 transition-colors">Nutrisi Hewan</h3>
-          <p class="text-lg text-gray-600 leading-relaxed">
-            Kebutuhan gizi, formulasi pakan, diet terapeutik per spesies
-          </p>
-        </div>
-      </div>
-
-      <div class="group">
-        <div class="bg-white/80 backdrop-blur-sm p-8 rounded-3xl shadow-xl hover:shadow-2xl hover:-translate-y-4 transition-all duration-500 border border-white/50 hover:border-blue-200">
-          <div class="w-20 h-20 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+      <a href="kalkulator.html" class="group block md:col-span-2 lg:col-span-1">
+        <div class="bg-white/80 backdrop-blur-sm p-8 rounded-3xl shadow-xl border border-white/50 hover:border-blue-300 hover:-translate-y-2 transition-all duration-300 h-full">
+          <div class="w-20 h-20 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all">
             <span class="text-3xl">🧮</span>
           </div>
-          <h3 class="text-2xl font-black text-gray-900 mb-4 group-hover:text-blue-600 transition-colors">Kalkulator Dosis</h3>
-          <p class="text-lg text-gray-600 leading-relaxed">
-            Hitung dosis obat, cairan, konversi berat, parameter klinis secara akurat
+          <h3 class="text-2xl font-black text-gray-900 mb-4 text-center group-hover:text-blue-600 transition-colors">Kalkulator Dosis</h3>
+          <p class="text-lg text-gray-600 leading-relaxed text-center">
+            Hitung dosis obat, cairan infus, konversi berat badan klinis secara akurat.
           </p>
         </div>
-      </div>
-
-      <div class="group">
-        <div class="bg-white/80 backdrop-blur-sm p-8 rounded-3xl shadow-xl hover:shadow-2xl hover:-translate-y-4 transition-all duration-500 border border-white/50 hover:border-indigo-200">
-          <div class="w-20 h-20 bg-gradient-to-br from-indigo-400 to-purple-500 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
-            <span class="text-3xl">📖</span>
-          </div>
-          <h3 class="text-2xl font-black text-gray-900 mb-4 group-hover:text-indigo-600 transition-colors">Referensi</h3>
-          <p class="text-lg text-gray-600 leading-relaxed">
-            Jurnal, textbook, panduan klinis terbaru kedokteran hewan
-          </p>
-        </div>
-      </div>
+      </a>
 
     </div>
   </section>
 
-  <!-- CTA Edukasi -->
-  <section class="bg-gradient-to-r from-green-600 to-emerald-600 text-white py-20">
+  <section class="bg-gradient-to-r from-green-600 to-emerald-600 text-white py-16 mt-12">
     <div class="max-w-4xl mx-auto px-4 text-center">
-      <h2 class="text-4xl md:text-5xl font-black mb-6">
-        Bantu Kesehatan Hewan Indonesia
-      </h2>
-      <p class="text-xl mb-8 opacity-95 max-w-2xl mx-auto">
-        Bagikan ke dokter hewan, mahasiswa, dan komunitas pecinta hewan lainnya
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center text-lg">
-        <button class="px-8 py-4 bg-white text-green-700 font-semibold rounded-2xl shadow-2xl hover:shadow-green-500/25 hover:-translate-y-1 transition-all duration-300">
-          <a href="kalkulator.html" class="px-8 py-4 bg-white text-green-700 font-semibold rounded-2xl shadow-2xl hover:shadow-green-500/25 hover:-translate-y-1 transition-all duration-300">
-  🧮 Coba Kalkulator Dosis
-</a>
-        </button>
-        <button class="px-8 py-4 border-2 border-white text-white font-semibold rounded-2xl hover:bg-white hover:text-green-700 transition-all duration-300">
-          🔗 Bagikan
-        </button>
+      <h2 class="text-4xl font-black mb-4">Bantu Kesehatan Hewan Indonesia</h2>
+      <p class="text-xl mb-8 opacity-90">Bagikan ke dokter hewan, mahasiswa, dan klinik.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="kalkulator.html" class="px-8 py-4 bg-white text-green-700 font-bold rounded-2xl shadow-xl hover:-translate-y-1 transition-transform">
+          🧮 Coba Kalkulator Dosis
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="bg-gray-900 text-white py-12 border-t-8 border-green-900">
-    <div class="max-w-6xl mx-auto px-4 text-center">
-      <div class="flex items-center justify-center space-x-3 mb-6">
-        <span class="text-3xl">🐾</span>
-        <h3 class="text-2xl font-black">VetMed Hub</h3>
-      </div>
-      <p class="text-gray-400 mb-6">
-        Dibuat oleh komunitas untuk kesehatan hewan Indonesia • 100% Gratis • Open Source
-      </p>
-      <div class="flex flex-wrap justify-center gap-6 text-sm text-gray-400">
-        <a href="#" class="hover:text-white transition-colors">Kontribusi</a>
-        <a href="#" class="hover:text-white transition-colors">Panduan</a>
-        <a href="#" class="hover:text-white transition-colors">Tentang</a>
-        <a href="#" class="hover:text-white transition-colors">Discord</a>
-      </div>
-    </div>
+  <footer class="bg-gray-900 text-white py-12 border-t-8 border-green-900 text-center">
+    <p class="text-gray-400">🐾 VetMed Hub © 2026 • 100% Gratis & Terbuka</p>
   </footer>
 
-  <!-- Mobile Menu -->
-  <div id="mobile-overlay" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 hidden md:hidden"></div>
-  <div id="mobile-menu-panel" class="fixed left-0 top-16 h-[calc(100vh-4rem)] w-64 bg-white shadow-2xl transform -translate-x-full md:hidden transition-transform duration-300 z-50">
-    <nav class="p-8 space-y-6">
-      <a href="#spesies" class="block py-3 font-medium text-gray-700 hover:text-green-600 border-b border-gray-100 pb-3">Spesies Hewan</a>
-      <a href="#penyakit" class="block py-3 font-medium text-gray-700 hover:text-green-600 border-b border-gray-100 pb-3">Penyakit Hewan</a>
-      <a href="#farmakologi" class="block py-3 font-medium text-gray-700 hover:text-green-600 border-b border-gray-100 pb-3">Farmakologi</a>
-      <a href="#kalkulator" class="block py-3 font-medium text-gray-700 hover:text-green-600">Kalkulator Dosis</a>
+  <div id="mobile-overlay" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 hidden"></div>
+  <div id="mobile-menu-panel" class="fixed left-0 top-16 h-[calc(100vh-4rem)] w-64 bg-white shadow-2xl transform -translate-x-full transition-transform duration-300 z-50">
+    <nav class="p-6 space-y-4">
+      <a href="index.html" class="block py-2 text-gray-700 font-medium">Beranda</a>
+      <a href="berandafarmakologi.html" class="block py-2 text-gray-700 font-medium">Farmakologi</a>
+      <a href="kalkulator.html" class="block py-2 text-gray-700 font-medium">Kalkulator Dosis</a>
     </nav>
   </div>
 
   <script>
-    // Mobile menu
-    document.getElementById('mobile-menu').addEventListener('click', () => {
-      document.getElementById('mobile-menu-panel').classList.toggle('-translate-x-full')
-      document.getElementById('mobile-overlay').classList.toggle('hidden')
-    })
-    
-    document.getElementById('mobile-overlay').addEventListener('click', () => {
-      document.getElementById('mobile-menu-panel').classList.add('-translate-x-full')
-      document.getElementById('mobile-overlay').classList.add('hidden')
-    })
-    
-    // Search Cmd+K
-    document.addEventListener('keydown', (e) => {
-      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
-        e.preventDefault()
-        document.getElementById('search').focus()
-      }
-    })
-    
-    // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault()
-        const target = document.querySelector(this.getAttribute('href'))
-        target?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-      })
-    })
+    const btn = document.getElementById('mobile-menu-btn');
+    const panel = document.getElementById('mobile-menu-panel');
+    const overlay = document.getElementById('mobile-overlay');
+
+    btn.addEventListener('click', () => {
+      panel.classList.toggle('-translate-x-full');
+      overlay.classList.toggle('hidden');
+    });
+    overlay.addEventListener('click', () => {
+      panel.classList.add('-translate-x-full');
+      overlay.classList.add('hidden');
+    });
   </script>
 </body>
 </html>
