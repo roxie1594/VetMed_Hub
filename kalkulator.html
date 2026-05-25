@@ -247,24 +247,29 @@
   </footer>
 
   <script>
-    // Tab switching
-    document.querySelectorAll('.tab-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const target = btn.dataset.tab
-        
-        document.querySelectorAll('.tab-btn').forEach(b => {
-          b.classList.remove('bg-green-50', 'border-green-500', 'text-green-700')
-        })
-        document.querySelectorAll('.tab-panel').forEach(p => {
-          p.classList.remove('active')
-          p.style.display = 'none'
-        })
-        
-        btn.classList.add('bg-green-50', 'border-green-500', 'text-green-700')
-        document.querySelector(`[data-tab="${target}"]`).classList.add('active')
-        document.querySelector(`[data-tab="${target}"]`).style.display = 'block'
-      })
+   // Tab switching (Versi Otomatis Scroll & Ganti Warna Tombol)
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault(); // Mencegah lompatan kasar/instan
+
+    // 1. Bersihkan warna aktif (hijau) dari semua tombol navigasi
+    document.querySelectorAll('.tab-btn').forEach(b => {
+      b.classList.remove('bg-green-50', 'border-green-500', 'text-green-700')
     })
+    
+    // 2. Tambahkan warna aktif ke tombol yang baru saja diklik
+    btn.classList.add('bg-green-50', 'border-green-500', 'text-green-700')
+
+    // 3. Ambil target ID dari href (contoh: #konversi, #dosis, #cairan)
+    const targetId = btn.getAttribute('href')
+    const targetPanel = document.querySelector(targetId)
+    
+    // 4. Jalankan scroll halus ke kalkulator tujuan
+    if (targetPanel) {
+      targetPanel.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  })
+})
 
     // KONVERSI BERAT (tetap sama, cuma tambah UI spesies)
     function updateKonversi() {
