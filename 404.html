@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>404 - Halaman Tidak Ketemu 🐕</title>
   
-  <link class="manifest" href="manifest.json">
+  <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#10b981">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐕</text></svg>">
   
@@ -18,11 +18,12 @@
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght=400;500;600;700;800&display=swap');
     * { font-family: 'Inter', sans-serif; }
     
+    /* Modifikasi CSS untuk transisi background RNG halus */
     .bg-error {
-      background-image: url('https://images.unsplash.com/photo-1543466835-00a7907e9de1?q=80&w=1974&auto=format&fit=crop');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
+      transition: background-image 0.5s ease-in-out;
     }
     
     .bg-overlay {
@@ -99,7 +100,7 @@
         
         <div class="space-y-4">
           <div class="relative">
-            <input type="text" id="search-input" placeholder="Cari obat, penyakit, kalkulator..." 
+            <input type="text" id="search-input" placeholder="Cari info kalkulator / spesies..." 
                    class="w-full px-5 py-3.5 pr-14 rounded-2xl border-2 border-gray-200 focus:border-green-500 focus:outline-none focus:ring-4 focus:ring-green-100 transition-all text-base">
             <button id="search-btn" class="absolute right-2 top-1/2 -translate-y-1/2 p-2.5 bg-green-600 text-white rounded-xl hover:bg-green-700 transition-all btn-bounce">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -139,7 +140,7 @@
   </footer>
 
   <script>
-    // 1. SISTEM PIPELINE PENCARIAN (SINKRONISASI KE INDEX.HTML)
+    // 1. PIPELINE PENCARIAN SINKRON KE INDEX.HTML
     const searchBtn = document.getElementById('search-btn');
     const searchInput = document.getElementById('search-input');
 
@@ -147,15 +148,12 @@
       function jalankanPencarian() {
         const query = searchInput.value.trim();
         if (query !== '') {
-          // Oper kata kunci ke index.html dengan URL Encoding aman
           window.location.href = `index.html?search=${encodeURIComponent(query)}`;
         }
       }
 
-      // Klik Tombol Kaca Pembesar
       searchBtn.addEventListener('click', jalankanPencarian);
       
-      // Tekan tombol Enter di keyboard
       searchInput.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') {
           jalankanPencarian();
@@ -163,14 +161,12 @@
       });
     }
     
-    // 2. FITUR AUDIO GONGGONG REALISTIS (Web Audio API Tanpa File Eksternal)
+    // 2. AUDIO GONGGONG REALISTIS (Double Woof Burst)
     const dogAvatar = document.getElementById('dog-avatar');
     
     function playBarkSound() {
       try {
         const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        
-        // Pola gonggongan rangkap (Double Woof Burst) agar terdengar natural
         const barks = [0, 0.06]; 
         
         barks.forEach((delay) => {
@@ -178,7 +174,6 @@
           const gainNode = audioCtx.createGain();
           
           osc.type = 'triangle';
-          // Set Frekuensi suara dasar anjing
           osc.frequency.setValueAtTime(140, audioCtx.currentTime + delay);
           osc.frequency.exponentialRampToValueAtTime(65, audioCtx.currentTime + delay + 0.1);
           
@@ -192,15 +187,13 @@
           osc.stop(audioCtx.currentTime + delay + 0.1);
         });
       } catch (e) {
-        console.log("Audio API tidak didukung atau sedang diblokir oleh browser.");
+        console.log("Audio API tidak didukung atau diblokir browser.");
       }
     }
 
     if (dogAvatar) {
       dogAvatar.addEventListener('click', () => {
         playBarkSound();
-        
-        // Animasi ekor bergoyang cepat saat anjing menggonggong
         dogAvatar.style.animation = 'wag 0.1s ease-in-out infinite';
         setTimeout(() => {
           dogAvatar.style.animation = '';
@@ -208,21 +201,43 @@
       });
     }
 
-    // 3. GENERATOR FAKTA MEDIS ACAK
+    // 3. SISTEM GANDA: RNG FUN FACT & RNG BACKGROUND IMAGE UNSPLASH
     const animalFacts = [
       "Anjing punya 300 juta reseptor penciuman di hidungnya—50 kali lipat lebih banyak dari manusia!",
       "Hidung anjing memiliki pola guratan unik yang sama mutlaknya dengan sidik jari manusia.",
       "Kucing memiliki jangkauan suara hingga 100 jenis vokal berbeda, sedangkan anjing hanya sekitar 10.",
-      "Detak jantung normal seekor anjing ras kecil berkisar antara 100-140 kali per menit (jauh lebih cepat dari manusia).",
-      "Anjing tidak sepenuhnya buta warna; mereka masih bisa mengenali gradasi warna biru dan kuning dengan baik."
+      "Detak jantung normal seekor anjing ras kecil berkisar antara 100-140 kali per menit.",
+      "Anjing tidak sepenuhnya buta warna; mereka masih bisa mengenali gradasi warna biru dan kuning dengan baik.",
+      "Kuda berkomunikasi mengekspresikan emosinya lewat gerakan daun telinga, lubang hidung, dan mata.",
+      "Sapi memiliki memori yang sangat baik dan bisa mengingat wajah kawannya dalam waktu lama."
+    ];
+
+    // Source ID dari Unsplash untuk foto-foto bernuansa edukasi hewan / klinik veteriner
+    const animalPhotoIds = [
+      "photo-1543466835-00a7907e9de1", // Anjing lucu
+      "photo-1514888286974-6c03e2ca1dba", // Kucing
+      "photo-1576091160399-112ba8d25d1d", // Klinik Hewan / Stetoskop
+      "photo-1584132967334-10e028bd69f7", // Anjing Golden Retriever
+      "photo-1596492784531-6e6eb5ea9993", // Pemeriksaan Kucing
+      "photo-1551884170-09fb70a3a2ed"  // Kuda / Pemeriksaan Ternak
     ];
 
     document.addEventListener('DOMContentLoaded', () => {
+      // --- RNG Fakta Medis ---
       const factText = document.getElementById('fact-text');
       if (factText) {
-        const randomIndex = Math.floor(Math.random() * animalFacts.length);
-        factText.textContent = animalFacts[randomIndex];
+        const randomFactIndex = Math.floor(Math.random() * animalFacts.length);
+        factText.textContent = animalFacts[randomFactIndex];
       }
+
+      // --- RNG Background Image ---
+      const randomPhotoIndex = Math.floor(Math.random() * animalPhotoIds.length);
+      const chosenPhotoId = animalPhotoIds[randomPhotoIndex];
+      
+      // Menggunakan ID spesifik agar gambar dipastikan berkualitas tinggi, sesuai tema, dan tidak rusak
+      const randomImageUrl = `https://images.unsplash.com/${chosenPhotoId}?q=80&w=1974&auto=format&fit=crop`;
+      
+      document.body.style.backgroundImage = `url('${randomImageUrl}')`;
     });
   </script>
 </body>
