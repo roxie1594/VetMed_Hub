@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 - Halaman Tidak Ketemu 🐕</title>
+  
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#10b981">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐕</text></svg>">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: { colors: { green: { 700: '#047857' } } } } }
+  </script>
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+    * { font-family: 'Inter', sans-serif; }
+    
+    .bg-error {
+      background-image: url('https://images.unsplash.com/photo-1543466835-00a7907e9de1?q=80&w=1974&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+    
+    .bg-overlay {
+      background: linear-gradient(135deg, rgba(4, 120, 87, 0.4), rgba(0, 0, 0, 0.6));
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-15px) rotate(1deg); }
+    }
+    
+    .float-animation {
+      animation: float 4s ease-in-out infinite;
+    }
+    
+    @keyframes wag {
+      0%, 100% { transform: rotate(-8deg); }
+      50% { transform: rotate(8deg); }
+    }
+    
+    .dog-wag {
+      transform-origin: bottom center;
+      animation: wag 0.4s ease-in-out infinite;
+      cursor: pointer;
+    }
+    
+    .btn-bounce:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+
+<body class="bg-error min-h-screen flex flex-col relative overflow-x-hidden">
+  
+  <div class="bg-overlay absolute inset-0 z-0"></div>
+  
+  <nav class="relative z-50 bg-white/10 backdrop-blur-md shadow-sm border-b border-white/10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center py-4">
+        <a href="index.html" class="text-2xl font-black text-white flex items-center space-x-2 drop-shadow-md">
+          <span>🐾</span><span>VetMed Hub</span>
+        </a>
+        <a href="index.html" class="px-5 py-2 bg-white/20 text-white font-semibold rounded-xl hover:bg-white/30 backdrop-blur-sm transition-all border border-white/20">
+          ← Beranda
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="relative z-10 flex-1 flex items-center justify-center py-10">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      
+      <div class="float-animation mb-4 flex items-center justify-center space-x-2 select-none">
+        <span class="text-[130px] md:text-[200px] font-black text-white leading-none drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)]">4</span>
+        <span class="text-[100px] md:text-[160px] drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)] animate-pulse">🐾</span>
+        <span class="text-[130px] md:text-[200px] font-black text-white leading-none drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)]">4</span>
+      </div>
+      
+      <div class="bg-white/95 backdrop-blur-md rounded-3xl p-6 md:p-8 shadow-2xl max-w-lg mx-auto border border-white/20">
+        
+        <div id="dog-avatar" class="dog-wag mb-4 relative inline-block group" title="Klik aku untuk menggonggong!">
+          <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><circle cx='100' cy='100' r='80' fill='%23D2691E'/><circle cx='60' cy='70' r='25' fill='%23D2691E'/><circle cx='140' cy='70' r='25' fill='%23D2691E'/><circle cx='100' cy='50' r='20' fill='%23D2691E'/><circle cx='45' cy='40' r='8' fill='black'/><circle cx='155' cy='40' r='8' fill='black'/><circle cx='45' cy='38' r='3' fill='white'/><circle cx='155' cy='38' r='3' fill='white'/><ellipse cx='100' cy='110' rx='15' ry='10' fill='black'/><path d='M85 120 Q100 140 115 120' stroke='black' stroke-width='3' fill='none'/></svg>" 
+               alt="Dog" class="w-24 h-24 mx-auto transition-transform group-hover:scale-110">
+          <span class="absolute -top-3 -right-3 bg-red-500 text-white text-xs px-2 py-0.5 rounded-full font-bold shadow animate-bounce">Klik Aku!</span>
+        </div>
+
+        <h1 class="text-2xl md:text-3xl font-black text-gray-900 mb-2">
+          <span class="text-red-500">Waduh!</span> Halamannya Kabur!
+        </h1>
+        
+        <p class="text-gray-600 mb-6 text-sm md:text-base">
+          Tenang, pasien bulu kita aman kok. Cuma halaman yang kamu cari mungkin salah ketik atau sudah pindah klinik. 🩺
+        </p>
+        
+        <div class="space-y-4">
+          <div class="relative">
+            <input type="text" id="search-input" placeholder="Cari info kalkulator / spesies..." 
+                   class="w-full px-5 py-3.5 pr-14 rounded-2xl border-2 border-gray-200 focus:border-green-500 focus:outline-none focus:ring-4 focus:ring-green-100 transition-all text-base">
+            <button id="search-btn" class="absolute right-2 top-1/2 -translate-y-1/2 p-2.5 bg-green-600 text-white rounded-xl hover:bg-green-700 transition-all btn-bounce">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+              </svg>
+            </button>
+          </div>
+          
+          <div class="flex flex-wrap justify-center gap-2 pt-1">
+            <a href="index.html" class="px-4 py-2 bg-green-50 text-green-700 font-bold text-xs rounded-xl hover:bg-green-100 transition-all border border-green-200/50">
+              🏠 Beranda
+            </a>
+            <a href="kalkulator.html" class="px-4 py-2 bg-blue-50 text-blue-700 font-bold text-xs rounded-xl hover:bg-blue-100 transition-all border border-blue-200/50">
+              🧮 Kalkulator
+            </a>
+            <a href="berandaspesies.html" class="px-4 py-2 bg-purple-50 text-purple-700 font-bold text-xs rounded-xl hover:bg-purple-100 transition-all border border-purple-200/50">
+              🐕 Menu Spesies
+            </a>
+          </div>
+        </div>
+        
+        <div class="mt-6 p-4 bg-amber-50 rounded-2xl border border-amber-200 text-left">
+          <p class="text-xs text-amber-950 leading-relaxed">
+            <span class="font-bold block text-sm text-amber-800 mb-0.5">💡 Fakta Medis Hewan:</span>
+            <span id="fact-text">Anjing punya 300 juta reseptor penciuman - 50x lebih banyak dari manusia!</span>
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="relative z-10 bg-black/20 backdrop-blur-md border-t border-white/10 py-6 mt-auto">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <p class="text-white/60 text-xs font-medium">VetMed Hub © 2026 • Dirawat dengan Cinta Sepenuh Hati 🐾</p>
+    </div>
+  </footer>
+
+  <script>
+    // 1. FIX BUG: Pencarian Menggunakan ID yang Benar
+    const searchBtn = document.getElementById('search-btn');
+    const searchInput = document.getElementById('search-input');
+
+    if (searchBtn && searchInput) {
+      searchBtn.addEventListener('click', () => {
+        const query = searchInput.value;
+        if (query) {
+          window.location.href = `index.html?search=${encodeURIComponent(query)}`;
+        }
+      });
+      
+      searchInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+          searchBtn.click();
+        }
+      });
+    }
+    
+    // 2. FITUR RAHASIA: Efek Suara Gonggong (Web Audio API) Tanpa File Eksternal
+    const dogAvatar = document.getElementById('dog-avatar');
+    
+    function playBarkSound() {
+      try {
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        
+        // Suara Gonggong Utama
+        const osc = audioCtx.createOscillator();
+        const gainNode = audioCtx.createGain();
+        
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(130, audioCtx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(70, audioCtx.currentTime + 0.12);
+        
+        gainNode.gain.setValueAtTime(0.4, audioCtx.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.12);
+        
+        osc.connect(gainNode);
+        gainNode.connect(audioCtx.destination);
+        
+        osc.start();
+        osc.stop(audioCtx.currentTime + 0.12);
+      } catch (e) {
+        console.log("Audio bork disabled or not supported yet.");
+      }
+    }
+
+    if (dogAvatar) {
+      dogAvatar.addEventListener('click', () => {
+        playBarkSound();
+        
+        // Ubah animasi ekor jadi super cepat selama 1 detik pas digonggong
+        dogAvatar.style.animation = 'wag 0.1s ease-in-out infinite';
+        setTimeout(() => {
+          dogAvatar.style.animation = '';
+        }, 1000);
+      });
+    }
+
+    // 3. FITUR: Fakta Medis Acak / Random Fact Generator
+    const animalFacts = [
+      "Anjing punya 300 juta reseptor penciuman di hidungnya—50 kali lipat lebih banyak dari manusia!",
+      "Hidung anjing memiliki pola guratan unik yang sama mutlaknya dengan sidik jari manusia.",
+      "Kucing memiliki jangkauan suara hingga 100 jenis vokal berbeda, sedangkan anjing hanya sekitar 10.",
+      "Detak jantung normal seekor anjing ras kecil berkisar antara 100-140 kali per menit (jauh lebih cepat dari manusia).",
+      "Anjing tidak sepenuhnya buta warna; mereka masih bisa mengenali gradasi warna biru dan kuning dengan baik."
+    ];
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const factText = document.getElementById('fact-text');
+      if (factText) {
+        const randomIndex = Math.floor(Math.random() * animalFacts.length);
+        factText.textContent = animalFacts[randomIndex];
+      }
+    });
+  </script>
+</body>
+</html>
