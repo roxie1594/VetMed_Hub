@@ -18,8 +18,9 @@
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght=400;500;600;700;800&display=swap');
     * { font-family: 'Inter', sans-serif; }
     
-    /* Modifikasi CSS untuk transisi background RNG halus */
+    /* MODIFIKASI: Ditambahkan background-color dasar sebagai cadangan */
     .bg-error {
+      background-color: #064e3b; /* Hijau gelap estetik klinik */
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
@@ -27,7 +28,7 @@
     }
     
     .bg-overlay {
-      background: linear-gradient(135deg, rgba(4, 120, 87, 0.4), rgba(0, 0, 0, 0.6));
+      background: linear-gradient(135deg, rgba(4, 120, 87, 0.4), rgba(0, 0, 0, 0.7));
     }
     
     @keyframes float {
@@ -137,7 +138,7 @@
     <div class="max-w-6xl mx-auto px-4 text-center">
       <p class="text-white/60 text-xs font-medium">VetMed Hub © 2026 • Dirawat dengan Cinta Sepenuh Hati 🐾</p>
     </div>
-  </footer>
+  </footer >
 
   <script>
     // 1. PIPELINE PENCARIAN SINKRON KE INDEX.HTML
@@ -206,24 +207,23 @@
       "Anjing punya 300 juta reseptor penciuman di hidungnya—50 kali lipat lebih banyak dari manusia!",
       "Hidung anjing memiliki pola guratan unik yang sama mutlaknya dengan sidik jari manusia.",
       "Kucing memiliki jangkauan suara hingga 100 jenis vokal berbeda, sedangkan anjing hanya sekitar 10.",
-      "Detak jantung normal seekor anjing ras kecil berkisar antara 100-140 kali per menit.",
+      "Detak jantung normal seekor anjing ras kecil berkisar antara 100-140 kali per minute.",
       "Anjing tidak sepenuhnya buta warna; mereka masih bisa mengenali gradasi warna biru dan kuning dengan baik.",
       "Kuda berkomunikasi mengekspresikan emosinya lewat gerakan daun telinga, lubang hidung, dan mata.",
       "Sapi memiliki memori yang sangat baik dan bisa mengingat wajah kawannya dalam waktu lama.",
       "Kura-kura bernapas di dalam air menggunakan organ kloaka (bagian anus). Hal ini memungkinkan mereka menyelam hingga tiga hari.",
-      "Ketika sekelompok flamingo berkumpul, hal itu disebut sebagai "flamboyance."",
+      "Ketika sekelompok flamingo berkumpul, hal itu disebut sebagai 'flamboyance'.",
       "Burung camar Arktik memegang rekor perjalanan migrasi terpanjang di antara semua burung, menempuh jarak hingga 71.000 km.",
       "Turritopsis dohrnii, spesies ubur-ubur, dapat kembali ke bentuk juvenilnya setelah mencapai kematangan, yang berpotensi memungkinkannya untuk hidup tanpa batas waktu."
     ];
 
-    // Source ID dari Unsplash untuk foto-foto bernuansa edukasi hewan / klinik veteriner
     const animalPhotoIds = [
-      "photo-1543466835-00a7907e9de1", // Anjing lucu
-      "photo-1514888286974-6c03e2ca1dba", // Kucing
-      "photo-1576091160399-112ba8d25d1d", // Klinik Hewan / Stetoskop
-      "photo-1584132967334-10e028bd69f7", // Anjing Golden Retriever
-      "photo-1596492784531-6e6eb5ea9993", // Pemeriksaan Kucing
-      "photo-1551884170-09fb70a3a2ed"  // Kuda / Pemeriksaan Ternak
+      "photo-1543466835-00a7907e9de1", 
+      "photo-1514888286974-6c03e2ca1dba", 
+      "photo-1576091160399-112ba8d25d1d", 
+      "photo-1584132967334-10e028bd69f7", 
+      "photo-1596492784531-6e6eb5ea9993", 
+      "photo-1551884170-09fb70a3a2ed"  
     ];
 
     document.addEventListener('DOMContentLoaded', () => {
@@ -234,14 +234,16 @@
         factText.textContent = animalFacts[randomFactIndex];
       }
 
-      // --- RNG Background Image ---
+      // --- RNG Background Image dengan Mekanisme Preload ---
       const randomPhotoIndex = Math.floor(Math.random() * animalPhotoIds.length);
       const chosenPhotoId = animalPhotoIds[randomPhotoIndex];
-      
-      // Menggunakan ID spesifik agar gambar dipastikan berkualitas tinggi, sesuai tema, dan tidak rusak
       const randomImageUrl = `https://images.unsplash.com/${chosenPhotoId}?q=80&w=1974&auto=format&fit=crop`;
       
-      document.body.style.backgroundImage = `url('${randomImageUrl}')`;
+      const imgPreloader = new Image();
+      imgPreloader.src = randomImageUrl;
+      imgPreloader.onload = () => {
+        document.body.style.backgroundImage = `url('${randomImageUrl}')`;
+      };
     });
   </script>
 </body>
