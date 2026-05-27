@@ -31,28 +31,49 @@ a, button, #dog-avatar, .btn-bounce {
   cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32'><image href='https://cdn.cursors-4u.net/previews/my-custom-cursor-8-957a5617-32.webp' width='32' height='32'/></svg>"), pointer !important;
 }
 
-    /* 1. Atur Ukuran Lebar Lintasan Scroll Bar */
+  /* 1. Kita bikin ukurannya lebih gendut (dari 10px naik ke 16px) */
 ::-webkit-scrollbar {
-  width: 10px; /* Bikin ukurannya pas, tidak terlalu tebal dan tidak terlalu tipis */
-  height: 10px; /* Untuk scroll bar horizontal (jika ada) */
+  width: 16px; 
+  height: 16px; 
 }
 
-/* 2. Atur Latar Belakang Lintasan (Track) */
+/* 2. Lintasan belakang dibuat transparan estetik */
 ::-webkit-scrollbar-track {
-  background: rgba(243, 244, 246, 0.6); /* Warna abu-abu super soft dengan efek agak transparan */
-  border-radius: 100px; /* Bikin ujung lintasan jadi melengkung halus */
+  background: rgba(243, 244, 246, 0.4);
+  border-radius: 100px;
 }
 
-/* 3. Atur Batang Penggulung yang Bisa Digeser (Thumb) */
+/* 3. Batang Penggulung (Montok + Pola Garis Klinik) */
 ::-webkit-scrollbar-thumb {
-  background: #047857; /* Warna Hijau Klinik (Emerald) biar senada dengan tema web */
-  border-radius: 100px; /* Bikin batangnya berbentuk kapsul bulat estetik */
-  border: 2px solid #f3f4f6; /* Trik border padding: ngasih jarak antara batang dan dinding lintasan */
+  /* Trik pola garis-garis miring (Zebra) pakai warna Hijau Klinik */
+  background-image: linear-gradient(
+    45deg, 
+    #047857 25%, 
+    #059669 25%, 
+    #059669 50%, 
+    #047857 50%, 
+    #047857 75%, 
+    #059669 75%, 
+    #059669 100%
+  );
+  background-size: 20px 20px; /* Mengatur kerapatan pola garisnya */
+  border-radius: 100px;
+  border: 3px solid #ffffff; /* Menggemukkan ruang border biar kelihatan menonjol */
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.15); /* Efek bayangan biar agak 3D */
 }
 
-/* 4. Efek Interaktif: Warna Berubah Saat Mouse Menempel (Hover) */
+/* 4. Efek Pas Mouse Menempel (Warna Pola Berubah Lebih Tegas) */
 ::-webkit-scrollbar-thumb:hover {
-  background: #065f46; /* Hijau yang sedikit lebih gelap pas digeser agar terasa hidup */
+  background-image: linear-gradient(
+    45deg, 
+    #065f46 25%, 
+    #047857 25%, 
+    #047857 50%, 
+    #065f46 50%, 
+    #065f46 75%, 
+    #047857 75%, 
+    #047857 100%
+  );
 }
   </style>
 </head>
