@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>404 - Halaman Tidak Ketemu 🐕</title>
   
-  <link rel="manifest" href="manifest.json">
+  <link class="manifest" href="manifest.json">
   <meta name="theme-color" content="#10b981">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐕</text></svg>">
   
@@ -15,7 +15,7 @@
   </script>
   
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght=400;500;600;700;800&display=swap');
     * { font-family: 'Inter', sans-serif; }
     
     .bg-error {
@@ -99,7 +99,7 @@
         
         <div class="space-y-4">
           <div class="relative">
-            <input type="text" id="search-input" placeholder="Cari info kalkulator / spesies..." 
+            <input type="text" id="search-input" placeholder="Cari obat, penyakit, kalkulator..." 
                    class="w-full px-5 py-3.5 pr-14 rounded-2xl border-2 border-gray-200 focus:border-green-500 focus:outline-none focus:ring-4 focus:ring-green-100 transition-all text-base">
             <button id="search-btn" class="absolute right-2 top-1/2 -translate-y-1/2 p-2.5 bg-green-600 text-white rounded-xl hover:bg-green-700 transition-all btn-bounce">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -124,7 +124,7 @@
         <div class="mt-6 p-4 bg-amber-50 rounded-2xl border border-amber-200 text-left">
           <p class="text-xs text-amber-950 leading-relaxed">
             <span class="font-bold block text-sm text-amber-800 mb-0.5">💡 Fakta Medis Hewan:</span>
-            <span id="fact-text">Anjing punya 300 juta reseptor penciuman - 50x lebih banyak dari manusia!</span>
+            <span id="fact-text">Memuat fakta menarik klinik...</span>
           </p>
         </div>
 
@@ -139,50 +139,60 @@
   </footer>
 
   <script>
-    // 1. FIX BUG: Pencarian Menggunakan ID yang Benar
+    // 1. SISTEM PIPELINE PENCARIAN (SINKRONISASI KE INDEX.HTML)
     const searchBtn = document.getElementById('search-btn');
     const searchInput = document.getElementById('search-input');
 
     if (searchBtn && searchInput) {
-      searchBtn.addEventListener('click', () => {
-        const query = searchInput.value;
-        if (query) {
+      function jalankanPencarian() {
+        const query = searchInput.value.trim();
+        if (query !== '') {
+          // Oper kata kunci ke index.html dengan URL Encoding aman
           window.location.href = `index.html?search=${encodeURIComponent(query)}`;
         }
-      });
+      }
+
+      // Klik Tombol Kaca Pembesar
+      searchBtn.addEventListener('click', jalankanPencarian);
       
+      // Tekan tombol Enter di keyboard
       searchInput.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') {
-          searchBtn.click();
+          jalankanPencarian();
         }
       });
     }
     
-    // 2. FITUR RAHASIA: Efek Suara Gonggong (Web Audio API) Tanpa File Eksternal
+    // 2. FITUR AUDIO GONGGONG REALISTIS (Web Audio API Tanpa File Eksternal)
     const dogAvatar = document.getElementById('dog-avatar');
     
     function playBarkSound() {
       try {
         const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
         
-        // Suara Gonggong Utama
-        const osc = audioCtx.createOscillator();
-        const gainNode = audioCtx.createGain();
+        // Pola gonggongan rangkap (Double Woof Burst) agar terdengar natural
+        const barks = [0, 0.06]; 
         
-        osc.type = 'triangle';
-        osc.frequency.setValueAtTime(130, audioCtx.currentTime);
-        osc.frequency.exponentialRampToValueAtTime(70, audioCtx.currentTime + 0.12);
-        
-        gainNode.gain.setValueAtTime(0.4, audioCtx.currentTime);
-        gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.12);
-        
-        osc.connect(gainNode);
-        gainNode.connect(audioCtx.destination);
-        
-        osc.start();
-        osc.stop(audioCtx.currentTime + 0.12);
+        barks.forEach((delay) => {
+          const osc = audioCtx.createOscillator();
+          const gainNode = audioCtx.createGain();
+          
+          osc.type = 'triangle';
+          // Set Frekuensi suara dasar anjing
+          osc.frequency.setValueAtTime(140, audioCtx.currentTime + delay);
+          osc.frequency.exponentialRampToValueAtTime(65, audioCtx.currentTime + delay + 0.1);
+          
+          gainNode.gain.setValueAtTime(0.3, audioCtx.currentTime + delay);
+          gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + delay + 0.1);
+          
+          osc.connect(gainNode);
+          gainNode.connect(audioCtx.destination);
+          
+          osc.start(audioCtx.currentTime + delay);
+          osc.stop(audioCtx.currentTime + delay + 0.1);
+        });
       } catch (e) {
-        console.log("Audio bork disabled or not supported yet.");
+        console.log("Audio API tidak didukung atau sedang diblokir oleh browser.");
       }
     }
 
@@ -190,15 +200,15 @@
       dogAvatar.addEventListener('click', () => {
         playBarkSound();
         
-        // Ubah animasi ekor jadi super cepat selama 1 detik pas digonggong
+        // Animasi ekor bergoyang cepat saat anjing menggonggong
         dogAvatar.style.animation = 'wag 0.1s ease-in-out infinite';
         setTimeout(() => {
           dogAvatar.style.animation = '';
-        }, 1000);
+        }, 800);
       });
     }
 
-    // 3. FITUR: Fakta Medis Acak / Random Fact Generator
+    // 3. GENERATOR FAKTA MEDIS ACAK
     const animalFacts = [
       "Anjing punya 300 juta reseptor penciuman di hidungnya—50 kali lipat lebih banyak dari manusia!",
       "Hidung anjing memiliki pola guratan unik yang sama mutlaknya dengan sidik jari manusia.",
