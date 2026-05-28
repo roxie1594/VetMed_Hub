@@ -50,7 +50,7 @@
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
       <div class="bg-white p-4 rounded-2xl shadow-sm border border-purple-100 text-center">
         <span class="text-xs text-gray-400 block font-bold uppercase">Suhu Tubuh Normal</span>
-        <span class="text-lg font-extrabold text-purple-700">38°C - 39.2°C</span>
+        <span class="text-lg font-extrabold text-purple-700">38.0°C - 39.2°C</span>
       </div>
       <div class="bg-white p-4 rounded-2xl shadow-sm border border-purple-100 text-center">
         <span class="text-xs text-gray-400 block font-bold uppercase">Detak Jantung</span>
@@ -71,7 +71,7 @@
         <table class="w-full text-left border-collapse">
           <thead>
             <tr class="bg-gradient-to-r from-purple-600 to-violet-700 text-white text-sm">
-              <th class="p-5 font-bold">Nama Obat</th>
+              <th class="p-5 font-bold">Nama Obat & Profil Klinis</th>
               <th class="p-5 font-bold">Rentang Dosis Standar</th>
               <th class="p-5 font-bold">Rute & Frekuensi</th>
               <th class="p-5 font-bold text-center">Kalkulator Medis</th>
@@ -80,21 +80,45 @@
           <tbody class="divide-y divide-gray-100 text-gray-700">
             
             <tr class="hover:bg-purple-50/50 transition-colors">
-              <td class="p-5"><strong class="text-gray-900 block text-lg">Amoxicillin</strong><span class="text-xs text-purple-600 font-medium">Antibiotik Broad-Spectrum</span></td>
+              <td class="p-5 max-w-md">
+                <strong class="text-gray-900 block text-lg">Amoxicillin</strong>
+                <span class="text-xs text-purple-600 font-medium bg-purple-50 px-2 py-0.5 rounded-md">Antibiotik Broad-Spectrum</span>
+                <div class="mt-3 pt-3 border-t border-dashed border-purple-100 text-xs space-y-1 text-gray-600">
+                  <p><strong>⚡ Farmakokinetik:</strong> Absorpsi cepat dan stabil pasca pemberian oral. Didistribusikan secara luas ke sebagian besar jaringan tubuh, namun penetrasi minimal ke SSP kecuali jika terjadi inflamasi (meningitis). Diekskresikan dalam bentuk utuh terutama lewat urine.</p>
+                  <p><strong>⚠️ Efek Samping:</strong> Gangguan pencernaan (muntah, diare, atau penurunan nafsu makan ringan) serta reaksi alergi atau hipersensitivitas kulit pada individu sensitif.</p>
+                  <p><strong>🔄 Interaksi:</strong> Bersifat antagonis jika diberikan bersamaan dengan antibiotik bakteriostatik seperti Tetrasiklin, Makrolida, atau Kloramfenikol.</p>
+                </div>
+              </td>
               <td class="p-5 font-mono font-semibold text-gray-900">10.0 - 20.0 mg/kg</td>
               <td class="p-5"><span class="px-2 py-1 bg-amber-100 text-amber-800 text-xs font-bold rounded-lg uppercase">PO / IV</span><span class="block text-xs text-gray-400 mt-1">Setiap 12 jam (q12h)</span></td>
               <td class="p-5 text-center"><a href="kalkulator.html?obat=amoxicillin&spesies=anjing" class="inline-block bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs px-4 py-2 rounded-xl shadow-md transition-transform active:scale-95">Hitung Dosis 🧮</a></td>
             </tr>
 
             <tr class="hover:bg-purple-50/50 transition-colors">
-              <td class="p-5"><strong class="text-gray-900 block text-lg">Ceftriaxone</strong><span class="text-xs text-purple-600 font-medium">Sefalosporin Generasi ke-3</span></td>
+              <td class="p-5 max-w-md">
+                <strong class="text-gray-900 block text-lg">Ceftriaxone</strong>
+                <span class="text-xs text-purple-600 font-medium bg-purple-50 px-2 py-0.5 rounded-md">Sefalosporin Generasi ke-3</span>
+                <div class="mt-3 pt-3 border-t border-dashed border-purple-100 text-xs space-y-1 text-gray-600">
+                  <p><strong>⚡ Farmakokinetik:</strong> Berikatan tinggi dengan protein plasma, penetrasi yang sangat baik ke cairan ekstraseluler dan jaringan lunak. Eliminasi utama melalui filtrasi ginjal dan sebagian kecil diekskresikan melalui cairan empedu.</p>
+                  <p><strong>⚠️ Efek Samping:</strong> Rasa nyeri atau tidak nyaman lokal pada lokasi penyuntikan IM. Penggunaan jangka panjang berpotensi mengubah mikroflora usus normal dan memicu diare.</p>
+                  <p><strong>🔄 Interaksi:</strong> Risiko nefrotoksisitas meningkat bila dikombinasikan dengan Aminoglikosida atau diuretik kuat (Furosemid). Jangan dicampur satu sediaan dengan larutan intravena yang mengandung kalsium (seperti Ringer's Lactate).</p>
+                </div>
+              </td>
               <td class="p-5 font-mono font-semibold text-gray-900">20.0 - 50.0 mg/kg</td>
               <td class="p-5"><span class="px-2 py-1 bg-red-100 text-red-800 text-xs font-bold rounded-lg uppercase">IV / IM</span><span class="block text-xs text-gray-400 mt-1">Setiap 12-24 jam</span></td>
               <td class="p-5 text-center"><a href="kalkulator.html?obat=ceftriaxone&spesies=anjing" class="inline-block bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs px-4 py-2 rounded-xl shadow-md transition-transform active:scale-95">Hitung Dosis 🧮</a></td>
             </tr>
 
             <tr class="hover:bg-purple-50/50 transition-colors">
-              <td class="p-5"><strong class="text-gray-900 block text-lg">Meloxicam</strong><span class="text-xs text-purple-600 font-medium">Analgesik / Anti-inflamasi (NSAID)</span></td>
+              <td class="p-5 max-w-md">
+                <strong class="text-gray-900 block text-lg">Meloxicam</strong>
+                <span class="text-xs text-purple-600 font-medium bg-purple-50 px-2 py-0.5 rounded-md">Analgesik / Anti-inflamasi (NSAID)</span>
+                <div class="mt-3 pt-3 border-t border-dashed border-purple-100 text-xs space-y-1 text-gray-600">
+                  <p><strong>⚡ Farmakokinetik:</strong> Absorpsi oral sangat tinggi dengan ikatan protein plasma mencapai >97%. Tidak seperti kucing, anjing memiliki metabolisme hepatik via glukuronidasi yang lengkap dan efisien (waktu paruh ~12-24 jam). Ekskresi seimbang lewat feses dan urine.</p>
+                  <p><strong>⚠️ Efek Samping:</strong> Gangguan gastrointestinal (muntah, diare, feses gelap/melena). Potensi nefrotoksisitas jika diberikan pada anjing yang sedang dehidrasi, hipotensi, atau menderita gangguan ginjal bawaan.</p>
+                  <p><strong>🔄 Interaksi:</strong> Kontraindikasi mutlak bila digabung dengan NSAID lain atau golongan Kortikosteroid karena melipatgandakan risiko ulserasi dan perforasi lambung. Dapat menurunkan efektivitas obat antihipertensi.</p>
+                </div>
+              </td>
               <td class="p-5 font-mono font-semibold text-gray-900">0.1 - 0.2 mg/kg</td>
               <td class="p-5"><span class="px-2 py-1 bg-green-100 text-green-800 text-xs font-bold rounded-lg uppercase">PO / SC</span><span class="block text-xs text-gray-400 mt-1">Setiap 24 jam (q24h)</span></td>
               <td class="p-5 text-center"><a href="kalkulator.html?obat=meloxicam&spesies=anjing" class="inline-block bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs px-4 py-2 rounded-xl shadow-md transition-transform active:scale-95">Hitung Dosis 🧮</a></td>
