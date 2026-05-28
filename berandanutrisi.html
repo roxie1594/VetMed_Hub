@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nutrisi Hewan - VetMed Hub</title>
+  <meta name="description" content="Pilih spesies untuk melihat kebutuhan gizi, formulasi pakan, dan diet terapeutik">
+  
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#f97316">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦴</text></svg>">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { orange: { 750: '#ea580c' } } } }
+    }
+  </script>
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght=400;500;600;700;800&display=swap');
+    * { font-family: 'Inter', sans-serif; }
+  </style>
+</head>
+
+<body class="bg-gradient-to-br from-orange-50 via-orange-100 to-amber-50 min-h-screen text-gray-800">
+
+<nav class="bg-white/90 backdrop-blur-md sticky top-0 z-50 shadow-sm border-b border-orange-100">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center py-4">
+      <a href="index.html" class="text-2xl font-black bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent flex items-center space-x-2">
+        <span>🐾</span><span>VetMed Hub</span>
+      </a>
+      
+      <div class="hidden md:flex space-x-8">
+        <a href="index.html" class="group flex items-center space-x-1 font-medium text-gray-700 hover:text-orange-600 transition-all">
+          <span>Beranda</span>
+          <span class="w-2 h-2 bg-orange-600 rounded-full scale-0 group-hover:scale-100 transition-transform"></span>
+        </a>
+        <a href="berandafarmakologi.html" class="group flex items-center space-x-1 font-medium text-gray-700 hover:text-orange-600 transition-all">
+          <span>Farmakologi</span>
+          <span class="w-2 h-2 bg-orange-600 rounded-full scale-0 group-hover:scale-100 transition-transform"></span>
+        </a>
+        <a href="berandaspesies.html" class="group flex items-center space-x-1 font-medium text-orange-600 transition-all">
+          <span>Spesies</span>
+          <span class="w-2 h-2 bg-orange-600 rounded-full scale-100 transition-transform"></span>
+        </a>
+        <a href="kalkulator.html" class="group flex items-center space-x-1 font-medium text-gray-700 hover:text-orange-600 transition-all">
+          <span>Kalkulator</span>
+          <span class="w-2 h-2 bg-orange-600 rounded-full scale-0 group-hover:scale-100 transition-transform"></span>
+        </a>
+      </div>
+
+      <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 hover:text-orange-600">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+  <section class="pt-20 pb-16 text-center">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-orange-100 text-orange-800 mb-6">
+        🥬 Nutrisi Hewan
+      </div>
+      
+      <h1 class="text-4xl md:text-6xl font-black bg-gradient-to-r from-orange-600 via-amber-600 to-yellow-500 bg-clip-text text-transparent mb-4">
+        Referensi Nutrisi Hewan
+      </h1>
+      
+      <p class="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
+        Pilih spesies untuk melihat kebutuhan gizi, formulasi pakan, dan diet terapeutik resmi.
+      </p>
+    </div>
+  </section>
+
+  <section class="pb-20 px-4">
+    <div class="max-w-5xl mx-auto">
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+        
+        <a href="nutrisi-anjing.html" class="group bg-white p-6 rounded-3xl shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border-2 border-transparent hover:border-orange-300 text-center">
+          <div class="text-5xl mb-3 group-hover:scale-110 transition-transform">🐕</div>
+          <h3 class="text-lg font-black text-gray-900 mb-1">Anjing</h3>
+          <p class="text-xs text-gray-500">Kebutuhan protein & lemak makro</p>
+        </a>
+
+        <a href="nutrisi-kucing.html" class="group bg-white p-6 rounded-3xl shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border-2 border-transparent hover:border-orange-300 text-center">
+          <div class="text-5xl mb-3 group-hover:scale-110 transition-transform">🐱</div>
+          <h3 class="text-lg font-black text-gray-900 mb-1">Kucing</h3>
+          <p class="text-xs text-gray-500">Asam amino esensial & taurin ketat</p>
+        </a>
+
+        <a href="nutrisi-sapi.html" class="group bg-white p-6 rounded-3xl shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border-2 border-transparent hover:border-orange-300 text-center">
+          <div class="text-5xl mb-3 group-hover:scale-110 transition-transform">🐄</div>
+          <h3 class="text-lg font-black text-gray-900 mb-1">Sapi</h3>
+          <p class="text-xs text-gray-500">Serat kasar & rasio pakan ruminansia</p>
+        </a>
+
+        <a href="nutrisi-kambing.html" class="group bg-white p-6 rounded-3xl shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border-2 border-transparent hover:border-orange-300 text-center">
+          <div class="text-5xl mb-3 group-hover:scale-110 transition-transform">🐐</div>
+          <h3 class="text-lg font-black text-gray-900 mb-1">Kambing</h3>
+          <p class="text-xs text-gray-500">Manajemen mineral, Ca & P ratio</p>
+        </a>
+
+        <a href="nutrisi-ayam.html" class="group bg-white p-6 rounded-3xl shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border-2 border-transparent hover:border-orange-300 text-center">
+          <div class="text-5xl mb-3 group-hover:scale-110 transition-transform">🐓</div>
+          <h3 class="text-lg font-black text-gray-900 mb-1">Ayam</h3>
+          <p class="text-xs text-gray-500">Formulasi energi metabolis & unggas</p>
+        </a>
+
+        <a href="nutrisi-kuda.html" class="group bg-white p-6 rounded-3xl shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border-2 border-transparent hover:border-orange-300 text-center">
+          <div class="text-5xl mb-3 group-hover:scale-110 transition-transform">🐎</div>
+          <h3 class="text-lg font-black text-gray-900 mb-1">Kuda</h3>
+          <p class="text-xs text-gray-500">Kebutuhan energi kerja & serat hindgut</p>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-gray-950 text-white py-8 text-center border-t-4 border-orange-600">
+    <p class="text-sm text-gray-400">VetMed Hub Nutrition Base © 2026</p>
+  </footer>
+  
+</body>
+</html>
