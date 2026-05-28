@@ -18,44 +18,52 @@
   </script>
   
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght=400;500;600;700;800&display=swap');
     * { font-family: 'Inter', sans-serif; }
   </style>
 </head>
 
 <body class="bg-gradient-to-br from-green-50 to-blue-50 min-h-screen text-gray-800">
 
-  <nav class="bg-white/90 backdrop-blur-md sticky top-0 z-50 shadow-sm border-b border-green-100">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center py-4">
-        <a href="index.html" class="text-2xl font-black bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent flex items-center space-x-2">
-          <span>🐾</span><span>VetMed Hub</span>
+  <nav class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm border-b border-green-100/80 transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        
+        <a href="index.html" class="text-2xl font-black bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent flex items-center space-x-2 transition-transform hover:scale-102 active:scale-98 duration-200">
+          <span>🐾</span><span class="tracking-tight">VetMed Hub</span>
         </a>
         
-        <div class="hidden md:flex space-x-8">
-          <a href="berandaspesies.html" class="group flex items-center space-x-1 font-medium text-gray-700 hover:text-green-600 transition-all">
+        <div class="hidden md:flex items-center space-x-10">
+          <a href="berandaspesies.html" class="relative py-2 font-semibold text-gray-600 hover:text-green-600 transition-colors duration-300 group">
             <span>Spesies</span>
-            <span class="w-2 h-2 bg-green-600 rounded-full scale-0 group-hover:scale-100 transition-transform"></span>
+            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-green-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
           </a>
-          <a href="#penyakit" class="group flex items-center space-x-1 font-medium text-gray-700 hover:text-green-600 transition-all">
+          <a href="#penyakit" class="relative py-2 font-semibold text-gray-600 hover:text-green-600 transition-colors duration-300 group">
             <span>Penyakit</span>
-            <span class="w-2 h-2 bg-green-600 rounded-full scale-0 group-hover:scale-100 transition-transform"></span>
+            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-green-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
           </a>
-          <a href="berandafarmakologi.html" class="group flex items-center space-x-1 font-medium text-gray-700 hover:text-green-600 transition-all">
+          <a href="berandafarmakologi.html" class="relative py-2 font-semibold text-gray-600 hover:text-green-600 transition-colors duration-300 group">
             <span>Farmakologi</span>
-            <span class="w-2 h-2 bg-green-600 rounded-full scale-0 group-hover:scale-100 transition-transform"></span>
+            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-green-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
           </a>
-          <a href="kalkulator.html" class="group flex items-center space-x-1 font-medium text-gray-700 hover:text-green-600 transition-all">
+          <a href="kalkulator.html" class="relative py-2 font-semibold text-gray-600 hover:text-green-600 transition-colors duration-300 group">
             <span>Kalkulator</span>
-            <span class="w-2 h-2 bg-green-600 rounded-full scale-0 group-hover:scale-100 transition-transform"></span>
+            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-green-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
           </a>
         </div>
 
-        <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 hover:text-green-600 focus:outline-none">
+        <div class="hidden md:flex items-center space-x-4">
+          <a href="#" class="px-5 py-2.5 bg-gradient-to-r from-green-600 to-emerald-600 text-white font-semibold rounded-xl shadow-md hover:shadow-lg hover:shadow-green-500/20 hover:-translate-y-0.5 transition-all duration-300 text-sm">
+            ✨ Kontribusi
+          </a>
+        </div>
+
+        <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 hover:text-green-600 focus:outline-none transition-colors rounded-xl hover:bg-gray-50">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
           </svg>
         </button>
+        
       </div>
     </div>
   </nav>
@@ -247,7 +255,7 @@
       const cards = document.querySelectorAll('.menu-card');
       const gridContainer = document.getElementById('grid-container');
       
-      // KAMUS KATA KUNCI GLOBAL (Silakan tambahkan nama obat / penyakit baru di sini)
+      // KAMUS KATA KUNCI GLOBAL
       const globalDatabase = [
         { 
           keywords: ['amoxicillin', 'paracetamol', 'antibiotik', 'obat', 'dosis', 'analgesik', 'iomec', 'penisilin', 'vitamins', 'salep'], 
@@ -267,16 +275,13 @@
         }
       ];
 
-      // Fungsi Penyaringan & Alih Halaman
       function filterCards(queryText) {
         const keyword = queryText.toLowerCase().trim();
         
-        // Bersihkan pesan error jika ada
         const oldMsg = document.getElementById('no-result-message');
         if (oldMsg) oldMsg.remove();
 
         if (keyword === '') {
-          // Kembalikan semua kartu ke tampilan awal
           cards.forEach(card => {
             card.style.display = '';
             const internalDiv = card.querySelector('.card-content') || card;
@@ -285,7 +290,6 @@
           return;
         }
 
-        // Jalur 1: Cek apakah ada di dalam database lintas halaman
         let matchedPage = null;
         for (const item of globalDatabase) {
           if (item.keywords.some(k => k.includes(keyword) || keyword.includes(k))) {
@@ -294,13 +298,11 @@
           }
         }
 
-        // Jalur 2: Pengalihan otomatis jika ada di halaman spesifik lain
         if (matchedPage && matchedPage !== '#penyakit' && matchedPage !== window.location.pathname.split('/').pop()) {
           window.location.href = `${matchedPage}?search=${encodeURIComponent(queryText)}`;
           return;
         }
 
-        // Jalur 3: Penyaringan elemen lokal (di halaman index itu sendiri)
         let foundAny = false;
         cards.forEach(card => {
           const cardText = card.textContent.toLowerCase();
@@ -315,7 +317,6 @@
           }
         });
 
-        // Tampilkan notifikasi jika pencarian kosong/tidak ditemukan sama sekali
         if (!foundAny) {
           const noResultMsg = document.createElement('div');
           noResultMsg.id = 'no-result-message';
@@ -330,7 +331,6 @@
         }
       }
 
-      // Terima parameter otomatis dari URL (misal dari halaman 404)
       const urlParams = new URLSearchParams(window.location.search);
       const queryFromUrl = urlParams.get('search');
       if (queryFromUrl) {
@@ -338,7 +338,6 @@
         filterCards(queryFromUrl);
       }
 
-      // Jalankan fungsi saat menekan tombol Enter di keyboard
       searchInput.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') {
           filterCards(e.target.value);
