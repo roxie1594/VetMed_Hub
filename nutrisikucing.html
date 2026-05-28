@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nutrisi Kucing - VetMed Hub</title>
+  <meta name="description" content="Panduan lengkap nutrisi kucing: kebutuhan gizi, formulasi pakan, diet terapeutik, dan rekomendasi makanan untuk kucing kesayangan Anda">
+  
+  <meta name="theme-color" content="#f97316">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐱</text></svg>">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { 
+        extend: { 
+          colors: { 
+            orange: { 750: '#ea580c' } 
+          } 
+        } 
+      }
+    }
+  </script>
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght=400;500;600;700;800&display=swap');
+    * { font-family: 'Inter', sans-serif; }
+  </style>
+</head>
+
+<body class="bg-gradient-to-br from-orange-50 via-orange-100 to-amber-50 min-h-screen text-gray-800">
+
+  <nav class="bg-white/90 backdrop-blur-md sticky top-0 z-50 shadow-sm border-b border-orange-100">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center py-4">
+        <a href="index.html" class="text-2xl font-black bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent flex items-center space-x-2">
+          <span>🐾</span><span>VetMed Hub</span>
+        </a>
+        
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="index.html" class="group flex items-center space-x-1 font-medium text-gray-700 hover:text-orange-600 transition-all">
+            <span>Beranda</span>
+            <span class="w-2 h-2 bg-orange-600 rounded-full scale-0 group-hover:scale-100 transition-transform"></span>
+          </a>
+          <a href="berandaspesies.html" class="group flex items-center space-x-1 font-medium text-gray-700 hover:text-orange-600 transition-all">
+            <span>Spesies</span>
+            <span class="w-2 h-2 bg-orange-600 rounded-full scale-0 group-hover:scale-100 transition-transform"></span>
+          </a>
+          <a href="berandapenyakit.html" class="group flex items-center space-x-1 font-medium text-gray-700 hover:text-orange-600 transition-all">
+            <span>Penyakit</span>
+            <span class="w-2 h-2 bg-orange-600 rounded-full scale-0 group-hover:scale-100 transition-transform"></span>
+          </a>
+          <a href="berandafarmakologi.html" class="group flex items-center space-x-1 font-medium text-gray-700 hover:text-orange-600 transition-all">
+            <span>Farmakologi</span>
+            <span class="w-2 h-2 bg-orange-600 rounded-full scale-0 group-hover:scale-100 transition-transform"></span>
+          </a>
+          <a href="berandanutrisi.html" class="inline-flex items-center bg-orange-600 hover:bg-orange-700 text-white text-xs font-bold px-4 py-2 rounded-xl shadow-md transition-all active:scale-95">
+            ← Kembali ke Nutrisi Spesies
+          </a>
+        </div>
+        
+        <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 hover:text-orange-600 focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="pt-24 pb-16 text-center">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-orange-100 text-orange-800 mb-8 border border-orange-200">
+        🐱 Nutrisi Spesies: Kucing
+      </div>
+      
+      <h1 class="text-4xl md:text-6xl font-black bg-gradient-to-r from-orange-600 via-amber-600 to-yellow-600 bg-clip-text text-transparent mb-6 leading-tight">
+        Panduan Gizi<br>
+        <span class="text-4xl md:text-5xl text-gray-900">Kucing Kesayangan</span>
+      </h1>
+      
+      <p class="text-xl text-gray-700 mb-10 max-w-2xl mx-auto leading-relaxed">
+        Pahami kebutuhan protein tinggi, asam amino esensial, dan taurin untuk kucing Anda. Dari anak kucing (kitten) hingga senior.
+      </p>
+    </div>
+  </section>
+
+  <main class="py-12 px-4 max-w-7xl mx-auto">
+    
+    <div class="mb-16">
+      <h2 class="text-3xl font-bold text-orange-900 mb-8 text-center">📊 Kebutuhan Gizi Kucing (NRC Standards)</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-white/80 backdrop-blur-sm p-8 rounded-3xl shadow-lg border border-orange-100 hover:shadow-xl transition-all">
+          <div class="flex items-center space-x-4 mb-4 border-b border-orange-100 pb-4">
+            <span class="text-4xl">🍼</span>
+            <div>
+              <h3 class="text-2xl font-bold text-gray-800">Anak Kucing (Kitten)</h3>
+              <p class="text-orange-600 text-sm font-medium">Usia 0 - 12 bulan</p>
+            </div>
+          </div>
+          <ul class="space-y-3 text-gray-700">
+            <li class="flex justify-between"><span class="font-medium text-gray-900">Protein</span> <span class="bg-orange-100 px-2 py-1 rounded text-sm">30% - 45%</span></li>
+            <li class="flex justify-between"><span class="font-medium text-gray-900">Lemak (Fat)</span> <span class="bg-orange-100 px-2 py-1 rounded text-sm">18% - 35%</span></li>
+            <li class="flex justify-between"><span class="font-medium text-gray-900">Taurin Esensial</span> <span class="bg-orange-100 px-2 py-1 rounded text-sm">0.1% - 0.2%</span></li>
+            <li class="flex justify-between"><span class="font-medium text-gray-900">Kalsium / Fosfor</span> <span class="bg-orange-100 px-2 py-1 rounded text-sm">1.2% / 1.0%</span></li>
+            <li class="flex justify-between"><span class="font-medium text-gray-900">Energi (ME)</span> <span class="bg-orange-100 px-2 py-1 rounded text-sm">400 - 550 kcal/kg</span></li>
+          </ul>
+        </div>
+
+        <div class="bg-white/80 backdrop-blur-sm p-8 rounded-3xl shadow-lg border border-orange-100 hover:shadow-xl transition-all">
+          <div class="flex items-center space-x-4 mb-4 border-b border-orange-100 pb-4">
+            <span class="text-4xl">🐈</span>
+            <div>
+              <h3 class="text-2xl font-bold text-gray-800">Kucing Dewasa (Adult)</h3>
+              <p class="text-orange-600 text-sm font-medium">Usia > 12 bulan</p>
+            </div>
+          </div>
+          <ul class="space-y-3 text-gray-700">
+            <li class="flex justify-between"><span class="font-medium text-gray-900">Protein</span> <span class="bg-orange-100 px-2 py-1 rounded text-sm">26% - 40%</span></li>
+            <li class="flex justify-between"><span class="font-medium text-gray-900">Lemak (Fat)</span> <span class="bg-orange-100 px-2 py-1 rounded text-sm">9% - 20%</span></li>
+            <li class="flex justify-between"><span class="font-medium text-gray-900">Serat (Fiber)</span> <span class="bg-orange-100 px-2 py-1 rounded text-sm">1.5% - 5%</span></li>
+            <li class="flex justify-between"><span class="font-medium text-gray-900">Asam Arakidonat</span> <span class="bg-orange-100 px-2 py-1 rounded text-sm">Min 0.02%</span></li>
+            <li class="flex justify-between"><span class="font-medium text-gray-900">Energi (ME)</span> <span class="bg-orange-100 px-2 py-1 rounded text-sm">60-80 kcal/kgbb</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-8 bg-amber-50 border border-amber-200 rounded-2xl p-6 flex items-start space-x-4">
+        <div class="text-2xl">⚠️</div>
+        <div>
+          <h4 class="font-bold text-amber-800 mb-1">Catatan Penting</h4>
+          <p class="text-amber-900 text-sm">Kucing adalah karnivora obligat yang mutlak membutuhkan Taurin, Asam Arakidonat, dan Vitamin A langsung dari jaringan hewan. Kekurangan taurin memicu kebutaan dan penyakit jantung (DCM).</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-16">
+      <h2 class="text-3xl font-bold text-orange-900 mb-8 text-center">🥣 Rasio Formulasi Pakan Mandiri</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <div class="bg-white p-6 rounded-3xl shadow-md border border-orange-100">
+          <h3 class="text-xl font-bold text-gray-800 mb-2 flex items-center gap-2">
+            <span>🥩</span> Diet Mentah Alami (BARF Model)
+          </h3>
+          <p class="text-sm text-gray-600 mb-6">Biologically Appropriate Raw Food. Diformulasikan khusus untuk metabolisme karnivora murni.</p>
+          
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between text-sm font-bold text-gray-700 mb-1">
+                <span>Daging Otot (Termasuk Jantung untuk Taurin)</span>
+                <span>80%</span>
+              </div>
+              <div class="w-full bg-gray-100 h-3 rounded-full overflow-hidden">
+                <div class="bg-orange-500 h-full" style="width: 80%"></div>
+              </div>
+            </div>
+            
+            <div>
+              <div class="flex justify-between text-sm font-bold text-gray-700 mb-1">
+                <span>Tulang Mentah Lunak (Raw Meaty Bones)</span>
+                <span>10%</span>
+              </div>
+              <div class="w-full bg-gray-100 h-3 rounded-full overflow-hidden">
+                <div class="bg-amber-500 h-full" style="width: 10%"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between text-sm font-bold text-gray-700 mb-1">
+                <span>Hati Hewan (Sumber Utama Vit. A)</span>
+                <span>5%</span>
+              </div>
+              <div class="w-full bg-gray-100 h-3 rounded-full overflow-hidden">
+                <div class="bg-red-500 h-full" style="width: 5%"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between text-sm font-bold text-gray-700 mb-1">
+                <span>Organ Lain / Suplemen (Minyak Salmon, Kelp)</span>
+                <span>5%</span>
+              </div>
+              <div class="w-full bg-gray-100 h-3 rounded-full overflow-hidden">
+                <div class="bg-green-500 h-full" style="width: 5%"></div>
+              </div>
+            </div>
+          </div>
+          <p class="text-xs text-gray-400 mt-4 italic">*Catatan: Kucing tidak membutuhkan karbohidrat tumbuhan atau serat buah dalam jumlah besar.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-3xl shadow-md border border-orange-100">
+          <h3 class="text-xl font-bold text-gray-800 mb-2 flex items-center gap-2">
+            <span>🍳</span> Diet Matang Rumahan (Cooked Diet)
+          </h3>
+          <p class="text-sm text-gray-600 mb-6">Metode pakan matang kukus/rebus yang aman dan bebas dari kontaminasi patogen mentah.</p>
+          
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between text-sm font-bold text-gray-700 mb-1">
+                <span>Daging Paha Ayam / Kalkun / Ikan Laut</span>
+                <span>85%</span>
+              </div>
+              <div class="w-full bg-gray-100 h-3 rounded-full overflow-hidden">
+                <div class="bg-orange-600 h-full" style="width: 85%"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between text-sm font-bold text-gray-700 mb-1">
+                <span>Hati Ayam / Sapi Masak</span>
+                <span>5%</span>
+              </div>
+              <div class="w-full bg-gray-100 h-3 rounded-full overflow-hidden">
+                <div class="bg-yellow-500 h-full" style="width: 5%"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between text-sm font-bold text-gray-700 mb-1">
+                <span>Labu Kuning (Bantuan Pencernaan / Hairball)</span>
+                <span>5%</span>
+              </div>
+              <div class="w-full bg-gray-100 h-3 rounded-full overflow-hidden">
+                <div class="bg-emerald-500 h-full" style="width: 5%"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between text-sm font-bold text-gray-700 mb-1">
+                <span>Suplemen Fortifikasi (Taurin & Bubuk Kalsium)</span>
+                <span>5%</span>
+              </div>
+              <div class="w-full bg-gray-100 h-3 rounded-full overflow-hidden">
+                <div class="bg-blue-400 h-full" style="width: 5%"></div>
+              </div>
+            </div>
+          </div>
+          <p class="text-xs text-gray-400 mt-4 italic">*Catatan: Taurin rusak oleh panas masakan, wajib ditambahkan suplemen pasca pakan dingin.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="mb-16" id="diet-terapeutik">
+      <h2 class="text-3xl font-bold text-orange-900 mb-8 text-center">💊 Diet Terapeutik Umum</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-2xl shadow-md border-t-4 border-orange-400">
+          <h3 class="font-bold text-lg text-gray-800 mb-2">Diet Saluran Kemih (Urinary FLUTD)</h3>
+          <p class="text-sm text-gray-600 mb-4">Untuk mengontrol pH urine guna mencegah pembentukan kristal struvit atau kalsium oksalat.</p>
+          <ul class="text-xs text-gray-500 space-y-1 mb-4">
+            <li>• Kadar Magnesium Rendah (&lt; 0.08%)</li>
+            <li>• Mengontrol pH Urine optimal (6.2 - 6.4)</li>
+            <li>• Tinggi Kadar Air (Pakan Basah Mandatori)</li>
+            <li>• Penambahan Asam Lemak EPS/DHA</li>
+          </ul>
+          <div class="bg-orange-50 p-3 rounded-lg text-xs text-orange-800 font-semibold">
+            Contoh Bahan: Daging ayam rebus basah, kaldu tulang murni tanpa garam, suplemen d-mannose.
+          </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl shadow-md border-t-4 border-blue-400">
+          <h3 class="font-bold text-lg text-gray-800 mb-2">Diet Ginjal (Chronic Kidney Disease)</h3>
+          <p class="text-sm text-gray-600 mb-4">Membantu memperlambat perkembangan penyakit ginjal kronis yang sangat rentan diderita kucing senior.</p>
+          <ul class="text-xs text-gray-500 space-y-1 mb-4">
+            <li>• Sangat Rendah Fosfor (&lt; 0.5%)</li>
+            <li>• Protein Sangat Tinggi Kualitas (Bukan Kuantitas)</li>
+            <li>• Kalium Tambahan & Rendah Sodium</li>
+            <li>• Agen Pengikat Fosfor Alami</li>
+          </ul>
+          <div class="bg-blue-50 p-3 rounded-lg text-xs text-blue-800 font-semibold">
+            Contoh Bahan: Putih telur kukus, lemak bebek bersih, daging dada ayam filet.
+          </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl shadow-md border-t-4 border-green-400">
+          <h3 class="font-bold text-lg text-gray-800 mb-2">Diet Diabetes Mellitus</h3>
+          <p class="text-sm text-gray-600 mb-4">Formulasi rendah karbohidrat radikal untuk mengontrol glukosa darah pascaprandial pada kucing.</p>
+          <ul class="text-xs text-gray-500 space-y-1 mb-4">
+            <li>• Ultra Rendah Karbohidrat (&lt; 10% Energi)</li>
+            <li>• Sangat Tinggi Protein Hewani</li>
+            <li>• Serat Moderat untuk Regulasi Gula</li>
+            <li>• L-Karnitin untuk Metabolisme Lemak</li>
+          </ul>
+          <div class="bg-green-50 p-3 rounded-lg text-xs text-green-800 font-semibold">
+            Contoh Bahan: Daging kelinci/ayam cincang, isolat protein daging, sedikit pure brokoli.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-gray-950 text-white py-8 text-center border-t-4 border-orange-600">
+    <p class="text-sm text-gray-400">VetMed Hub Nutrition Base © 2026</p>
+  </footer>
+
+</body>
+</html>
