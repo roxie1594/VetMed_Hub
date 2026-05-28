@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nutrisi Anjing - VetMed Hub</title>
+  <meta name="description" content="Panduan lengkap nutrisi anjing: kebutuhan gizi, formulasi pakan, diet terapeutik, dan rekomendasi makanan untuk anjing kesayangan Anda">
+  
+  <meta name="theme-color" content="#f97316">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐶</text></svg>">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { 
+        extend: { 
+          colors: { 
+            orange: { 750: '#ea580c' } 
+          } 
+        } 
+      }
+    }
+  </script>
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght=400;500;600;700;800&display=swap');
+    * { font-family: 'Inter', sans-serif; }
+  </style>
+</head>
+
+<body class="bg-gradient-to-br from-orange-50 via-orange-100 to-amber-50 min-h-screen text-gray-800">
+
+  <nav class="bg-white/90 backdrop-blur-md sticky top-0 z-50 shadow-sm border-b border-orange-100">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center py-4">
+        <a href="index.html" class="text-2xl font-black bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent flex items-center space-x-2">
+          <span>🐾</span><span>VetMed Hub</span>
+        </a>
+        
+        <div class="hidden md:flex space-x-8">
+          <a href="berandaspesies.html" class="group flex items-center space-x-1 font-medium text-gray-700 hover:text-orange-600 transition-all">
+            <span>Spesies</span>
+            <span class="w-2 h-2 bg-orange-600 rounded-full scale-0 group-hover:scale-100 transition-transform"></span>
+          </a>
+          <a href="#penyakit" class="group flex items-center space-x-1 font-medium text-gray-700 hover:text-orange-600 transition-all">
+            <span>Penyakit</span>
+            <span class="w-2 h-2 bg-orange-600 rounded-full scale-0 group-hover:scale-100 transition-transform"></span>
+          </a>
+          <a href="berandafarmakologi.html" class="group flex items-center space-x-1 font-medium text-gray-700 hover:text-orange-600 transition-all">
+            <span>Farmakologi</span>
+            <span class="w-2 h-2 bg-orange-600 rounded-full scale-0 group-hover:scale-100 transition-transform"></span>
+          </a>
+          <a href="nutrisi-anjing.html" class="group flex items-center space-x-1 font-medium text-orange-700 hover:text-orange-600 transition-all">
+            <span>Nutrisi</span>
+            <span class="w-2 h-2 bg-orange-600 rounded-full scale-0 group-hover:scale-100 transition-transform"></span>
+          </a>
+        </div>
+
+        <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 hover:text-orange-600 focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="pt-24 pb-16 text-center">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-orange-100 text-orange-800 mb-8 border border-orange-200">
+        🐶 Nutrisi Spesies: Anjing
+      </div>
+      
+      <h1 class="text-4xl md:text-6xl font-black bg-gradient-to-r from-orange-600 via-amber-600 to-yellow-600 bg-clip-text text-transparent mb-6 leading-tight">
+        Panduan Gizi<br>
+        <span class="text-4xl md:text-5xl text-gray-900">Anjing Kesayangan</span>
+      </h1>
+      
+      <p class="text-xl text-gray-700 mb-10 max-w-2xl mx-auto leading-relaxed">
+        Pahami kebutuhan protein, lemak, dan mineral terbaik untuk anjing Anda. Dari anak anjing (puppy) hingga senior.
+      </p>
+    </div>
+  </section>
+
+  <main class="py-12 px-4 max-w-7xl mx-auto">
+    
+    <div class="mb-16">
+      <h2 class="text-3xl font-bold text-orange-900 mb-8 text-center">📊 Kebutuhan Gizi Anjing (NRC Standards)</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-white/80 backdrop-blur-sm p-8 rounded-3xl shadow-lg border border-orange-100 hover:shadow-xl transition-all">
+          <div class="flex items-center space-x-4 mb-4 border-b border-orange-100 pb-4">
+            <span class="text-4xl">🍼</span>
+            <div>
+              <h3 class="text-2xl font-bold text-gray-800">Anak Anjing (Puppy)</h3>
+              <p class="text-orange-600 text-sm font-medium">Usia 0 - 12 bulan</p>
+            </div>
+          </div>
+          <ul class="space-y-3 text-gray-700">
+            <li class="flex justify-between"><span class="font-medium text-gray-900">Protein</span> <span class="bg-orange-100 px-2 py-1 rounded text-sm">22.5% - 32%</span></li>
+            <li class="flex justify-between"><span class="font-medium text-gray-900">Lemak (Fat)</span> <span class="bg-orange-100 px-2 py-1 rounded text-sm">16% - 24%</span></li>
+            <li class="flex justify-between"><span class="font-medium text-gray-900">Kalsium</span> <span class="bg-orange-100 px-2 py-1 rounded text-sm">1.0% - 1.6%</span></li>
+            <li class="flex justify-between"><span class="font-medium text-gray-900">Fosfor</span> <span class="bg-orange-100 px-2 py-1 rounded text-sm">0.8% - 1.4%</span></li>
+            <li class="flex justify-between"><span class="font-medium text-gray-900">Energi (ME)</span> <span class="bg-orange-100 px-2 py-1 rounded text-sm">250 - 400 kcal/kg</span></li>
+          </ul>
+        </div>
+
+        <div class="bg-white/80 backdrop-blur-sm p-8 rounded-3xl shadow-lg border border-orange-100 hover:shadow-xl transition-all">
+          <div class="flex items-center space-x-4 mb-4 border-b border-orange-100 pb-4">
+            <span class="text-4xl">Bone🦴</span>
+            <div>
+              <h3 class="text-2xl font-bold text-gray-800">Anjing Dewasa (Adult)</h3>
+              <p class="text-orange-600 text-sm font-medium">Usia > 12 bulan</p>
+            </div>
+          </div>
+          <ul class="space-y-3 text-gray-700">
+            <li class="flex justify-between"><span class="font-medium text-gray-900">Protein</span> <span class="bg-orange-100 px-2 py-1 rounded text-sm">18% - 25%</span></li>
+            <li class="flex justify-between"><span class="font-medium text-gray-900">Lemak (Fat)</span> <span class="bg-orange-100 px-2 py-1 rounded text-sm">8% - 15%</span></li>
+            <li class="flex justify-between"><span class="font-medium text-gray-900">Serat (Fiber)</span> <span class="bg-orange-100 px-2 py-1 rounded text-sm">2% - 5%</span></li>
+            <li class="flex justify-between"><span class="font-medium text-gray-900">Kalsium</span> <span class="bg-orange-100 px-2 py-1 rounded text-sm">0.5% - 0.8%</span></li>
+            <li class="flex justify-between"><span class="font-medium text-gray-900">Energi (ME)</span> <span class="bg-orange-100 px-2 py-1 rounded text-sm">30-40 kcal/kgbb</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-8 bg-amber-50 border border-amber-200 rounded-2xl p-6 flex items-start space-x-4">
+        <div class="text-2xl">⚠️</div>
+        <div>
+          <h4 class="font-bold text-amber-800 mb-1">Catatan Penting</h4>
+          <p class="text-amber-900 text-sm">Anjing ras besar (seperti GSD, Rottweiler) membutuhkan protein lebih tinggi di masa pertumbuhan untuk mencegah displasia pinggul. Selalu sediakan air bersih.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-16" id="diet-terapeutik">
+      <h2 class="text-3xl font-bold text-orange-900 mb-8 text-center">💊 Diet Terapeutik Umum</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-2xl shadow-md border-t-4 border-orange-400">
+          <h3 class="font-bold text-lg text-gray-800 mb-2">Diet Ginjal (Renal)</h3>
+          <p class="text-sm text-gray-600 mb-4">Terutama untuk anjing dengan gagal ginjal kronis. Membatasi fosfor dan protein berkualitas tinggi.</p>
+          <ul class="text-xs text-gray-500 space-y-1 mb-4">
+            <li>• Rendah Fosfor (&lt; 0.4%)</li>
+            <li>• Protein sedang tapi mudah dicerna</li>
+            <li>• Rendah Sodium</li>
+            <li>• Tinggi Asam Lemak Omega-3</li>
+          </ul>
+          <div class="bg-orange-50 p-3 rounded-lg text-xs text-orange-800 font-semibold">
+            Contoh Bahan: Putih telur matang, nasi putih, ikan salmon matang.
+          </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl shadow-md border-t-4 border-blue-400">
+          <h3 class="font-bold text-lg text-gray-800 mb-2">Manajemen Berat Badan</h3>
+          <p class="text-sm text-gray-600 mb-4">Untuk anjing gemuk (obesitas) agar menurunkan berat badan dengan aman tanpa kehilangan massa otot.</p>
+          <ul class="text-xs text-gray-500 space-y-1 mb-4">
+            <li>• Tinggi Serat Alami</li>
+            <li>• Rendah Lemak (Low Fat)</li>
+            <li>• Tinggi Protein (Menjaga massa otot)</li>
+            <li>• Menjaga rasa kenyang lebih lama</li>
+          </ul>
+          <div class="bg-blue-50 p-3 rounded-lg text-xs text-blue-800 font-semibold">
+            Contoh Bahan: Daging dada ayam tanpa kulit, brokoli, labu kuning.
+          </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl shadow-md border-t-4 border-green-400">
+          <h3 class="font-bold text-lg text-gray-800 mb-2">Kesehatan Pencernaan</h3>
+          <p class="text-sm text-gray-600 mb-4">Formulir diet sensitif untuk pemulihan dari masalah diare akut, gastritis, atau gangguan IBD.</p>
+          <ul class="text-xs text-gray-500 space-y-1 mb-4">
+            <li>• Sangat Mudah Dicerna</li>
+            <li>• Kandungan Lemak Rendah-Sedang</li>
+            <li>• Ditambah Prebiotik (FOS/MOS)</li>
+            <li>• Elektrolit Seimbang</li>
+          </ul>
+          <div class="bg-green-50 p-3 rounded-lg text-xs text-green-800 font-semibold">
+            Contoh Bahan: Daging kalkun/ayam rebus, bubur beras, keju pondok rendah lemak.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-gray-950 text-white py-8 text-center border-t-4 border-orange-600">
+    <p class="text-sm text-gray-400">VetMed Hub Nutrition Base © 2026</p>
+  </footer>
+
+</body>
+</html>
