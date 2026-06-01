@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Penyakit Kucing - VetMed Hub</title>
+  <meta name="description" content="Database lengkap penyakit kucing: diagnosis, terapi, pencegahan">
+  
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#dc2626">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐈</text></svg>">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { red: { 700: '#dc2626' } } } }
+    }
+  </script>
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght=400;500;600;700;800&display=swap');
+    * { font-family: 'Inter', sans-serif; }
+    .scroll-mt-40 { scroll-margin-top: 10rem; }
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+
+<body class="bg-gradient-to-br from-red-50 to-orange-50 min-h-screen text-gray-800">
+
+<nav class="bg-white/90 backdrop-blur-md sticky top-0 z-50 shadow-sm border-b border-red-100">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center py-4">
+      <a href="index.html" class="text-2xl font-black bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent flex items-center space-x-2">
+        <span>🐾</span><span>VetMed Hub</span>
+      </a>
+      
+      <div class="hidden md:flex space-x-8">
+        <a href="index.html" class="group flex items-center space-x-1 font-medium text-gray-700 hover:text-red-600 transition-all">
+          <span>Beranda</span>
+          <span class="w-2 h-2 bg-red-600 rounded-full scale-0 group-hover:scale-100 transition-transform"></span>
+        </a>
+        <a href="berandaspesies.html" class="group flex items-center space-x-1 font-medium text-gray-700 hover:text-red-600 transition-all">
+          <span>Spesies</span>
+          <span class="w-2 h-2 bg-red-600 rounded-full scale-0 group-hover:scale-100 transition-transform"></span>
+        </a>
+        <a href="berandafarmakologi.html" class="group flex items-center space-x-1 font-medium text-gray-700 hover:text-red-600 transition-all">
+          <span>Farmakologi</span>
+          <span class="w-2 h-2 bg-red-600 rounded-full scale-0 group-hover:scale-100 transition-transform"></span>
+        </a>
+        <a href="kalkulator.html" class="group flex items-center space-x-1 font-medium text-gray-700 hover:text-red-600 transition-all">
+          <span>Kalkulator</span>
+          <span class="w-2 h-2 bg-red-600 rounded-full scale-0 group-hover:scale-100 transition-transform"></span>
+        </a>
+      </div>
+
+      <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+  <!-- Header -->
+  <section class="pt-16 pb-6 text-center">
+    <div class="max-w-4xl mx-auto px-4">
+      <a href="berandapenyakit.html" class="inline-flex items-center text-red-600 hover:text-red-800 mb-3 font-medium">
+        <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+        Kembali ke Penyakit
+      </a>
+      
+      <div class="text-7xl mb-3">🐈</div>
+      <h1 class="text-4xl md:text-5xl font-black text-gray-900 mb-2">Penyakit Kucing</h1>
+      <p class="text-lg text-gray-600">Database lengkap diagnosis, terapi & pencegahan</p>
+    </div>
+  </section>
+
+  <!-- Menu Pilihan (Fixed ID Anchor untuk scroll-behavior) -->
+  <section class="sticky top-[73px] z-40 px-4 py-4 backdrop-blur-md bg-gradient-to-b from-red-50/50 to-orange-50/50">
+    <div class="max-w-4xl mx-auto">
+      <div class="bg-white/90 shadow-lg border border-red-100 rounded-3xl p-3 flex flex-wrap justify-center gap-4">
+        
+        <a href="#infeksius" class="nav-btn-kucing flex-1 min-w-[130px] sm:flex-none flex items-center justify-center px-5 py-3 bg-red-50 text-red-700 border-red-500 font-semibold rounded-2xl border-2 transition-all shadow-sm">
+          <span class="text-xl mr-2">🦠</span>Infeksius
+        </a>
+        
+        <a href="#parasit" class="nav-btn-kucing flex-1 min-w-[130px] sm:flex-none flex items-center justify-center px-5 py-3 bg-white text-gray-700 font-semibold rounded-2xl border-2 border-gray-100 hover:border-red-500 hover:text-red-700 transition-all shadow-sm">
+          <span class="text-xl mr-2">🐛</span>Parasit
+        </a>
+        
+        <a href="#kulit" class="nav-btn-kucing flex-1 min-w-[130px] sm:flex-none flex items-center justify-center px-5 py-3 bg-white text-gray-700 font-semibold rounded-2xl border-2 border-gray-100 hover:border-red-500 hover:text-red-700 transition-all shadow-sm">
+          <span class="text-xl mr-2">🩺</span>Kulit
+        </a>
+        
+        <a href="#pernapasan" class="nav-btn-kucing flex-1 min-w-[130px] sm:flex-none flex items-center justify-center px-5 py-3 bg-white text-gray-700 font-semibold rounded-2xl border-2 border-gray-100 hover:border-red-500 hover:text-red-700 transition-all shadow-sm">
+          <span class="text-xl mr-2">🫁</span>Pernapasan
+        </a>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <main class="max-w-4xl mx-auto px-4 space-y-12 pb-24">
+
+    <!-- 1. INFEKSIUS SECTION -->
+    <section id="infeksius" class="scroll-mt-40">
+      <div class="bg-white rounded-3xl shadow-xl p-6 md:p-8 border border-red-100">
+        <h2 class="text-2xl font-black text-red-800 mb-6 flex items-center">
+          <span class="text-2xl mr-2">🦠</span>Penyakit Infeksius Kucing
+        </h2>
+        
+        <!-- Panleukopenia -->
+        <div class="mb-10 border-b border-gray-100 pb-8">
+          <h3 class="text-xl font-black text-gray-900 mb-4">Panleukopenia (Feline Panleukopenia Virus / FPV)</h3>
+          <div class="grid md:grid-cols-3 gap-4">
+            <div class="bg-green-50 rounded-2xl p-5">
+              <h4 class="font-bold text-green-800 mb-3 flex items-center"><span class="mr-2">🔍</span>Diagnosis</h4>
+              <ul class="space-y-2 text-sm text-gray-700">
+                <li class="flex items-start"><span class="text-green-600 mr-2">•</span>Demam tinggi mendadak (39.5-41.5°C)</li>
+                <li class="flex items-start"><span class="text-green-600 mr-2">•</span>Letargi ekstrem, depresi, menolak makan/minum</li>
+                <li class="flex items-start"><span class="text-green-600 mr-2">•</span>Muntah profus kekuningan (cairan empedu)</li>
+                <li class="flex items-start"><span class="text-green-600 mr-2">•</span>Diare cair bau busuk (bisa disertai darah)</li>
+                <li class="flex items-start"><span class="text-green-600 mr-2">•</span>Leukopenia berat ekstrem pada uji hematologi</li>
+              </ul>
+            </div>
+            <div class="bg-blue-50 rounded-2xl p-5">
+              <h4 class="font-bold text-blue-800 mb-3 flex items-center"><span class="mr-2">💊</span>Terapi Suportif</h4>
+              <ul class="space-y-2 text-sm text-gray-700">
+                <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Cairan IV agresif (Ringer Lactate + Dextrose)</li>
+                <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Antiemetik poten intravena (Maropitant)</li>
+                <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Antibiotik spektrum luas (Cefazolin / Ampicillin)</li>
+                <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Injeksi vitamin neurotropik & asam amino</li>
+                <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Transfusi darah utuh/plasma pada kasus anemia berat</li>
+              </ul>
+            </div>
+            <div class="bg-purple-50 rounded-2xl p-5">
+              <h4 class="font-bold text-purple-800 mb-3 flex items-center"><span class="mr-2">🛡️</span>Pencegahan</h4>
+              <ul class="space-y-2 text-sm text-gray-700">
+                <li class="flex items-start"><span class="text-purple-600 mr-2">•</span>Vaksinasi FPV (Inti/Core Vaccine) wajib</li>
+                <li class="flex items-start"><span class="text-purple-600 mr-2">•</span>Imunisasi awal usia 6-8 minggu, booster tiap 3-4 minggu</li>
+                <li class="flex items-start"><span class="text-purple-600 mr-2">•</span>Isolasi ketat hewan sakit di ruangan terpisah</li>
+                <li class="flex items-start"><span class="text-purple-600 mr-2">•</span>Desinfeksi ruangan menggunakan Sodium Hipoklorit</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- FIP -->
+        <div class="mb-10 border-b border-gray-100 pb-8">
+          <h3 class="text-xl font-black text-gray-900 mb-4">FIP (Feline Infectious Peritonitis / Mutasi Coronavirus)</h3>
+          <div class="grid md:grid-cols-3 gap-4">
+            <div class="bg-green-50 rounded-2xl p-5">
+              <h4 class="font-bold text-green-800 mb-3 flex items-center"><span class="mr-2">🔍</span>Diagnosis</h4>
+              <ul class="space-y-2 text-sm text-gray-700">
+                <li class="flex items-start"><span class="text-green-600 mr-2">•</span>Fase Basah: Asites (perut membesar cairan kuning kental)</li>
+                <li class="flex items-start"><span class="text-green-600 mr-2">•</span>Fase Kering: Penurunan berat badan kronis, uveitis mata</li>
+                <li class="flex items-start"><span class="text-green-600 mr-2">•</span>Demam fluktuatif tidak mempan antibiotik</li>
+                <li class="flex items-start"><span class="text-green-600 mr-2">•</span>Rasio Albumin/Globulin darah rendah (< 0.6)</li>
+                <li class="flex items-start"><span class="text-green-600 mr-2">•</span>Uji Rivalta positif pada cairan efusi</li>
+              </ul>
+            </div>
+            <div class="bg-blue-50 rounded-2xl p-5">
+              <h4 class="font-bold text-blue-800 mb-3 flex items-center"><span class="mr-2">💊</span>Terapi Target</h4>
+              <ul class="space-y-2 text-sm text-gray-700">
+                <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Antiviral analog nukleosida (GS-441524) oral/injeksi</li>
+                <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Imunomodulator penunjang</li>
+                <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Parasentesis (penyerapan cairan asites jika sesak)</li>
+                <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Hepatoprotektor & suplemen penambah darah</li>
+              </ul>
+            </div>
+            <div class="bg-purple-50 rounded-2xl p-5">
+              <h4 class="font-bold text-purple-800 mb-3 flex items-center"><span class="mr-2">🛡️</span>Pencegahan</h4>
+              <ul class="space-y-2 text-sm text-gray-700">
+                <li class="flex items-start"><span class="text-purple-600 mr-2">•</span>Batasi jumlah populasi kucing dalam satu cattery</li>
+                <li class="flex items-start"><span class="text-purple-600 mr-2">•</span>Manajemen kebersihan litter box yang ketat</li>
+                <li class="flex items-start"><span class="text-purple-600 mr-2">•</span>Kurangi tingkat stres lingkungan pada kucing</li>
+                <li class="flex items-start"><span class="text-purple-600 mr-2">•</span>Pemberian nutrisi berkualitas tinggi berkelanjutan</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Calicivirus -->
+        <div>
+          <h3 class="text-xl font-black text-gray-900 mb-4">Calicivirus (Feline Calicivirus / FCV)</h3>
+          <div class="grid md:grid-cols-3 gap-4">
+            <div class="bg-green-50 rounded-2xl p-5">
+              <h4 class="font-bold text-green-800 mb-3 flex items-center"><span class="mr-2">🔍</span>Diagnosis</h4>
+              <ul class="space-y-2 text-sm text-gray-700">
+                <li class="flex items-start"><span class="text-green-600 mr-2">•</span>Stomatitis & ulserasi (luka) parah pada lidah/gusi</li>
+                <li class="flex items-start"><span class="text-green-600 mr-2">•</span>Hipersalivasi (air liur menetes berlebih) bau busuk</li>
+                <li class="flex items-start"><span class="text-green-600 mr-2">•</span>Lelehan bersin pada area mata dan hidung</li>
+                <li class="flex items-start"><span class="text-green-600 mr-2">•</span>Pincang mendadak akibat arthritis (Limping kitten syndrome)</li>
+              </ul>
+            </div>
+            <div class="bg-blue-50 rounded-2xl p-5">
+              <h4 class="font-bold text-blue-800 mb-3 flex items-center"><span class="mr-2">💊</span>Terapi Suportif</h4>
+              <ul class="space-y-2 text-sm text-gray-700">
+                <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Anestetik/analgesik mukosa mulut (Meloxicam)</li>
+                <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Antibiotik pencegah infeksi sekunder (Clindamycin)</li>
+                <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Pemberian pakan basah bertekstur sangat lembut/cair</li>
+                <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Pembersihan rutin area ulserasi mulut</li>
+              </ul>
+            </div>
+            <div class="bg-purple-50 rounded-2xl p-5">
+              <h4 class="font-bold text-purple-800 mb-3 flex items-center"><span class="mr-2">🛡️</span>Pencegahan</h4>
+              <ul class="space-y-2 text-sm text-gray-700">
+                <li class="flex items-start"><span class="text-purple-600 mr-2">•</span>Vaksinasi kombinasi FCV teratur berkelanjutan</li>
+                <li class="flex items-start"><span class="text-purple-600 mr-2">•</span>Karantina mandiri bagi kucing baru</li>
+                <li class="flex items-start"><span class="text-purple-600 mr-2">•</span>Sirkulasi udara kandang/ruangan yang baik</li>
+                <li class="flex items-start"><span class="text-purple-600 mr-2">•</span>Hindari overpopulasi kucing dalam ruangan</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 2. PARASIT SECTION -->
+    <section id="parasit" class="scroll-mt-40">
+      <div class="bg-white rounded-3xl shadow-xl p-6 md:p-8 border border-red-100">
+        <h2 class="text-2xl font-black text-red-800 mb-6 flex items-center">
+          <span class="text-2xl mr-2">🐛</span>Infeksi Parasiter Kucing
+        </h2>
+        
+        <!-- Ear Mites -->
+        <div>
+          <h3 class="text-xl font-black text-gray-900 mb-4">Ear Mites (Otodectes cynotis / Tungau Telinga)</h3>
+          <div class="grid md:grid-cols-3 gap-4">
+            <div class="bg-green-50 rounded-2xl p-5">
+              <h4 class="font-bold text-green-800 mb-3 flex items-center"><span class="mr-2">🔍</span>Diagnosis</h4>
+              <ul class="space-y-2 text-sm text-gray-700">
+                <li class="flex items-start"><span class="text-green-600 mr-2">•</span>Kucing sering menggelengkan kepala & menggaruk telinga</li>
+                <li class="flex items-start"><span class="text-green-600 mr-2">•</span>Kotoran telinga kering, hitam, pekat kemerahan (seperti kopi)</li>
+                <li class="flex items-start"><span class="text-green-600 mr-2">•</span>Eritema dan ekskoriasi luka di belakang telinga</li>
+                <li class="flex items-start"><span class="text-green-600 mr-2">•</span>Uji usap telinga mikroskopis mendeteksi tungau aktif</li>
+              </ul>
+            </div>
+            <div class="bg-blue-50 rounded-2xl p-5">
+              <h4 class="font-bold text-blue-800 mb-3 flex items-center"><span class="mr-2">💊</span>Terapi Utama</h4>
+              <ul class="space-y-2 text-sm text-gray-700">
+                <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Pemberian obat tetes tengkuk / spot-on (Selamectin)</li>
+                <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Pembersihan liang telinga menggunakan ear cleanser khusus</li>
+                <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Obat tetes telinga mengandung akaridida (Ivermectin tetes)</li>
+                <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Terapi topikal dilanjutkan hingga siklus hidup parasit selesai</li>
+              </ul>
+            </div>
+            <div class="bg-purple-50 rounded-2xl p-5">
+              <h4 class="font-bold text-purple-800 mb-3 flex items-center"><span class="mr-2">🛡️</span>Pencegahan</h4>
+              <ul class="space-y-2 text-sm text-gray-700">
+                <li class="flex items-start"><span class="text-purple-600 mr-2">•</span>Gunakan antiparasit luar (spot-on) rutin bulanan</li>
+                <li class="flex items-start"><span class="text-purple-600 mr-2">•</span>Bersihkan daun telinga secara rutin pasca-grooming</li>
+                <li class="flex items-start"><span class="text-purple-600 mr-2">•</span>Obati seluruh hewan peliharaan serumah sekaligus</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. KULIT SECTION -->
+    <section id="kulit" class="scroll-mt-40">
+      <div class="bg-white rounded-3xl shadow-xl p-6 md:p-8 border border-red-100">
+        <h2 class="text-2xl font-black text-red-800 mb-6 flex items-center">
+          <span class="text-2xl mr-2">🩺</span>Penyakit Kulit Kucing (Dermatologi)
+        </h2>
+        
+        <!-- Notoedres -->
+        <div class="mb-10 border-b border-gray-100 pb-8">
+          <h3 class="text-xl font-black text-gray-900 mb-4">Kudis Notoedrik (Scabies Kucing / Notoedres cati)</h3>
+          <div class="grid md:grid-cols-3 gap-4">
+            <div class="bg-green-50 rounded-2xl p-5">
+              <h4 class="font-bold text-green-800 mb-3 flex items-center"><span class="mr-2">🔍</span>Diagnosis</h4>
+              <ul class="space-y-2 text-sm text-gray-700">
+                <li class="flex items-start"><span class="text-green-600 mr-2">•</span>Krusta tebal berkerut abu-abu pada ujung telinga & wajah</li>
+                <li class="flex items-start"><span class="text-green-600 mr-2">•</span>Pruritus (gatal) intensitas sangat tinggi berulang</li>
+                <li class="flex items-start"><span class="text-green-600 mr-2">•</span>Alopesia parah menyebar dari kepala hingga leher</li>
+                <li class="flex items-start"><span class="text-green-600 mr-2">•</span>Skin scraping dangkal mendeteksi tungau Notoedres</li>
+              </ul>
+            </div>
+            <div class="bg-blue-50 rounded-2xl p-5">
+              <h4 class="font-bold text-blue-800 mb-3 flex items-center"><span class="mr-2">💊</span>Terapi Utama</h4>
+              <ul class="space-y-2 text-sm text-gray-700">
+                <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Aplikasi antiparasit luar golongan Isoxazoline / Selamectin</li>
+                <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Shampoo antiseboroik pelunak krusta tebal</li>
+                <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Injeksi Ivermectin subkutan teratur jika diperlukan</li>
+                <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Antibiotik topikal/sistemik bagi pioderma sekunder</li>
+              </ul>
+            </div>
+            <div class="bg-purple-50 rounded-2xl p-5">
+              <h4 class="font-bold text-purple-800 mb-3 flex items-center"><span class="mr-2">🛡️</span>Pencegahan</h4>
+              <ul class="space-y-2 text-sm text-gray-700">
+                <li class="flex items-start"><span class="text-purple-600 mr-2">•</span>Cegah kontak dengan kucing liar di luar lingkungan rumah</li>
+                <li class="flex items-start"><span class="text-purple-600 mr-2">•</span>Gunakan spot-on antiparasit secara berkala</li>
+                <li class="flex items-start"><span class="text-purple-600 mr-2">•</span>Zoonosis temporer! Gunakan sarung tangan saat memegang pasien</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ringworm -->
+        <div>
+          <h3 class="text-xl font-black text-gray-900 mb-4">Ringworm (Dermatofitosis / Microsporum canis)</h3>
+          <div class="grid md:grid-cols-3 gap-4">
+            <div class="bg-green-50 rounded-2xl p-5">
+              <h4 class="font-bold text-green-800 mb-3 flex items-center"><span class="mr-2">🔍</span>Diagnosis</h4>
+              <ul class="space-y-2 text-sm text-gray-700">
+                <li class="flex items-start"><span class="text-green-600 mr-2">•</span>Alopesia sirkular (kebotakan melingkar) berbatas tegas</li>
+                <li class="flex items-start"><span class="text-green-600 mr-2">•</span>Kelebatan bulu patah-patah disertai sisik halus/ketombe</li>
+                <li class="flex items-start"><span class="text-green-600 mr-2">•</span>Fluoresensi hijau cerah di bawah pemeriksaan Wood's Lamp</li>
+                <li class="flex items-start"><span class="text-green-600 mr-2">•</span>Kultur jamur positif pada media DTM (Dermatophyte Test Medium)</li>
+              </ul>
+            </div>
+            <div class="bg-blue-50 rounded-2xl p-5">
+              <h4 class="font-bold text-blue-800 mb-3 flex items-center"><span class="mr-2">💊</span>Terapi Jamur</h4>
+              <ul class="space-y-2 text-sm text-gray-700">
+                <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Antifungal sistemik oral (Itraconazole)</li>
+                <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Salep topikal antifungal (Miconazole / Ketoconazole)</li>
+                <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Mandikan rutin seminggu dua kali dengan Lime Sulfur / Malaseb</li>
+                <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Cukur rambut di area lesi meluas untuk efisiensi salep</li>
+              </ul>
+            </div>
+            <div class="bg-purple-50 rounded-2xl p-5">
+              <h4 class="font-bold text-purple-800 mb-3 flex items-center"><span class="mr-2">🛡️</span>Pencegahan</h4>
+              <ul class="space-y-2 text-sm text-gray-700">
+                <li class="flex items-start"><span class="text-purple-600 mr-2">•</span>Vakum area rumah rutin membuang spora rontok</li>
+                <li class="flex items-start"><span class="text-purple-600 mr-2">•</span>Jaga kelembapan kandang tetap rendah dan kering</li>
+                <li class="flex items-start"><span class="text-purple-600 mr-2">•</span>Zoonosis aktif! Cuci tangan bersih pasca-interaksi</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4. PERNAPASAN SECTION -->
+    <section id="pernapasan" class="scroll-mt-40">
+      <div class="bg-white rounded-3xl shadow-xl p-6 md:p-8 border border-red-100">
+        <h2 class="text-2xl font-black text-red-800 mb-6 flex items-center">
+          <span class="text-2xl mr-2">🫁</span>Gangguan Sistem Pernapasan Kucing
+        </h2>
+        
+        <!-- Feline URI -->
+        <div>
+          <h3 class="text-xl font-black text-gray-900 mb-4">Feline URI (Upper Respiratory Infection / Flu Kucing Kompleks)</h3>
+          <div class="grid md:grid-cols-3 gap-4">
+            <div class="bg-green-50 rounded-2xl p-5">
+              <h4 class="font-bold text-green-800 mb-3 flex items-center"><span class="mr-2">🔍</span>Diagnosis</h4>
+              <ul class="space-y-2 text-sm text-gray-700">
+                <li class="flex items-start"><span class="text-green-600 mr-2">•</span>Bersin berulang disertai lelehan mukopurulen hidung</li>
+                <li class="flex items-start"><span class="text-green-600 mr-2">•</span>Konjungtivitis mata bengkak merah disertai kotoran pekat</li>
+                <li class="flex items-start"><span class="text-green-600 mr-2">•</span>Demam tinggi, penurunan nafsu makan (anosmia)</li>
+                <li class="flex items-start"><span class="text-green-600 mr-2">•</span>Etiologi utama: FHV-1 (Herpesvirus) atau Chlamydia felis</li>
+              </ul>
+            </div>
+            <div class="bg-blue-50 rounded-2xl p-5">
+              <h4 class="font-bold text-blue-800 mb-3 flex items-center"><span class="mr-2">💊</span>Terapi Manajemen</h4>
+              <ul class="space-y-2 text-sm text-gray-700">
+                <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Antibiotik target sistemik (Doxycycline / Azithromycin)</li>
+                <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Obat tetes mata antibiotik (Oxytetracycline) bebas steroid</li>
+                <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Mukolitik & Nebulisasi larutan saline steril berkala</li>
+                <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Suplemen L-Lysine penghambat replikasi virus Herpes</li>
+              </ul>
+            </div>
+            <div class="bg-purple-50 rounded-2xl p-5">
+              <h4 class="font-bold text-purple-800 mb-3 flex items-center"><span class="mr-2">🛡️</span>Pencegahan</h4>
+              <ul class="space-y-2 text-sm text-gray-700">
+                <li class="flex items-start"><span class="text-purple-600 mr-2">•</span>Vaksinasi rutin Rhinotracheitis & Chlamydia</li>
+                <li class="flex items-start"><span class="text-purple-600 mr-2">•</span>Isolasi mandiri anak kucing dari kucing dewasa penular</li>
+                <li class="flex items-start"><span class="text-purple-600 mr-2">•</span>Hindari ruangan lembap, maksimalkan sinar matahari masuk</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-gray-950 text-white py-8 text-center border-t-4 border-red-600">
+    <p class="text-sm text-gray-400">VetMed Hub Disease Database © 2026</p>
+  </footer>
+
+  <!-- Script Penunjang Mobile Menu & Aktif Tab -->
+  <script>
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    if(mobileMenuBtn) {
+      mobileMenuBtn.addEventListener('click', () => {
+        alert('Menu navigasi responsif siap dikembangkan sesuai rute index Anda!');
+      });
+    }
+
+    // Mengatur highlight kelas tombol navigasi yang aktif saat di-klik
+    const navButtons = document.querySelectorAll('.nav-btn-kucing');
+    navButtons.forEach(btn => {
+      btn.addEventListener('click', function() {
+        navButtons.forEach(b => {
+          b.classList.remove('bg-red-50', 'text-red-700', 'border-red-500');
+          b.classList.add('bg-white', 'text-gray-700', 'border-gray-100');
+        });
+        this.classList.remove('bg-white', 'text-gray-700', 'border-gray-100');
+        this.classList.add('bg-red-50', 'text-red-700', 'border-red-500');
+      });
+    });
+  </script>
+
+</body>
+</html>
