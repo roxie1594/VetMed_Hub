@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Penyakit Anjing - VetMed Hub</title>
+  <meta name="description" content="Database lengkap penyakit anjing: diagnosis, terapi, pencegahan">
+  
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#dc2626">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐕</text></svg>">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { red: { 700: '#dc2626' } } } }
+    }
+  </script>
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght=400;500;600;700;800&display=swap');
+    * { font-family: 'Inter', sans-serif; }
+    .scroll-mt-40 { scroll-margin-top: 10rem; }
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+
+<body class="bg-gradient-to-br from-red-50 to-orange-50 min-h-screen text-gray-800">
+
+<nav class="bg-white/90 backdrop-blur-md sticky top-0 z-50 shadow-sm border-b border-red-100">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center py-4">
+      <a href="index.html" class="text-2xl font-black bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent flex items-center space-x-2">
+        <span>🐾</span><span>VetMed Hub</span>
+      </a>
+      
+      <div class="hidden md:flex space-x-8">
+        <a href="index.html" class="group flex items-center space-x-1 font-medium text-gray-700 hover:text-red-600 transition-all">
+          <span>Beranda</span>
+          <span class="w-2 h-2 bg-red-600 rounded-full scale-0 group-hover:scale-100 transition-transform"></span>
+        </a>
+        <a href="berandaspesies.html" class="group flex items-center space-x-1 font-medium text-gray-700 hover:text-red-600 transition-all">
+          <span>Spesies</span>
+          <span class="w-2 h-2 bg-red-600 rounded-full scale-0 group-hover:scale-100 transition-transform"></span>
+        </a>
+        <a href="berandafarmakologi.html" class="group flex items-center space-x-1 font-medium text-gray-700 hover:text-red-600 transition-all">
+          <span>Farmakologi</span>
+          <span class="w-2 h-2 bg-red-600 rounded-full scale-0 group-hover:scale-100 transition-transform"></span>
+        </a>
+        <a href="kalkulator.html" class="group flex items-center space-x-1 font-medium text-gray-700 hover:text-red-600 transition-all">
+          <span>Kalkulator</span>
+          <span class="w-2 h-2 bg-red-600 rounded-full scale-0 group-hover:scale-100 transition-transform"></span>
+        </a>
+      </div>
+
+      <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+  <!-- Header -->
+  <section class="pt-16 pb-6 text-center">
+    <div class="max-w-4xl mx-auto px-4">
+      <a href="berandapenyakit.html" class="inline-flex items-center text-red-600 hover:text-red-800 mb-3 font-medium">
+        <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+        Kembali ke Penyakit
+      </a>
+      
+      <div class="text-7xl mb-3">🐕</div>
+      <h1 class="text-4xl md:text-5xl font-black text-gray-900 mb-2">Penyakit Anjing</h1>
+      <p class="text-lg text-gray-600">Database lengkap diagnosis, terapi & pencegahan</p>
+    </div>
+  </section>
+
+  <!-- Menu Pilihan (Fixed ID Anchor untuk scroll-behavior) -->
+  <section class="sticky top-[73px] z-40 px-4 py-4 backdrop-blur-md bg-gradient-to-b from-red-50/50 to-orange-50/50">
+    <div class="max-w-4xl mx-auto">
+      <div class="bg-white/90 shadow-lg border border-red-100 rounded-3xl p-3 flex flex-wrap justify-center gap-4">
+        
+        <a href="#infeksius" class="nav-btn-anjing flex-1 min-w-[130px] sm:flex-none flex items-center justify-center px-5 py-3 bg-red-50 text-red-700 border-red-500 font-semibold rounded-2xl border-2 transition-all shadow-sm">
+          <span class="text-xl mr-2">🦠</span>Infeksius
+        </a>
+        
+        <a href="#parasit" class="nav-btn-anjing flex-1 min-w-[130px] sm:flex-none flex items-center justify-center px-5 py-3 bg-white text-gray-700 font-semibold rounded-2xl border-2 border-gray-100 hover:border-red-500 hover:text-red-700 transition-all shadow-sm">
+          <span class="text-xl mr-2">🐛</span>Parasit
+        </a>
+        
+        <a href="#kulit" class="nav-btn-anjing flex-1 min-w-[130px] sm:flex-none flex items-center justify-center px-5 py-3 bg-white text-gray-700 font-semibold rounded-2xl border-2 border-gray-100 hover:border-red-500 hover:text-red-700 transition-all shadow-sm">
+          <span class="text-xl mr-2">🩺</span>Kulit
+        </a>
+        
+        <a href="#pernapasan" class="nav-btn-anjing flex-1 min-w-[130px] sm:flex-none flex items-center justify-center px-5 py-3 bg-white text-gray-700 font-semibold rounded-2xl border-2 border-gray-100 hover:border-red-500 hover:text-red-700 transition-all shadow-sm">
+          <span class="text-xl mr-2">🫁</span>Pernapasan
+        </a>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <main class="max-w-4xl mx-auto px-4 space-y-12 pb-24">
+
+    <!-- 1. INFEKSIUS SECTION -->
+    <section id="infeksius" class="scroll-mt-40">
+      <div class="bg-white rounded-3xl shadow-xl p-6 md:p-8 border border-red-100">
+        <h2 class="text-2xl font-black text-red-800 mb-6 flex items-center">
+          <span class="text-2xl mr-2">🦠</span>Penyakit Infeksius Anjing
+        </h2>
+        
+        <!-- Distemper -->
+        <div class="mb-10 border-b border-gray-100 pb-8">
+          <h3 class="text-xl font-black text-gray-900 mb-4">Distemper (Canine Distemper Virus / CDV)</h3>
+          <div class="grid md:grid-cols-3 gap-4">
+            <div class="bg-green-50 rounded-2xl p-5">
+              <h4 class="font-bold text-green-800 mb-3 flex items-center"><span class="mr-2">🔍</span>Diagnosis</h4>
+              <ul class="space-y-2 text-sm text-gray-700">
+                <li class="flex items-start"><span class="text-green-600 mr-2">•</span>Demam bifasik (39.5-41°C)</li>
+                <li class="flex items-start"><span class="text-green-600 mr-2">•</span>Lelehan mukopurulen mata & hidung</li>
+                <li class="flex items-start"><span class="text-green-600 mr-2">•</span>Batuk dyspnea & gastroenteritis</li>
+                <li class="flex items-start"><span class="text-green-600 mr-2">•</span>Hyperkeratosis pad kaki & hidung</li>
+                <li class="flex items-start"><span class="text-green-600 mr-2">•</span>Gejala saraf: Kejang (chewing-gum fits)</li>
+              </ul>
+            </div>
+            <div class="bg-blue-50 rounded-2xl p-5">
+              <h4 class="font-bold text-blue-800 mb-3 flex items-center"><span class="mr-2">💊</span>Terapi Suportif</h4>
+              <ul class="space-y-2 text-sm text-gray-700">
+                <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Antibiotik sekunder (Amoxicillin-Clavulanate)</li>
+                <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Terapi cairan IV ringer laktat</li>
+                <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Antikonvulsan (Phenobarbital / Diazepam)</li>
+                <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Ekspektoran & mukolitik</li>
+                <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Neurotropik (Vitamin B-Complex)</li>
+              </ul>
+            </div>
+            <div class="bg-purple-50 rounded-2xl p-5">
+              <h4 class="font-bold text-purple-800 mb-3 flex items-center"><span class="mr-2">🛡️</span>Pencegahan</h4>
+              <ul class="space-y-2 text-sm text-gray-700">
+                <li class="flex items-start"><span class="text-purple-600 mr-2">•</span>Vaksinasi CDV (Core Vaccine)</li>
+                <li class="flex items-start"><span class="text-purple-600 mr-2">•</span>Imunisasi awal usia 6-8 minggu</li>
+                <li class="flex items-start"><span class="text-purple-600 mr-2">•</span>Booster internal 3-4 minggu hingga 16 minggu</li>
+                <li class="flex items-start"><span class="text-purple-600 mr-2">•</span>Booster berkala tiap 1-3 tahun</li>
+                <li class="flex items-start"><span class="text-purple-600 mr-2">•</span>Isolasi ketat pasien suspek</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Parvovirus -->
+        <div class="mb-10 border-b border-gray-100 pb-8">
+          <h3 class="text-xl font-black text-gray-900 mb-4">Canine Parvovirus (CPV)</h3>
+          <div class="grid md:grid-cols-3 gap-4">
+            <div class="bg-green-50 rounded-2xl p-5">
+              <h4 class="font-bold text-green-800 mb-3 flex items-center"><span class="mr-2">🔍</span>Diagnosis</h4>
+              <ul class="space-y-2 text-sm text-gray-700">
+                <li class="flex items-start"><span class="text-green-600 mr-2">•</span>Muntah profus, letargi parah</li>
+                <li class="flex items-start"><span class="text-green-600 mr-2">•</span>Diare berdarah encer berbau busuk khas</li>
+                <li class="flex items-start"><span class="text-green-600 mr-2">•</span>Dehidrasi akut & syok hipovolemik</li>
+                <li class="flex items-start"><span class="text-green-600 mr-2">•</span>Leukopenia berat pada pemeriksaan darah</li>
+                <li class="flex items-start"><span class="text-green-600 mr-2">•</span>Kit antigen cepat / PCR feses positif</li>
+              </ul>
+            </div>
+            <div class="bg-blue-50 rounded-2xl p-5">
+              <h4 class="font-bold text-blue-800 mb-3 flex items-center"><span class="mr-2">💊</span>Terapi Suportif</h4>
+              <ul class="space-y-2 text-sm text-gray-700">
+                <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Resusitasi cairan agresif (Kristaloid & Koloid)</li>
+                <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Antiemetik poten (Maropitant / Ondansetron)</li>
+                <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Antibiotik spektrum luas intravena</li>
+                <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Pelindung GI (Omeprazole / Ranitidin)</li>
+                <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Nutrisi enteral dini via tube jika muntah reda</li>
+              </ul>
+            </div>
+            <div class="bg-purple-50 rounded-2xl p-5">
+              <h4 class="font-bold text-purple-800 mb-3 flex items-center"><span class="mr-2">🛡️</span>Pencegahan</h4>
+              <ul class="space-y-2 text-sm text-gray-700">
+                <li class="flex items-start"><span class="text-purple-600 mr-2">•</span>Protokol vaksinasi CPV yang ketat</li>
+                <li class="flex items-start"><span class="text-purple-600 mr-2">•</span>Karantina anak anjing sebelum booster lengkap</li>
+                <li class="flex items-start"><span class="text-purple-600 mr-2">•</span>Desinfeksi kandang dengan Sodium Hipoklorit</li>
+                <li class="flex items-start"><span class="text-purple-600 mr-2">•</span>Virus resisten di lingkungan luar ruangan</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Rabies -->
+        <div>
+          <h3 class="text-xl font-black text-gray-900 mb-4">Rabies (Mad Dog Disease)</h3>
+          <div class="grid md:grid-cols-3 gap-4">
+            <div class="bg-green-50 rounded-2xl p-5">
+              <h4 class="font-bold text-green-800 mb-3 flex items-center"><span class="mr-2">🔍</span>Diagnosis</h4>
+              <ul class="space-y-2 text-sm text-gray-700">
+                <li class="flex items-start"><span class="text-green-600 mr-2">•</span>Riwayat gigitan hewan penular rabies (HPR)</li>
+                <li class="flex items-start"><span class="text-green-600 mr-2">•</span>Fase ganas: Agresif, pika, hipersalivasi parah</li>
+                <li class="flex items-start"><span class="text-green-600 mr-2">•</span>Fase lumpuh: Rahang menggantung, hidrofobia</li>
+                <li class="flex items-start"><span class="text-green-600 mr-2">•</span>Kelumpuhan saraf motorik progresif hingga mati</li>
+              </ul>
+            </div>
+            <div class="bg-blue-50 rounded-2xl p-5">
+              <h4 class="font-bold text-blue-800 mb-3 flex items-center"><span class="mr-2">💊</span>Terapi</h4>
+              <ul class="space-y-2 text-sm text-gray-700">
+                <li class="flex items-start"><span class="text-red-600 mr-2">❌</span><strong>TIDAK ADA TERAPI</strong></li>
+                <li class="flex items-start"><span class="text-gray-600 mr-2">•</span>Penyakit ini 100% fatal setelah gejala klinis muncul.</li>
+                <li class="flex items-start"><span class="text-gray-600 mr-2">•</span>Hewan suspek wajib dieutanasia/dikarantina dinas terkait.</li>
+              </ul>
+            </div>
+            <div class="bg-purple-50 rounded-2xl p-5">
+              <h4 class="font-bold text-purple-800 mb-3 flex items-center"><span class="mr-2">🛡️</span>Pencegahan</h4>
+              <ul class="space-y-2 text-sm text-gray-700">
+                <li class="flex items-start"><span class="text-purple-600 mr-2">•</span>Vaksinasi Rabies tahunan (Mandatori Hukum)</li>
+                <li class="flex items-start"><span class="text-purple-600 mr-2">•</span>Diberikan pertama kali pada usia 3 bulan</li>
+                <li class="flex items-start"><span class="text-purple-600 mr-2">•</span>Kontrol populasi dan hindari kontak satwa liar</li>
+                <li class="flex items-start"><span class="text-purple-600 mr-2">•</span>Cuci luka gigitan segera dengan sabun & air mengalir</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 2. PARASIT SECTION -->
+    <section id="parasit" class="scroll-mt-40">
+      <div class="bg-white rounded-3xl shadow-xl p-6 md:p-8 border border-red-100">
+        <h2 class="text-2xl font-black text-red-800 mb-6 flex items-center">
+          <span class="text-2xl mr-2">🐛</span>Infeksi Parasiter
+        </h2>
+        
+        <!-- Dirofilaria -->
+        <div class="mb-8">
+          <h3 class="text-xl font-black text-gray-900 mb-4">Heartworm (Dirofilaria immitis)</h3>
+          <div class="grid md:grid-cols-3 gap-4">
+            <div class="bg-green-50 rounded-2xl p-5">
+              <h4 class="font-bold text-green-800 mb-3 flex items-center"><span class="mr-2">🔍</span>Diagnosis</h4>
+              <ul class="space-y-2 text-sm text-gray-700">
+                <li class="flex items-start"><span class="text-green-600 mr-2">•</span>Batuk kronis, intoleransi latihan fisik</li>
+                <li class="flex items-start"><span class="text-green-600 mr-2">•</span>Letargi, penurunan berat badan drastic</li>
+                <li class="flex items-start"><span class="text-green-600 mr-2">•</span>Murmur jantung & dispnea kanan</li>
+                <li class="flex items-start"><span class="text-green-600 mr-2">•</span>Uji Antigen ELISA / Knott's test positif mikrofilaria</li>
+              </ul>
+            </div>
+            <div class="bg-blue-50 rounded-2xl p-5">
+              <h4 class="font-bold text-blue-800 mb-3 flex items-center"><span class="mr-2">💊</span>Terapi</h4>
+              <ul class="space-y-2 text-sm text-gray-700">
+                <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Makrosilik lakton (Ivermectin/Milbemycin)</li>
+                <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Terapi dewasa: Injeksi Melarsomine Dihidroklorida</li>
+                <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Doxycycline untuk eliminasi bakteri simbion Wolbachia</li>
+                <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Restriksi kandang total selama terapi</li>
+              </ul>
+            </div>
+            <div class="bg-purple-50 rounded-2xl p-5">
+              <h4 class="font-bold text-purple-800 mb-3 flex items-center"><span class="mr-2">🛡️</span>Pencegahan</h4>
+              <ul class="space-y-2 text-sm text-gray-700">
+                <li class="flex items-start"><span class="text-purple-600 mr-2">•</span>Pemberian preventif bulanan (Selamectin/Moxidectin)</li>
+                <li class="flex items-start"><span class="text-purple-600 mr-2">•</span>Kontrol lingkungan dari vektor nyamuk (Culex/Aedes)</li>
+                <li class="flex items-start"><span class="text-purple-600 mr-2">•</span>Skrining darah tahunan</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. KULIT SECTION -->
+    <section id="kulit" class="scroll-mt-40">
+      <div class="bg-white rounded-3xl shadow-xl p-6 md:p-8 border border-red-100">
+        <h2 class="text-2xl font-black text-red-800 mb-6 flex items-center">
+          <span class="text-2xl mr-2">🩺</span>Penyakit Kulit (Dermatologi)
+        </h2>
+        
+        <!-- Scabies -->
+        <div class="mb-8">
+          <h3 class="text-xl font-black text-gray-900 mb-4">Kudis Sarkoptik (Scabies / Sarcoptes scabiei)</h3>
+          <div class="grid md:grid-cols-3 gap-4">
+            <div class="bg-green-50 rounded-2xl p-5">
+              <h4 class="font-bold text-green-800 mb-3 flex items-center"><span class="mr-2">🔍</span>Diagnosis</h4>
+              <ul class="space-y-2 text-sm text-gray-700">
+                <li class="flex items-start"><span class="text-green-600 mr-2">•</span>Pruritus (gatal) ekstrem yang tidak merespon steroid</li>
+                <li class="flex items-start"><span class="text-green-600 mr-2">•</span>Alopesia, eritema, krusta tebal</li>
+                <li class="flex items-start"><span class="text-green-600 mr-2">•</span>Predileksi: Tepi daun telinga, siku, abdomen</li>
+                <li class="flex items-start"><span class="text-green-600 mr-2">•</span>Refleks Pinnal-Pedal positif; Skin scraping dalam</li>
+              </ul>
+            </div>
+            <div class="bg-blue-50 rounded-2xl p-5">
+              <h4 class="font-bold text-blue-800 mb-3 flex items-center"><span class="mr-2">💊</span>Terapi</h4>
+              <ul class="space-y-2 text-sm text-gray-700">
+                <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Isoxazoline oral (Fluralaner / Afoxolaner)</li>
+                <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Injeksi Subkutan Ivermectin berulang</li>
+                <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Shampoo Keratolitik & Sulfur Lime dip</li>
+                <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Terapi antibiotik jika ada infeksi sekunder</li>
+              </ul>
+            </div>
+            <div class="bg-purple-50 rounded-2xl p-5">
+              <h4 class="font-bold text-purple-800 mb-3 flex items-center"><span class="mr-2">🛡️</span>Pencegahan</h4>
+              <ul class="space-y-2 text-sm text-gray-700">
+                <li class="flex items-start"><span class="text-purple-600 mr-2">•</span>Gunakan antiparasit eksternal rutin</li>
+                <li class="flex items-start"><span class="text-purple-600 mr-2">•</span>Hindari kontak dengan satwa liar/anjing liar</li>
+                <li class="flex items-start"><span class="text-purple-600 mr-2">•</span>Zoonosis aktif: Pisahkan barang & gunakan sarung tangan</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. PERNAPASAN SECTION -->
+    <section id="pernapasan" class="scroll-mt-40">
+      <div class="bg-white rounded-3xl shadow-xl p-6 md:p-8 border border-red-100">
+        <h2 class="text-2xl font-black text-red-800 mb-6 flex items-center">
+          <span class="text-2xl mr-2">🫁</span>Gangguan Sistem Pernapasan
+        </h2>
+        
+        <!-- Kennel Cough -->
+        <div class="mb-8">
+          <h3 class="text-xl font-black text-gray-900 mb-4">Kennel Cough (CIRT / Batuk Kennel)</h3>
+          <div class="grid md:grid-cols-3 gap-4">
+            <div class="bg-green-50 rounded-2xl p-5">
+              <h4 class="font-bold text-green-800 mb-3 flex items-center"><span class="mr-2">🔍</span>Diagnosis</h4>
+              <ul class="space-y-2 text-sm text-gray-700">
+                <li class="flex items-start"><span class="text-green-600 mr-2">•</span>Batuk kering, keras, nyaring terdengar seperti tersedak</li>
+                <li class="flex items-start"><span class="text-green-600 mr-2">•</span>Ekspektorasi busuk putih pasca-batuk</li>
+                <li class="flex items-start"><span class="text-green-600 mr-2">•</span>Refleks trakeal positif saat palpasi leher</li>
+                <li class="flex items-start"><span class="text-green-600 mr-2">•</span>Riwayat penitipan hewan/kontak di salon/kennel</li>
+              </ul>
+            </div>
+            <div class="bg-blue-50 rounded-2xl p-5">
+              <h4 class="font-bold text-blue-800 mb-3 flex items-center"><span class="mr-2">💊</span>Terapi</h4>
+              <ul class="space-y-2 text-sm text-gray-700">
+                <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Isolasi mandiri & manajemen restriksi aktivitas</li>
+                <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Antibiotik target (Doxycycline / Azithromycin)</li>
+                <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Antitusif jika non-produktif (Butorphanol/Kodein)</li>
+                <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Nebulisasi cairan saline steril</li>
+              </ul>
+            </div>
+            <div class="bg-purple-50 rounded-2xl p-5">
+              <h4 class="font-bold text-purple-800 mb-3 flex items-center"><span class="mr-2">🛡️</span>Pencegahan</h4>
+              <ul class="space-y-2 text-sm text-gray-700">
+                <li class="flex items-start"><span class="text-purple-600 mr-2">•</span>Vaksinasi Bordetella bronchiseptica (Intranasal/Oral)</li>
+                <li class="flex items-start"><span class="text-purple-600 mr-2">•</span>Ventilasi sirkulasi udara kandang yang baik</li>
+                <li class="flex items-start"><span class="text-purple-600 mr-2">•</span>Hindari penggunaan collar leher, beralih ke harness</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-gray-950 text-white py-8 text-center border-t-4 border-red-600">
+    <p class="text-sm text-gray-400">VetMed Hub Disease Database © 2026</p>
+  </footer>
+
+  <!-- Script Penunjang Mobile Menu & Aktif Tab -->
+  <script>
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    if(mobileMenuBtn) {
+      mobileMenuBtn.addEventListener('click', () => {
+        alert('Menu navigasi responsif siap dikembangkan sesuai rute index Anda!');
+      });
+    }
+
+    // Mengatur highlight kelas tombol navigasi yang aktif saat di-klik
+    const navButtons = document.querySelectorAll('.nav-btn-anjing');
+    navButtons.forEach(btn => {
+      btn.addEventListener('click', function() {
+        navButtons.forEach(b => {
+          b.classList.remove('bg-red-50', 'text-red-700', 'border-red-500');
+          b.classList.add('bg-white', 'text-gray-700', 'border-gray-100');
+        });
+        this.classList.remove('bg-white', 'text-gray-700', 'border-gray-100');
+        this.classList.add('bg-red-50', 'text-red-700', 'border-red-500');
+      });
+    });
+  </script>
+
+</body>
+</html>
