@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tambah Penyakit - VetMed Hub</title>
+  <meta name="description" content="Tambah data penyakit hewan baru">
+  
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#dc2626">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>➕</text></svg>">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { red: { 700: '#dc2626' } } } }
+    }
+  </script>
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+    * { font-family: 'Inter', sans-serif; }
+  </style>
+</head>
+
+<body class="bg-gradient-to-br from-red-50 to-orange-50 min-h-screen text-gray-800">
+
+<nav class="bg-white/90 backdrop-blur-md sticky top-0 z-50 shadow-sm border-b border-red-100">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center py-4">
+      <a href="index.html" class="text-2xl font-black bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent flex items-center space-x-2">
+        <span>🐾</span><span>VetMed Hub</span>
+      </a>
+      
+      <div class="hidden md:flex space-x-8">
+        <a href="berandapenyakit.html" class="group flex items-center space-x-1 font-medium text-gray-700 hover:text-red-600 transition-all">
+          <span>Penyakit</span>
+          <span class="w-2 h-2 bg-red-600 rounded-full scale-0 group-hover:scale-100 transition-transform"></span>
+        </a>
+        <a href="berandaspesies.html" class="group flex items-center space-x-1 font-medium text-gray-700 hover:text-red-600 transition-all">
+          <span>Spesies</span>
+          <span class="w-2 h-2 bg-red-600 rounded-full scale-0 group-hover:scale-100 transition-transform"></span>
+        </a>
+        <a href="kalkulator.html" class="group flex items-center space-x-1 font-medium text-gray-700 hover:text-red-600 transition-all">
+          <span>Kalkulator</span>
+          <span class="w-2 h-2 bg-red-600 rounded-full scale-0 group-hover:scale-100 transition-transform"></span>
+        </a>
+      </div>
+
+      <button id="mobile-menu-btn" class="md:hidden p-2">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+  <section class="pt-16 pb-8 text-center">
+    <div class="max-w-4xl mx-auto px-4">
+      <a href="berandapenyakit.html" class="inline-flex items-center text-red-600 hover:text-red-800 mb-3">
+        <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+        Kembali ke Penyakit
+      </a>
+      
+      <div class="text-6xl mb-3">➕</div>
+      <h1 class="text-4xl md:text-5xl font-black text-gray-900 mb-2">Tambah Penyakit</h1>
+      <p class="text-lg text-gray-600">Kontribusikan data penyakit baru</p>
+    </div>
+  </section>
+
+  <!-- Form Add Disease -->
+  <section class="px-4 pb-20">
+    <div class="max-w-3xl mx-auto">
+      <form id="addDiseaseForm" class="bg-white rounded-3xl shadow-xl p-6 md:p-8 border border-red-100 space-y-6">
+        
+        <!-- Info Banner -->
+        <div class="bg-red-50 border border-red-200 rounded-2xl p-4 flex items-start gap-3">
+          <span class="text-2xl">💡</span>
+          <div>
+            <p class="font-semibold text-red-800">Pedoman Kontribusi</p>
+            <p class="text-sm text-red-600">Isi data dengan lengkap & akurat. Semua field wajib diisi.</p>
+          </div>
+        </div>
+
+        <!-- Nama Penyakit -->
+        <div>
+          <label class="block text-base font-semibold text-gray-800 mb-2">
+            Nama Penyakit <span class="text-red-600">*</span>
+          </label>
+          <input type="text" name="namaPenyakit" required placeholder="Contoh: Distemper" 
+                 class="w-full px-5 py-4 rounded-2xl border-2 border-gray-200 focus:border-red-500 focus:outline-none focus:ring-4 focus:ring-red-100 text-lg">
+        </div>
+
+        <!-- Spesies -->
+        <div>
+          <label class="block text-base font-semibold text-gray-800 mb-2">
+            Spesies <span class="text-red-600">*</span>
+          </label>
+          <select name="spesies" required class="w-full px-5 py-4 rounded-2xl border-2 border-gray-200 focus:border-red-500 focus:outline-none focus:ring-4 focus:ring-red-100 text-lg">
+            <option value="">Pilih spesies...</option>
+            <option value="anjing">🐕 Anjing</option>
+            <option value="kucing">🐱 Kucing</option>
+            <option value="sapi">🐄 Sapi</option>
+            <option value="kuda">🐴 Kuda</option>
+            <option value="kambing">🐐 Kambing</option>
+            <option value="domba">🐑 Domba</option>
+            <option value="ayam">🐔 Ayam</option>
+            <option value="babi">🐖 Babi</option>
+            <option value="semua">🦮 Semua Mammalia</option>
+          </select>
+        </div>
+
+        <!-- Kategori -->
+        <div>
+          <label class="block text-base font-semibold text-gray-800 mb-2">
+            Kategori Penyakit <span class="text-red-600">*</span>
+          </label>
+          <select name="kategori" required class="w-full px-5 py-4 rounded-2xl border-2 border-gray-200 focus:border-red-500 focus:outline-none focus:ring-4 focus:ring-red-100 text-lg">
+            <option value="">Pilih kategori...</option>
+            <option value="infeksius">🦠 Infeksius (Bakteri, Virus, Jamur)</option>
+            <option value="parasit">🐛 Parasit (Cacing, Kutu, Tungau)</option>
+            <option value="metabolik">💊 Metabolik/Endokrin</option>
+            <option value="neoplasma">⚡ Neoplasma/Kanker</option>
+            <option value="imun">🛡️ Imunologi/Autoimun</option>
+            <option value="gizi">🥗 Gizi/Nutrisi</option>
+            <option value="trauma">💥 Trauma/Kecelakaan</option>
+            <option value="kongenital">👶 Kongenital/Bawaan</option>
+            <option value="lainnya">📌 Lainnya</option>
+          </select>
+        </div>
+
+        <!-- Etiologi -->
+        <div>
+          <label class="block text-base font-semibold text-gray-800 mb-2">
+            Etiologi (Penyebab) <span class="text-red-600">*</span>
+          </label>
+          <textarea name="etiologi" rows="3" required placeholder="Contoh: Virus Canine Distemper (Paramyxoviridae)" 
+                    class="w-full px-5 py-4 rounded-2xl border-2 border-gray-200 focus:border-red-500 focus:outline-none focus:ring-4 focus:ring-red-100 text-lg"></textarea>
+        </div>
+
+        <!-- Gejala Klinis -->
+        <div>
+          <label class="block text-base font-semibold text-gray-800 mb-2">
+            Gejala Klinis <span class="text-red-600">*</span>
+          </label>
+          <textarea name="gejala" rows="4" required placeholder="Contoh:&#10;- Demam tinggi&#10;- Pilek & mata berair&#10;- Batis kering&#10;- Muntah & diare&#10;- Luka pada kaki & hidung" 
+                    class="w-full px-5 py-4 rounded-2xl border-2 border-gray-200 focus:border-red-500 focus:outline-none focus:ring-4 focus:ring-red-100 text-lg"></textarea>
+        </div>
+
+        <!-- Diagnosis -->
+        <div class="grid md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-base font-semibold text-gray-800 mb-2">Diagnosis Banding</label>
+            <input type="text" name="dxBanding" placeholder="Penyakit dengan gejala serupa" 
+                   class="w-full px-5 py-4 rounded-2xl border-2 border-gray-200 focus:border-red-500 focus:outline-none focus:ring-4 focus:ring-red-100">
+          </div>
+          <div>
+            <label class="block text-base font-semibold text-gray-800 mb-2">Pemeriksaan Lab</label>
+            <input type="text" name="pemeriksaan" placeholder="Contoh: PCR, Kultur, Darah lengkap" 
+                   class="w-full px-5 py-4 rounded-2xl border-2 border-gray-200 focus:border-red-500 focus:outline-none focus:ring-4 focus:ring-red-100">
+          </div>
+        </div>
+
+        <!-- Terapi -->
+        <div>
+          <label class="block text-base font-semibold text-gray-800 mb-2">
+            Terapi & Pengobatan <span class="text-red-600">*</span>
+          </label>
+          <textarea name="terapi" rows="4" required placeholder="Contoh:&#10;1. Supportive care: Fluida IV&#10;2. Antibiotik sekunder&#10;3. Antipiretik&#10;4. Vitamin & imunostimulan" 
+                    class="w-full px-5 py-4 rounded-2xl border-2 border-gray-200 focus:border-red-500 focus:outline-none focus:ring-4 focus:ring-red-100 text-lg"></textarea>
+        </div>
+
+        <!-- Pencegahan -->
+        <div>
+          <label class="block text-base font-semibold text-gray-800 mb-2">Pencegahan</label>
+          <textarea name="pencegahan" rows="3" placeholder="Contoh: Vaksinasi tahunan, Biosecurity, Sanitasi lingkungan" 
+                    class="w-full px-5 py-4 rounded-2xl border-2 border-gray-200 focus:border-red-500 focus:outline-none focus:ring-4 focus:ring-red-100 text-lg"></textarea>
+        </div>
+
+        <!-- Prognosis -->
+        <div>
+          <label class="block text-base font-semibold text-gray-800 mb-3">Prognosis</label>
+          <div class="grid grid-cols-3 gap-3">
+            <label class="flex items-center justify-center p-4 border-2 border-gray-200 rounded-xl cursor-pointer hover:border-red-300 transition-colors has-[:checked]:bg-red-500 has-[:checked]:border-red-500 has-[:checked]:text-white">
+              <input type="radio" name="prognosis" value="baik" class="sr-only">
+              <span class="font-semibold">✅ Baik</span>
+            </label>
+            <label class="flex items-center justify-center p-4 border-2 border-gray-200 rounded-xl cursor-pointer hover:border-red-300 transition-colors has-[:checked]:bg-yellow-500 has-[:checked]:border-yellow-500 has-[:checked]:text-white">
+              <input type="radio" name="prognosis" value="sedang" class="sr-only">
+              <span class="font-semibold">⚠️ Sedang</span>
+            </label>
+            <label class="flex items-center justify-center p-4 border-2 border-gray-200 rounded-xl cursor-pointer hover:border-red-300 transition-colors has-[:checked]:bg-red-500 has-[:checked]:border-red-500 has-[:checked]:text-white">
+              <input type="radio" name="prognosis" value="buruk" class="sr-only">
+              <span class="font-semibold">❌ Buruk</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Referensi -->
+        <div>
+          <label class="block text-base font-semibold text-gray-800 mb-2">Referensi</label>
+          <input type="text" name="referensi" placeholder="Contoh: Smith's Veterinary virology 2020" 
+                 class="w-full px-5 py-4 rounded-2xl border-2 border-gray-200 focus:border-red-500 focus:outline-none focus:ring-4 focus:ring-red-100">
+        </div>
+
+        <!-- Submit -->
+        <div class="flex flex-col sm:flex-row gap-4 pt-4">
+          <button type="submit" class="flex-1 px-8 py-4 bg-gradient-to-r from-red-600 to-orange-500 text-white font-bold text-lg rounded-2xl hover:from-red-700 hover:to-orange-600 transition-all shadow-lg hover:shadow-xl">
+            📤 Submit Penyakit
+          </button>
+          <button type="reset" class="px-8 py-4 border-2 border-gray-300 text-gray-600 font-semibold rounded-2xl hover:bg-gray-100 transition-all">
+            🔄 Reset
+          </button>
+        </div>
+
+        <!-- Catatan -->
+        <p class="text-center text-sm text-gray-500 pt-4">
+          📚 Data akan direview oleh tim VetMed Hub sebelum publish
+        </p>
+
+      </form>
+    </div>
+  </section>
+
+  <footer class="bg-gray-900 text-white py-10 border-t-8 border-red-900">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <div class="flex items-center justify-center space-x-3 mb-4">
+        <span class="text-2xl">🐾</span>
+        <h3 class="text-xl font-black">VetMed Hub</h3>
+      </div>
+      <p class="text-gray-400 text-sm">100% Gratis • Open Source</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('addDiseaseForm').addEventListener('submit', (e) => {
+      e.preventDefault()
+      
+      // Get form data
+      const formData = new FormData(e.target)
+      const data = Object.fromEntries(formData.entries())
+      
+      // Validation
+      if(!data.namaPenyakit || !data.spesies || !data.kategori || !data. etiologi || !data.gejala || !data.terapi) {
+        alert('Mohon isi semua field wajib!')
+        return
+      }
+      
+      // Show success (simulasi)
+      alert(`✅ Penyakit "${data.namaPenyakit}" berhasil disubmit!\n\nTerima kasih atas kontribusi Anda para komunitas VetMed Hub!`)
+      
+      // Reset form
+      e.target.reset()
+    })
+  </script>
+</body>
+</html>
