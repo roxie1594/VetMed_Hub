@@ -17,7 +17,7 @@
     }
   </script>
   
-   <style>
+  <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
     * { font-family: 'Inter', sans-serif; }
     .scroll-mt-20 { scroll-margin-top: 5rem; }
@@ -52,7 +52,7 @@
         </a>
       </div>
 
-      <button id="mobile-menu-btn" class="md:hidden p-2">
+      <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 hover:text-green-600">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
         </svg>
@@ -61,10 +61,9 @@
   </div>
 </nav>
 
-  <!-- Header -->
   <section class="pt-16 pb-6 text-center">
     <div class="max-w-4xl mx-auto px-4">
-      <a href="spesiesanjing.html" class="inline-flex items-center text-green-600 hover:text-green-800 mb-3">
+      <a href="spesiesanjing.html" class="inline-flex items-center text-green-600 hover:text-green-800 mb-3 font-semibold">
         <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
         </svg>
@@ -73,36 +72,34 @@
       
       <div class="text-7xl mb-3">🦴</div>
       <h1 class="text-4xl md:text-5xl font-black text-gray-900 mb-2">Anatomi Anjing</h1>
-      <p class="text-lg text-gray-600">Struktur tubuh lengkap anjing</p>
+      <p class="text-lg text-gray-600">Struktur tubuh lengkap anjing untuk referensi klinis</p>
     </div>
   </section>
 
-   <!-- Menu Pilihan -->
- <section class="sticky top-[73px] z-40 px-4 py-4 backdrop-blur-md bg-gradient-to-b from-green-50/50 to-emerald-50/50">
-  <div class="max-w-4xl mx-auto">
-    <div class="bg-white/90 shadow-lg border border-green-100 rounded-3xl p-3 flex flex-wrap justify-center gap-4">
-      
-      <a href="#tulang" class="nav-btn-anatomi flex-1 min-w-[150px] sm:flex-none flex items-center justify-center px-6 py-3 bg-green-50 text-green-700 border-green-500 font-semibold rounded-2xl border-2 transition-all shadow-sm">
-        <span class="text-xl mr-2">🦴</span>
-        Tulang
-      </a>
-      
-      <a href="#otot" class="nav-btn-anatomi flex-1 min-w-[150px] sm:flex-none flex items-center justify-center px-6 py-3 bg-white text-gray-700 font-semibold rounded-2xl border-2 border-gray-100 hover:border-green-500 hover:text-green-700 transition-all shadow-sm">
-        <span class="text-xl mr-2">💪</span>
-        Otot
-      </a>
-      
-      <a href="#organ" class="nav-btn-anatomi flex-1 min-w-[150px] sm:flex-none flex items-center justify-center px-6 py-3 bg-white text-gray-700 font-semibold rounded-2xl border-2 border-gray-100 hover:border-green-500 hover:text-green-700 transition-all shadow-sm">
-        <span class="text-xl mr-2">❤️</span>
-        Organ Dalam
-      </a>
-      
+  <section class="sticky top-[73px] z-40 px-4 py-4 backdrop-blur-md bg-gradient-to-b from-green-50/50 to-emerald-50/50">
+    <div class="max-w-4xl mx-auto">
+      <div class="bg-white/90 shadow-lg border border-green-100 rounded-3xl p-3 flex flex-wrap justify-center gap-4">
+        
+        <a href="#tulang" class="nav-btn-anatomi flex-1 min-w-[150px] sm:flex-none flex items-center justify-center px-6 py-3 bg-green-50 text-green-700 border-green-500 font-semibold rounded-2xl border-2 transition-all shadow-sm">
+          <span class="text-xl mr-2">🦴</span>
+          Tulang
+        </a>
+        
+        <a href="#otot" class="nav-btn-anatomi flex-1 min-w-[150px] sm:flex-none flex items-center justify-center px-6 py-3 bg-white text-gray-700 font-semibold rounded-2xl border-2 border-gray-100 hover:border-green-500 hover:text-green-700 transition-all shadow-sm">
+          <span class="text-xl mr-2">💪</span>
+          Otot
+        </a>
+        
+        <a href="#organ" class="nav-btn-anatomi flex-1 min-w-[150px] sm:flex-none flex items-center justify-center px-6 py-3 bg-white text-gray-700 font-semibold rounded-2xl border-2 border-gray-100 hover:border-green-500 hover:text-green-700 transition-all shadow-sm">
+          <span class="text-xl mr-2">❤️</span>
+          Organ Dalam
+        </a>
+        
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-  <!-- TULANG Section -->
-   <section id="tulang" class="px-4 pb-10 scroll-mt-20">
+  <section id="tulang" class="px-4 pb-10 scroll-mt-20">
     <div class="max-w-4xl mx-auto">
       <div class="bg-white rounded-3xl shadow-xl p-6 md:p-8 border border-green-100">
         <h2 class="text-2xl font-black text-green-800 mb-6 flex items-center">
@@ -110,19 +107,11 @@
           Sistem Rangka (Skeletal)
         </h2>
         
-        <div class="grid md:grid-cols-2 gap-6">
-          <!-- Foto Anatomi - Tempat untuk Gambar -->
-          <div class="bg-gray-100 rounded-2xl p-8 flex items-center justify-center min-h-[300px] border-2 border-dashed border-gray-300">
-            <div class="text-center text-gray-400">
-              <svg class="w-16 h-16 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-              </svg>
-              <p class="font-medium">📷 Foto Anatomi Tulang Anjing</p>
-              <p class="text-sm mt-2">Pasang gambar diagram tulang anjing di sini</p>
-            </div>
+        <div class="grid md:grid-cols-2 gap-6 items-center">
+          <div class="bg-white rounded-2xl p-2 flex items-center justify-center border border-gray-200 overflow-hidden shadow-sm">
+            <img src="https://veteriankey.com/wp-content/uploads/2016/07/B9780702029387000038_gr1.jpg" alt="Anatomi Rangka/Tulang Anjing" class="w-full h-auto rounded-xl object-contain max-h-[380px]">
           </div>
           
-          <!-- Keterangan Tulang -->
           <div class="space-y-4">
             <div class="bg-green-50 rounded-2xl p-5">
               <h3 class="font-bold text-green-800 mb-3">Tulang Utama</h3>
@@ -136,12 +125,12 @@
             </div>
             
             <div class="bg-blue-50 rounded-2xl p-5">
-              <h3 class="font-bold text-blue-800 mb-3"> Sendi</h3>
+              <h3 class="font-bold text-blue-800 mb-3">Sendi Utama</h3>
               <ul class="space-y-2 text-sm text-gray-700">
-                <li class="flex justify-between"><span class="text-gray-500">Articulatio</span><span class="font-medium">Jenis</span></li>
-                <li class="flex justify-between"><span class="text-gray-500">Art. Cubiti</span><span class="font-medium">Engsel</span></li>
-                <li class="flex justify-between"><span class="text-gray-500">Art. Genus</span><span class="font-medium">Engsel</span></li>
-                <li class="flex justify-between"><span class="text-gray-500">Art. Coxae</span><span class="font-medium">Peluru</span></li>
+                <li class="flex justify-between border-b border-blue-100 pb-2 font-semibold"><span class="text-gray-600">Articulatio</span><span class="text-gray-600">Jenis</span></li>
+                <li class="flex justify-between border-b border-blue-100 pb-2"><span class="text-gray-500">Art. Cubiti (Siku)</span><span class="font-medium">Engsel</span></li>
+                <li class="flex justify-between border-b border-blue-100 pb-2"><span class="text-gray-500">Art. Genus (Lutut)</span><span class="font-medium">Engsel</span></li>
+                <li class="flex justify-between"><span class="text-gray-500">Art. Coxae (Pinggul)</span><span class="font-medium">Peluru</span></li>
               </ul>
             </div>
           </div>
@@ -150,8 +139,7 @@
     </div>
   </section>
 
-  <!-- OTOT Section -->
-   <section id="otot" class="px-4 pb-10 scroll-mt-20">
+  <section id="otot" class="px-4 pb-10 scroll-mt-20">
     <div class="max-w-4xl mx-auto">
       <div class="bg-white rounded-3xl shadow-xl p-6 md:p-8 border border-green-100">
         <h2 class="text-2xl font-black text-green-800 mb-6 flex items-center">
@@ -159,19 +147,11 @@
           Sistem Otot (Muskular)
         </h2>
         
-        <div class="grid md:grid-cols-2 gap-6">
-          <!-- Foto Anatomi - Tempat untuk Gambar -->
-          <div class="bg-gray-100 rounded-2xl p-8 flex items-center justify-center min-h-[300px] border-2 border-dashed border-gray-300">
-            <div class="text-center text-gray-400">
-              <svg class="w-16 h-16 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-              </svg>
-              <p class="font-medium">📷 Foto Anatomi Otot Anjing</p>
-              <p class="text-sm mt-2">Pasang gambar diagram otot anjing di sini</p>
-            </div>
+        <div class="grid md:grid-cols-2 gap-6 items-center">
+          <div class="bg-white rounded-2xl p-2 flex items-center justify-center border border-gray-200 overflow-hidden shadow-sm">
+            <img src="https://vet.ucalgary.ca/sites/default/files/styles/ucws_image_desktop/public/2023-06/evLJVCLqLMpNxVnLrzM9xzpizMgi78hGYP97I5ya2UMw2NQTV6ydkXdu8x-YrM1tIJWfoO2aEELrfTiJLcDqWTTcsarLl3BKcCNi-AP50yvAo50PnKx818YINqnO3pm6EK3uR3tc.png?itok=AEQqoC5m" alt="Anatomi Otot Anjing" class="w-full h-auto rounded-xl object-contain max-h-[380px]">
           </div>
           
-          <!-- Keterangan Otot -->
           <div class="space-y-4">
             <div class="bg-orange-50 rounded-2xl p-5">
               <h3 class="font-bold text-orange-800 mb-3">Kelompok Otot Utama</h3>
@@ -187,10 +167,10 @@
             <div class="bg-purple-50 rounded-2xl p-5">
               <h3 class="font-bold text-purple-800 mb-3">Fungsi Otot</h3>
               <ul class="space-y-2 text-sm text-gray-700">
-                <li class="flex justify-between"><span class="text-gray-500">Gerakan</span><span class="font-medium">Lokomosi</span></li>
-                <li class="flex justify-between"><span class="text-gray-500">Postur</span><span class="font-medium">Menopang tubuh</span></li>
-                <li class="flex justify-between"><span class="text-gray-500">Pernapasan</span><span class="font-medium">Dada & diafragma</span></li>
-                <li class="flex justify-between"><span class="text-gray-500">Pengunyahan</span><span class="font-medium">Rahang</span></li>
+                <li class="flex justify-between border-b border-purple-100 pb-2"><span class="text-gray-500">Gerakan</span><span class="font-medium">Lokomosi & Berlari</span></li>
+                <li class="flex justify-between border-b border-purple-100 pb-2"><span class="text-gray-500">Postur</span><span class="font-medium">Menopang Stabilitas</span></li>
+                <li class="flex justify-between border-b border-purple-100 pb-2"><span class="text-gray-500">Pernapasan</span><span class="font-medium">Interkostal & Diafragma</span></li>
+                <li class="flex justify-between"><span class="text-gray-500">Pengunyahan</span><span class="font-medium">Proses Digesti Mekanik</span></li>
               </ul>
             </div>
           </div>
@@ -199,8 +179,7 @@
     </div>
   </section>
 
-  <!-- ORGAN DALAM Section -->
-   <section id="organ" class="px-4 pb-16 scroll-mt-20">
+  <section id="organ" class="px-4 pb-16 scroll-mt-20">
     <div class="max-w-4xl mx-auto">
       <div class="bg-white rounded-3xl shadow-xl p-6 md:p-8 border border-green-100">
         <h2 class="text-2xl font-black text-green-800 mb-6 flex items-center">
@@ -208,65 +187,83 @@
           Organ Dalam (Visceral)
         </h2>
         
-        <div class="grid md:grid-cols-2 gap-6">
-          <!-- Foto Anatomi - Tempat untuk Gambar -->
-          <div class="bg-gray-100 rounded-2xl p-8 flex items-center justify-center min-h-[300px] border-2 border-dashed border-gray-300">
-            <div class="text-center text-gray-400">
-              <svg class="w-16 h-16 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-              </svg>
-              <p class="font-medium">📷 Foto Organ Dalam Anjing</p>
-              <p class="text-sm mt-2">Pasang gambar diagram organ dalam anjing di sini</p>
-            </div>
+        <div class="grid md:grid-cols-2 gap-6 items-center">
+          <div class="bg-white rounded-2xl p-2 flex items-center justify-center border border-gray-200 overflow-hidden shadow-sm">
+            <img src="https://media.istockphoto.com/id/1253852612/id/vektor/anatomi-anjing-dengan-ilustrasi-vektor-pemeriksaan-struktur-organ-dalam.jpg?s=1024x1024&w=is&k=20&c=m_4bymp33KRptGF5G3gXaJBGaLe2m7eSikvPe-FM9oA=" alt="Anatomi Organ Dalam Anjing" class="w-full h-auto rounded-xl object-contain max-h-[380px]">
           </div>
           
-          <!-- Keterangan Organ -->
-         <div class="bg-red-50 rounded-2xl p-5">
-  <h3 class="font-bold text-red-800 mb-3">Organ Toraks</h3>
-  <ul class="space-y-2 text-sm text-gray-700">
-    <li class="flex justify-between border-b border-red-100 pb-2">
-      <span class="text-gray-500">Jantung</span>
-      <span class="font-medium">Interkostal 3-6</span>
-    </li>
-    <li class="flex justify-between border-b border-red-100 pb-2">
-      <span class="text-gray-500">Paru-Paru</span>
-      <span class="font-medium">6 Lobus</span>
-    </li>
-    <li class="flex justify-between border-b border-red-100 pb-2">
-      <span class="text-gray-500">Trakea</span>
-      <span class="font-medium">Saluran udara</span>
-    </li>
-    <li class="flex justify-between">
-      <span class="text-gray-500">Esofagus</span>
-      <span class="font-medium">Saluran makanan</span>
-    </li>
-  </ul>
-</div>
-                <script>
-  // Navigasi Sticky & Smooth Scroll khusus Halaman Anatomi
-  document.querySelectorAll('.nav-btn-anatomi').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      const href = btn.getAttribute('href')
-      
-      if (href.startsWith('#')) {
-        e.preventDefault() // Stop lompatan instan bawaan browser
+          <div class="space-y-4">
+            <div class="bg-red-50 rounded-2xl p-5">
+              <h3 class="font-bold text-red-800 mb-3">Organ Toraks & Abdomen</h3>
+              <ul class="space-y-2 text-sm text-gray-700">
+                <li class="flex justify-between border-b border-red-100 pb-2">
+                  <span class="text-gray-500">Jantung</span>
+                  <span class="font-medium">Interkostal 3-6</span>
+                </li>
+                <li class="flex justify-between border-b border-red-100 pb-2">
+                  <span class="text-gray-500">Paru-Paru</span>
+                  <span class="font-medium">6 Lobus</span>
+                </li>
+                <li class="flex justify-between border-b border-red-100 pb-2">
+                  <span class="text-gray-500">Trakea</span>
+                  <span class="font-medium">Saluran udara</span>
+                </li>
+                <li class="flex justify-between border-b border-red-100 pb-2">
+                  <span class="text-gray-500">Esofagus</span>
+                  <span class="font-medium">Saluran makanan</span>
+                </li>
+                <li class="flex justify-between">
+                  <span class="text-gray-500">Lambung & Hepar</span>
+                  <span class="font-medium">Kavum Abdomen</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-gray-900 text-white py-6 text-center text-sm border-t-4 border-green-600">
+    <p>VetMed Hub Anatomi Veteriner © 2026</p>
+  </footer>
+
+  <script>
+    // Navigasi Sticky & Smooth Scroll khusus Halaman Anatomi
+    document.querySelectorAll('.nav-btn-anatomi').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const href = btn.getAttribute('href')
         
-        // 1. Kembalikan semua tombol ke warna putih-abu dasar
-        document.querySelectorAll('.nav-btn-anatomi').forEach(b => {
-          b.classList.remove('bg-green-50', 'border-green-500', 'text-green-700')
-          b.classList.add('bg-white', 'text-gray-700', 'border-gray-200')
-        })
-        
-        // 2. Ubah tombol yang diklik menjadi warna aktif (hijau)
-        btn.classList.remove('bg-white', 'text-gray-700', 'border-gray-200')
-        btn.classList.add('bg-green-50', 'border-green-500', 'text-green-700')
-        
-        // 3. Jalankan efek scroll halus ke target ID (#tulang, #otot, #organ)
-        const targetSection = document.querySelector(href)
-        if (targetSection) {
-          targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        if (href.startsWith('#')) {
+          e.preventDefault() // Stop lompatan instan bawaan browser
+          
+          // 1. Kembalikan semua tombol ke warna putih-abu dasar
+          document.querySelectorAll('.nav-btn-anatomi').forEach(b => {
+            b.classList.remove('bg-green-50', 'border-green-500', 'text-green-700')
+            b.classList.add('bg-white', 'text-gray-700', 'border-gray-100')
+          })
+          
+          // 2. Ubah tombol yang diklik menjadi warna aktif (hijau)
+          btn.classList.remove('bg-white', 'text-gray-700', 'border-gray-100')
+          btn.classList.add('bg-green-50', 'border-green-500', 'text-green-700')
+          
+          // 3. Jalankan efek scroll halus ke target ID (#tulang, #otot, #organ)
+          const targetSection = document.querySelector(href)
+          if (targetSection) {
+            targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
+          }
         }
-      }
+      })
     })
-  })
-</script>
+
+    // Fitur Klik Mobile Menu Button
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    if(mobileMenuBtn) {
+      mobileMenuBtn.addEventListener('click', () => {
+        alert('Menu navigasi siap dihubungkan ke berkas router aplikasi utama Anda!');
+      });
+    }
+  </script>
+
+</body>
+</html>
