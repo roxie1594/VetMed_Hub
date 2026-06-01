@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kontribusi - VetMed Hub</title>
+  <meta name="description" content="Kontribusi developer VetMed Hub">
+  
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#10b981">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💚</text></svg>">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { green: { 700: '#10b981' } } } }
+    }
+  </script>
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+    * { font-family: 'Inter', sans-serif; }
+  </style>
+</head>
+
+<body class="bg-gradient-to-br from-green-50 to-emerald-50 min-h-screen text-gray-800">
+
+<nav class="bg-white/90 backdrop-blur-md sticky top-0 z-50 shadow-sm border-b border-green-100">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center py-4">
+      <a href="index.html" class="text-2xl font-black bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent flex items-center space-x-2">
+        <span>🐾</span><span>VetMed Hub</span>
+      </a>
+      
+      <div class="hidden md:flex space-x-8">
+        <a href="index.html" class="group flex items-center space-x-1 font-medium text-gray-700 hover:text-green-600 transition-all">
+          <span>Beranda</span>
+          <span class="w-2 h-2 bg-green-600 rounded-full scale-0 group-hover:scale-100 transition-transform"></span>
+        </a>
+        <a href="berandaspesies.html" class="group flex items-center space-x-1 font-medium text-gray-700 hover:text-green-600 transition-all">
+          <span>Spesies</span>
+          <span class="w-2 h-2 bg-green-600 rounded-full scale-0 group-hover:scale-100 transition-transform"></span>
+        </a>
+        <a href="referensi.html" class="group flex items-center space-x-1 font-medium text-gray-700 hover:text-green-600 transition-all">
+          <span>Referensi</span>
+          <span class="w-2 h-2 bg-green-600 rounded-full scale-0 group-hover:scale-100 transition-transform"></span>
+        </a>
+        <a href="kalkulator.html" class="group flex items-center space-x-1 font-medium text-gray-700 hover:text-green-600 transition-all">
+          <span>Kalkulator</span>
+          <span class="w-2 h-2 bg-green-600 rounded-full scale-0 group-hover:scale-100 transition-transform"></span>
+        </a>
+      </div>
+
+      <button id="mobile-menu-btn" class="md:hidden p-2">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+  <!-- Header -->
+  <section class="pt-20 pb-10 text-center">
+    <div class="max-w-4xl mx-auto px-4">
+      <a href="index.html" class="inline-flex items-center text-green-600 hover:text-green-800 mb-3">
+        <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+        Kembali ke Beranda
+      </a>
+      
+      <div class="text-7xl mb-3">💚</div>
+      <h1 class="text-4xl md:text-5xl font-black text-gray-900 mb-2">Kontribusi</h1>
+      <p class="text-lg text-gray-600">Tim pengembang VetMed Hub</p>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <section class="px-4 pb-20">
+    <div class="max-w-4xl mx-auto">
+      
+      <!-- Developer/Kontributor -->
+      <div class="bg-white rounded-3xl shadow-2xl p-8 border border-green-100 mb-8">
+        <h2 class="text-2xl font-black text-green-800 mb-6 flex items-center">
+          <span class="text-2xl mr-2">👨‍💻</span>
+          Developer
+        </h2>
+        
+        <div class="flex items-center p-6 bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl">
+          <!-- Avatar -->
+          <div class="w-24 h-24 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full flex items-center justify-center text-5xl text-white mr-6">
+            🧑‍💻
+          </div>
+          
+          <!-- Info -->
+          <div class="flex-1">
+            <h3 class="text-2xl font-black text-gray-900 mb-1">Cinnie Orleane Tania</h3>
+            <p class="text-green-700 font-medium mb-3">Full Stack Developer</p>
+            
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 bg-white text-gray-700 text-sm rounded-full border border-green-200">🎨 UI/UX</span>
+              <span class="px-3 py-1 bg-white text-gray-700 text-sm rounded-full border border-green-200">💻 Frontend</span>
+              <span class="px-3 py-1 bg-white text-gray-700 text-sm rounded-full border border-green-200">🔧 Backend</span>
+              <span class="px-3 py-1 bg-white text-gray-700 text-sm rounded-full border border-green-200">🗄️ Database</span>
+            </div>
+          </div>
+          
+          <!-- Role Badge -->
+          <div class="text-right">
+            <span class="px-4 py-2 bg-green-600 text-white font-bold rounded-full">
+              Main Developer
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kontribusi Stats -->
+      <div class="grid md:grid-cols-4 gap-6 mb-8">
+        <div class="bg-white rounded-3xl shadow-lg p-6 text-center border border-green-100">
+          <div class="text-4xl font-black text-green-600 mb-2">15+</div>
+          <div class="text-gray-600">Halaman</div>
+        </div>
+        
+        <div class="bg-white rounded-3xl shadow-lg p-6 text-center border border-green-100">
+          <div class="text-4xl font-black text-green-600 mb-2">8</div>
+          <div class="text-gray-600">Spesies</div>
+        </div>
+        
+        <div class="bg-white rounded-3xl shadow-lg p-6 text-center border border-green-100">
+          <div class="text-4xl font-black text-green-600 mb-2">50+</div>
+          <div class="text-gray-600">Obat</div>
+        </div>
+        
+        <div class="bg-white rounded-3xl shadow-lg p-6 text-center border border-green-100">
+          <div class="text-4xl font-black text-green-600 mb-2">∞</div>
+          <div class="text-gray-600">Semangat</div>
+        </div>
+      </div>
+
+      <!-- Pages Created -->
+      <div class="bg-white rounded-3xl shadow-2xl p-8 border border-green-100 mb-8">
+        <h2 class="text-2xl font-black text-green-800 mb-6 flex items-center">
+          <span class="text-2xl mr-2">📄</span>
+          Halaman yang Dibuat
+        </h2>
+        
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="flex items-center p-4 bg-green-50 rounded-xl">
+            <span class="text-2xl mr-3">🏠</span>
+            <span class="font-medium text-gray-700">index.html (Beranda)</span>
+          </div>
+          
+          <div class="flex items-center p-4 bg-green-50 rounded-xl">
+            <span class="text-2xl mr-3">🐕</span>
+            <span class="font-medium text-gray-700">spesiesanjing.html</span>
+          </div>
+          
+          <div class="flex items-center p-4 bg-green-50 rounded-xl">
+            <span class="text-2xl mr-3">🐱</span>
+            <span class="font-medium text-gray-700">spesieskucing.html</span>
+          </div>
+          
+          <div class="flex items-center p-4 bg-green-50 rounded-xl">
+            <span class="text-2xl mr-3">🦴</span>
+            <span class="font-medium text-gray-700">spesiesanjinganatomi.html</span>
+          </div>
+          
+          <div class="flex items-center p-4 bg-green-50 rounded-xl">
+            <span class="text-2xl mr-3">💉</span>
+            <span class="font-medium text-gray-700">kalkulator.html</span>
+          </div>
+          
+          <div class="flex items-center p-4 bg-green-50 rounded-xl">
+            <span class="text-2xl mr-3">🧮</span>
+            <span class="font-medium text-gray-700">berandafarmakologi.html</span>
+          </div>
+          
+          <div class="flex items-center p-4 bg-green-50 rounded-xl">
+            <span class="text-2xl mr-3">🦠</span>
+            <span class="font-medium text-gray-700">berandapenyakit.html</span>
+          </div>
+          
+          <div class="flex items-center p-4 bg-green-50 rounded-xl">
+            <span class="text-2xl mr-3">📚</span>
+            <span class="font-medium text-gray-700">referensi.html</span>
+          </div>
+          
+          <div class="flex items-center p-4 bg-green-50 rounded-xl">
+            <span class="text-2xl mr-3">🐕</span>
+            <span class="font-medium text-gray-700">penyakitanjing.html</span>
+          </div>
+          
+          <div class="flex items-center p-4 bg-green-50 rounded-xl">
+            <span class="text-2xl mr-3">😺</span>
+            <span class="font-medium text-gray-700">404.html</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Thanks -->
+      <div class="bg-gradient-to-r from-green-600 to-emerald-600 rounded-3xl p-8 text-center text-white">
+        <h2 class="text-3xl font-black mb-4">Terima Kasih! 🎉</h2>
+        <p class="text-xl mb-6 opacity-95">Terima kasih sudah menggunakan VetMed Hub.<br>Mudah sehat selalu bersama hewan kesayangan! 🐾</p>
+        
+        <div class="flex justify-center gap-4">
+          <a href="index.html" class="px-6 py-3 bg-white text-green-700 font-semibold rounded-xl hover:bg-gray-100 transition-all">
+            Kembali ke Beranda
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="bg-gray-900 text-white py-10 border-t-8 border-green-900">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <div class="flex items-center justify-center space-x-3 mb-4">
+        <span class="text-2xl">🐾</span>
+        <h3 class="text-xl font-black">VetMed Hub</h3>
+      </div>
+      <p class="text-gray-400 text-sm">Dibuat dengan 💚 oleh Cinnie Orleane Tania</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+      alert('Mobile menu')
+    })
+  </script>
+</body>
+</html>
