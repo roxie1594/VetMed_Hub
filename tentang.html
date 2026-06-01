@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tentang - VetMed Hub</title>
+  <meta name="description" content="Tentang VetMed Hub - Pusat edukasi kedokteran hewan Indonesia">
+  
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#10b981">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐾</text></svg>">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { green: { 700: '#10b981' } } } }
+    }
+  </script>
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+    * { font-family: 'Inter', sans-serif; }
+  </style>
+</head>
+
+<body class="bg-gradient-to-br from-green-50 to-emerald-50 min-h-screen text-gray-800">
+
+<nav class="bg-white/90 backdrop-blur-md sticky top-0 z-50 shadow-sm border-b border-green-100">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center py-4">
+      <a href="index.html" class="text-2xl font-black bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent flex items-center space-x-2">
+        <span>🐾</span><span>VetMed Hub</span>
+      </a>
+      
+      <div class="hidden md:flex space-x-8">
+        <a href="index.html" class="group flex items-center space-x-1 font-medium text-gray-700 hover:text-green-600 transition-all">
+          <span>Beranda</span>
+          <span class="w-2 h-2 bg-green-600 rounded-full scale-0 group-hover:scale-100 transition-transform"></span>
+        </a>
+        <a href="berandaspesies.html" class="group flex items-center space-x-1 font-medium text-gray-700 hover:text-green-600 transition-all">
+          <span>Spesies</span>
+          <span class="w-2 h-2 bg-green-600 rounded-full scale-0 group-hover:scale-100 transition-transform"></span>
+        </a>
+        <a href="referensi.html" class="group flex items-center space-x-1 font-medium text-gray-700 hover:text-green-600 transition-all">
+          <span>Referensi</span>
+          <span class="w-2 h-2 bg-green-600 rounded-full scale-0 group-hover:scale-100 transition-transform"></span>
+        </a>
+        <a href="kalkulator.html" class="group flex items-center space-x-1 font-medium text-gray-700 hover:text-green-600 transition-all">
+          <span>Kalkulator</span>
+          <span class="w-2 h-2 bg-green-600 rounded-full scale-0 group-hover:scale-100 transition-transform"></span>
+        </a>
+      </div>
+
+      <button id="mobile-menu-btn" class="md:hidden p-2">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+  <!-- Header -->
+  <section class="pt-20 pb-10 text-center">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="text-7xl mb-3">🐾</div>
+      <h1 class="text-4xl md:text-5xl font-black text-gray-900 mb-2">Tentang VetMed Hub</h1>
+      <p class="text-lg text-gray-600">Pusat edukasi kedokteran hewan Indonesia</p>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <section class="px-4 pb-20">
+    <div class="max-w-4xl mx-auto">
+      
+      <!-- Apa itu VetMed Hub -->
+      <div class="bg-white rounded-3xl shadow-2xl p-8 border border-green-100 mb-8">
+        <h2 class="text-2xl font-black text-green-800 mb-6 flex items-center">
+          <span class="text-2xl mr-2">💚</span>
+          Apa itu VetMed Hub?
+        </h2>
+        
+        <p class="text-gray-700 text-lg leading-relaxed mb-4">
+          <strong>VetMed Hub</strong> adalah platform edukasi kedokteran hewan berbasis web yang dirancang untuk membantu <strong>dokter hewan</strong>, <strong>mahasiswa kedokteran hewan</strong>, dan <strong>pecinta hewan</strong> di Indonesia.
+        </p>
+        <p class="text-gray-700 text-lg leading-relaxed">
+          Kami menyediakan database lengkap tentang <strong>fisiologi</strong>, <strong>anatomi</strong>, <strong>penyakit</strong>, <strong>farmakologi</strong>, dan <strong>kalkulator dosis</strong> yang akurat untuk hewan peliharaan dan ternak.
+        </p>
+      </div>
+
+      <!-- Visi -->
+      <div class="bg-white rounded-3xl shadow-2xl p-8 border border-green-100 mb-8">
+        <h2 class="text-2xl font-black text-green-800 mb-6 flex items-center">
+          <span class="text-2xl mr-2">🎯</span>
+          Visi
+        </h2>
+        
+        <p class="text-gray-700 text-lg leading-relaxed">
+          Menjadi <strong>sumber daya edukasi kedokteran hewan utama</strong> di Indonesia yang mudah diakses, akurat, dan berguna untuk kemajuan kesehatan hewan di tanah air.
+        </p>
+      </div>
+
+      <!-- Misi -->
+      <div class="bg-white rounded-3xl shadow-2xl p-8 border border-green-100 mb-8">
+        <h2 class="text-2xl font-black text-green-800 mb-6 flex items-center">
+          <span class="text-2xl mr-2">📋</span>
+          Misi
+        </h2>
+        
+        <div class="space-y-4">
+          <div class="flex items-start">
+            <span class="w-8 h-8 bg-green-100 text-green-700 font-bold rounded-full flex items-center justify-center mr-3 flex-shrink-0">1</span>
+            <p class="text-gray-700">Menyediakan informasi edukatif yang akurat dan terpercaya tentang kesehatan hewan.</p>
+          </div>
+          
+          <div class="flex items-start">
+            <span class="w-8 h-8 bg-green-100 text-green-700 font-bold rounded-full flex items-center justify-center mr-3 flex-shrink-0">2</span>
+            <p class="text-gray-700">Membantu dokter hewan dan mahasiswa dalam praktis klinis sehari-hari.</p>
+          </div>
+          
+          <div class="flex items-start">
+            <span class="w-8 h-8 bg-green-100 text-green-700 font-bold rounded-full flex items-center justify-center mr-3 flex-shrink-0">3</span>
+            <p class="text-gray-700">Memperluas akses informasi kesehatan hewan ke seluruh Indonesia.</p>
+          </div>
+          
+          <div class="flex items-start">
+            <span class="w-8 h-8 bg-green-100 text-green-700 font-bold rounded-full flex items-center justify-center mr-3 flex-shrink-0">4</span>
+            <p class="text-gray-700">Mengumpulkan dan menyajikan data penyakit, obat, dan dosis secara lengkap.</p>
+          </div>
+          
+          <div class="flex items-start">
+            <span class="w-8 h-8 bg-green-100 text-green-700 font-bold rounded-full flex items-center justify-center mr-3 flex-shrink-0">5</span>
+            <p class="text-gray-700">Berkontribusi dalam meningkatkan kesehatan hewan di Indonesia.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fitur -->
+      <div class="bg-white rounded-3xl shadow-2xl p-8 border border-green-100 mb-8">
+        <h2 class="text-2xl font-black text-green-800 mb-6 flex items-center">
+          <span class="text-2xl mr-2">✨</span>
+          Fitur VetMed Hub
+        </h2>
+        
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="flex items-center p-4 bg-green-50 rounded-xl">
+            <span class="text-2xl mr-3">🐕</span>
+            <span class="font-medium">Database Spesies Hewan</span>
+          </div>
+          
+          <div class="flex items-center p-4 bg-green-50 rounded-xl">
+            <span class="text-2xl mr-3">🦠</span>
+            <span class="font-medium">Informasi Penyakit</span>
+          </div>
+          
+          <div class="flex items-center p-4 bg-green-50 rounded-xl">
+            <span class="text-2xl mr-3">💊</span>
+            <span class="font-medium">Data Farmakologi</span>
+          </div>
+          
+          <div class="flex items-center p-4 bg-green-50 rounded-xl">
+            <span class="text-2xl mr-3">🧮</span>
+            <span class="font-medium">Kalkulator Dosis</span>
+          </div>
+          
+          <div class="flex items-center p-4 bg-green-50 rounded-xl">
+            <span class="text-2xl mr-3">🦴</span>
+            <span class="font-medium">Anatomi & Fisiologi</span>
+          </div>
+          
+          <div class="flex items-center p-4 bg-green-50 rounded-xl">
+            <span class="text-2xl mr-3">📚</span>
+            <span class="font-medium">Referensi Jurnal</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Siapa yang Bisa Menggunakan -->
+      <div class="bg-white rounded-3xl shadow-2xl p-8 border border-green-100 mb-8">
+        <h2 class="text-2xl font-black text-green-800 mb-6 flex items-center">
+          <span class="text-2xl mr-2">👥</span>
+          Siapa yang Bisa Menggunakan?
+        </h2>
+        
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="p-5 bg-blue-50 rounded-xl">
+            <h3 class="font-bold text-blue-800 mb-2">🩺 Dokter Hewan</h3>
+            <p class="text-sm text-gray-600">Referensi praktis dalam behandling klinis sehari-hari.</p>
+          </div>
+          
+          <div class="p-5 bg-purple-50 rounded-xl">
+            <h3 class="font-bold text-purple-800 mb-2">🎓 Mahasiswa</h3>
+            <p class="text-sm text-gray-600">Bahan belajar anatomi, fisiologi, dan farmakologi.</p>
+          </div>
+          
+          <div class="p-5 bg-orange-50 rounded-xl">
+            <h3 class="font-bold text-orange-800 mb-2">🐾 Pecinta Hewan</h3>
+            <p class="text-sm text-gray-600">Informasi perawatan dan kesehatan hewan kesayangan.</p>
+          </div>
+          
+          <div class="p-5 bg-pink-50 rounded-xl">
+            <h3 class="font-bold text-pink-800 mb-2">🏡 Pet Shop & Klinik</h3>
+            <p class="text-sm text-gray-600">Akses informasi untuk pelanggan dan klien.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="grid md:grid-cols-4 gap-6 mb-8">
+        <div class="bg-white rounded-3xl shadow-lg p-6 text-center border border-green-100">
+          <div class="text-4xl font-black text-green-600 mb-2">15+</div>
+          <div class="text-gray-600">Halaman</div>
+        </div>
+        
+        <div class="bg-white rounded-3xl shadow-lg p-6 text-center border border-green-100">
+          <div class="text-4xl font-black text-green-600 mb-2">8</div>
+          <div class="text-gray-600">Spesies</div>
+        </div>
+        
+        <div class="bg-white rounded-3xl shadow-lg p-6 text-center border border-green-100">
+          <div class="text-4xl font-black text-green-600 mb-2">50+</div>
+          <div class="text-gray-600">Obat</div>
+        </div>
+        
+        <div class="bg-white rounded-3xl shadow-lg p-6 text-center border border-green-100">
+          <div class="text-4xl font-black text-green-600 mb-2">100%</div>
+          <div class="text-gray-600">Gratis</div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="bg-gradient-to-r from-green-600 to-emerald-600 rounded-3xl p-8 text-center text-white">
+        <h2 class="text-2xl font-black mb-4">Siap Memulai? 🐾</h2>
+        <p class="text-xl mb-6 opacity-95">Jelajahi menu yang tersedia dan tingkatkan pengetahuan kesehatan hewan!</p>
+        
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="index.html" class="px-8 py-3 bg-white text-green-700 font-semibold rounded-xl hover:bg-gray-100 transition-all">
+            🏠 ke Beranda
+          </a>
+          <a href="kalkulator.html" class="px-8 py-3 border-2 border-white text-white font-semibold rounded-xl hover:bg-white hover:text-green-700 transition-all">
+            🧮 Coba Kalkulator
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="bg-gray-900 text-white py-10 border-t-8 border-green-900">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <div class="flex items-center justify-center space-x-3 mb-4">
+        <span class="text-2xl">🐾</span>
+        <h3 class="text-xl font-black">VetMed Hub</h3>
+      </div>
+      <p class="text-gray-400 text-sm">100% Gratis • Open Source • Dibuat dengan 💚 oleh Cinnie Orleane Tania</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+      alert('Mobile menu')
+    })
+  </script>
+</body>
+</html>
